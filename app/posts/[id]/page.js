@@ -9,8 +9,6 @@ import Plaincard from '@/components/Plaincard';
     const res = await sanityClient.fetch(faq);
     return res;
     
-    
-  
   } 
     
   async function Posts() {
@@ -26,7 +24,7 @@ import Plaincard from '@/components/Plaincard';
                 postid={post.slug}
                 title={post.title} 
                 url={post.slug.current}
-                type="storypost"
+                type="post"
                 
                 />
               ))}
