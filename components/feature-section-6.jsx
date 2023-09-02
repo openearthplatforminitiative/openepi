@@ -1,5 +1,6 @@
 "use client"
 import React from "react";
+import { sanityClient, urlFor } from "../sanity";
 
 import { Card, CardBody, Typography } from "@material-tailwind/react";
 import { ArrowTrendingUpIcon } from "@heroicons/react/24/outline";
@@ -25,36 +26,18 @@ function FeatureCard({ icon, title, children }) {
   );
 }
 
-const features = [
-  {
-    icon: (
-      <ChatBubbleBottomCenterTextIcon className="h-6 w-6" strokeWidth={2} />
-    ),
-    title: "The need for a digital infrastructure",
-    description:
-      "There is a need for a robust and accessible digital infrastructure for open data and algorithms on weather, water, earth, and vegetation, across projects, sectors, and contexts – providing a base for the necessary local technology innovation. The Open Earth Platform (OpenEPI) is an initiative to prepare for such an infrastructure.",
-  },
-  {
-    icon: <ArrowTrendingUpIcon className="h-6 w-6" strokeWidth={2} />,
-    title: "Community and stakeholder",
-    description:
-      "During the feasibility study, the OpenEPI project will collaborate with relevant stakeholders, including governments, businesses, and non-profit organizations, to prepare for a permanent infrastructure. Among the relevant topics to be assessed during the project, are organization of a permanent body or network of bodies and structures, governance, business model, financing, legal issues, and licensing regimes.",
-  },
-  {
-    icon: <SquaresPlusIcon className="h-6 w-6" strokeWidth={2} />,
-    title: "Feasibility study",
-    description:
-      "In 2023-2024, OpenEPI will be run as a feasibility study, where we will explore and develop the infrastructural concept and the blueprint for the platform architecture, the conceptual set-up for local innovation, and demonstrate actual solutions based on open data and algorithms, addressing specific use cases in sub-Saharan Africa. OpenEPI will be designed around open principles for data and software, building on the work by Norwegian Norad – regarding Digital Public Goods (DGP).",
-  },
-  {
-    icon: <LightBulbIcon className="h-6 w-6" strokeWidth={2} />,
-    title: "Digital Public Goods",
-    description:
-      "Open data, AI, and digital technologies will be crucial catalysts for collaboration, innovation, and informed decision-making in addressing climate change – building resilience and preparing for climate mitigation in agriculture and fisheries.",
-  },
-];
 
-export function FeatureSection6() {
+// fetching search data 
+const fetchFeatured = async () => {
+  const faq = `*[_type == "featured"]{_id, title, url, description}`
+  const res = await sanityClient.fetch(faq);
+ return res;
+
+}
+
+export async function FeatureSection6() {
+  const data = await fetchFeatured();
+  console.log(data);
   return (
     <section className="py-28 px-4">
       <div className="container mx-auto mb-20 text-center">
@@ -72,8 +55,8 @@ export function FeatureSection6() {
         </Typography>
       </div>
       <div className="container mx-auto grid max-w-6xl grid-cols-1 gap-3 gap-y-12 md:grid-cols-2">
-        {features.map(({ icon, title, description }) => (
-          <FeatureCard key={title} icon={icon} title={title}>
+        {data.map(({ title, description }) => (
+          <FeatureCard key={title} icon="placeholder" title={title}>
             {description}
           </FeatureCard>
         ))}

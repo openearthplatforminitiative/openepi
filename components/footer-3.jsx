@@ -1,10 +1,20 @@
 "use client"
 import { Typography, Button, IconButton } from "@material-tailwind/react";
+import { sanityClient, urlFor } from "../sanity";
 
 const links = ["KnowIT", "Captus", "Creative Commons", "Open Future"];
 const currentYear = new Date().getFullYear();
 
-export function Footer3() {
+// fetching search data 
+const fetchPartners = async () => {
+  const faq = `*[_type == "partner"] | order(_createdAt asc) {_id, title, url, description}`
+  const res = await sanityClient.fetch(faq);
+ return res;
+
+}
+export async function Footer3() {
+  const data = await fetchPartners();
+  console.log(data);
   return (
     <footer className="mt-10 bg-gradient-to-tr from-gray-900 to-gray-800 px-8 pt-12">
       <div className="container mx-auto">
@@ -14,60 +24,23 @@ export function Footer3() {
               The OpenEPI Project Partners
             </Typography>
             <ul className="flex flex-col items-left justify-center md:justify-start">
-                <li>
+              {data.map((partner) => (
+                <li key={partner.url}>
                   <Typography
                     as="a"
-                    href="https://knowit.no"
+                    href={partner.url}
                     color="white"
-                    className="py-1 font-medium transition-colors ${
-                      idx === 0 ? pr-2 px-3">
-                    KnowIT
+                    className="py-1 p-1 font-medium transition-colors"
+                  >
+                    {partner.title}
                   </Typography>
                 </li>
-                <li>
-                  <Typography
-                    as="a"
-                    href="https://creativecommons.org"
-                    color="white"
-                    className="py-1 font-medium transition-colors ${
-                      idx === 0 ? pr-2 px-3">
-                    Creative Commons
-                  </Typography>
-                </li>
-                <li>
-                  <Typography
-                    as="a"
-                    href="https://openfuture.eu/"
-                    color="white"
-                    className="py-1 font-medium transition-colors ${
-                      idx === 0 ? pr-2 px-3">
-                    Open Future
-                  </Typography>
-                </li>
-                <li>
-                  <Typography
-                    as="a"
-                    href="https://capto.no"
-                    color="white"
-                    className="py-1 font-medium transition-colors ${
-                      idx === 0 ? pr-2 px-3">
-                    Capto
-                  </Typography>
-                </li>
+              ))}
             </ul>
-            
           </div>
           
         </div>
-        <div>
-          <Typography
-            href="https://norad.no"
-            color="white"
-            className="pt-3 font-large transition-colors ${
-              idx === 0 ? pr-2 px-3">
-            The project is funded by the Norwegian Agency For Development Cooperation. 
-          </Typography> 
-        </div>
+        
         <div className="mt-16 flex flex-wrap items-center justify-center gap-y-4 gap-x-8 border-t border-gray-700 py-7 md:justify-between">
           <Typography
             color="white"
@@ -84,7 +57,7 @@ export function Footer3() {
               <i className="fa-brands fa-linkedin text-2xl not-italic opacity-75"></i>
             </IconButton>
             <IconButton variant="text" color="white">
-              <i className="fa-brands fa-github text-2xl not-italic opacity-75">G</i>
+              <i className="fa-brands fa-github text-2xl not-italic opacity-75"></i>
             </IconButton>
             
           </div>
