@@ -3,7 +3,7 @@ import { sanityClient, urlFor } from "../../../sanity";
 import Plaincard from '@/components/Plaincard';
 
 
-  // fetching search data 
+  // fetching data
   const fetchPost = async ({id}) => {
     const faq = `*[_type == "post"]{_id, title, slug, mainImage, description}`
     const res = await sanityClient.fetch(faq);
