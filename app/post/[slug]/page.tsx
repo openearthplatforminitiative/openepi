@@ -1,7 +1,7 @@
 
 import { sanityClient, urlFor } from "../../../sanity";
 import Plaincard from '@/components/Plaincard';
-import { Post } from "@/typings";
+import { Posty } from "@/typings";
 import PortableText from "react-portable-text"
 import Header from "../../../components/Header"
 import Footer3 from "@/components/footer-3";
@@ -16,9 +16,11 @@ import Footer3 from "@/components/footer-3";
     
   } 
 
- 
+  interface Props {
+    slug: Posty;
+  }
     
-  async function Post({ slug }: any) {
+  async function Post({ slug }: Props) {
     
     const myPost = await fetchPost();
     console.log(myPost);
