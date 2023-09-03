@@ -9,7 +9,7 @@ const fetchPartners = async () => {
 
 async function Partners() {
     const partners = await fetchPartners();
-    console.log(partners);
+    
   return (
     <div>
         hei

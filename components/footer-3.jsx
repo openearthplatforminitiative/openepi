@@ -1,6 +1,8 @@
 "use client"
 import { Typography, Button, IconButton } from "@material-tailwind/react";
 import { sanityClient, urlFor } from "../sanity";
+import ContactIcon from "./ContactIcon"
+import { AiOutlineMail } from 'react-icons/ai';
 
 const links = ["KnowIT", "Captus", "Creative Commons", "Open Future"];
 const currentYear = new Date().getFullYear();
@@ -49,16 +51,9 @@ export async function Footer3() {
            {currentYear} - Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license.
           </Typography>
 
-          <div className="flex gap-2">
-            <IconButton variant="text" color="white">
-              <i className="fa-brands fa-twitter text-2xl not-italic opacity-75"></i>
-            </IconButton>
-            <IconButton variant="text" color="white">
-              <i className="fa-brands fa-linkedin text-2xl not-italic opacity-75"></i>
-            </IconButton>
-            <IconButton variant="text" color="white">
-              <i className="fa-brands fa-github text-2xl not-italic opacity-75"></i>
-            </IconButton>
+          <div className="flex gap-2 text-white">
+          contact@openepi.io  
+          <AiOutlineMail size={24}/>
             
           </div>
         </div>
