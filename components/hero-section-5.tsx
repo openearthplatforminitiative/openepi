@@ -110,7 +110,7 @@ export function HeroSection5() {
               An open, global digital innovation platform for climate and nature.
             </Typography>
             <div className="mt-8 mb-4 flex gap-2">
-              <Button variant="gradient" color="white">
+              <Button aria-label="Read more button" variant="gradient" color="white">
                 Read more
               </Button>
               
