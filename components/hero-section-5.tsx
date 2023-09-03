@@ -1,5 +1,6 @@
 "use client"
 import React from "react";
+import Link from 'next/link';
 import {
   Navbar,
   Collapse,
@@ -44,14 +45,15 @@ export function HeroSection5() {
       >
         <div className="container mx-auto flex items-center justify-between">
           <Typography variant="h6">OpenEPI.io</Typography>
-          <ul className="ml-10 hidden items-center gap-6 lg:flex">
+         
+          <ul className="ml-10 hidden items-center gap-6 ">  // lg:flex
             <NavItem>Home</NavItem>
             <NavItem>About</NavItem>
             <NavItem>Contact</NavItem>
             
           </ul>
         </div> 
-       
+        
       </Navbar>
       <div className="relative min-h-screen w-full bg-[url('/img/bg-hero-4.jpg')] bg-cover bg-no-repeat">
         <div className="absolute inset-0 h-full w-full bg-black/50" />
@@ -66,12 +68,15 @@ export function HeroSection5() {
             >
               An open, global digital innovation platform for climate and nature.
             </Typography>
+            
             <div className="mt-8 mb-4 flex gap-2">
-              <Button aria-label="Read more button" variant="gradient" color="white">
+            <Link href="/post/first-post">
+              <Button  color="white" aria-label="Read more button" variant="gradient" >
                 Read more
-              </Button>
-              
+              </Button>  
+            </Link>       
             </div>
+            
           </div>
         </div>
       </div>
