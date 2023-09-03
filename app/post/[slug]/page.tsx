@@ -1,7 +1,7 @@
 
 import { sanityClient, urlFor } from "../../../sanity";
 import Plaincard from '@/components/Plaincard';
-import { Posty } from "@/typings";
+
 import PortableText from "react-portable-text"
 import Header from "../../../components/Header"
 import Footer3 from "@/components/footer-3";
