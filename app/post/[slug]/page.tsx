@@ -17,10 +17,10 @@ import Footer3 from "@/components/footer-3";
   } 
 
   interface Props {
-    po: Post;
+    slug: Post;
 }
     
-  async function Post({ po }: Props) {
+  async function Post({ slug }: Props) {
     
     const myPost = await fetchPost();
     console.log(myPost);
