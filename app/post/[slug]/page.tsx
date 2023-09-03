@@ -16,11 +16,9 @@ import Footer3 from "@/components/footer-3";
     
   } 
 
-  interface Props {
-    slug: Post;
-}
+ 
     
-  async function Post({ slug }: Props) {
+  async function Post({ slug }: any) {
     
     const myPost = await fetchPost();
     console.log(myPost);
