@@ -50,51 +50,8 @@ export function HeroSection5() {
             <NavItem>Contact</NavItem>
             
           </ul>
-          <div className="hidden gap-2 lg:flex">
-            <IconButton variant="text" color="white" size="sm">
-              <i className="fa-brands fa-twitter text-base" />
-            </IconButton>
-            <IconButton variant="text" color="white" size="sm">
-              <i className="fa-brands fa-facebook text-base" />
-            </IconButton>
-            <IconButton variant="text" color="white" size="sm">
-              <i className="fa-brands fa-instagram text-base" />
-            </IconButton>
-          </div>
-          <IconButton
-            variant="text"
-            color="white"
-            onClick={handleOpen}
-            className="ml-auto inline-block lg:hidden"
-          >
-            {open ? (
-              <XMarkIcon strokeWidth={2} className="h-6 w-6" />
-            ) : (
-              <Bars3Icon strokeWidth={2} className="h-6 w-6" />
-            )}
-          </IconButton>
-        </div>
-        <Collapse open={open}>
-          <div className="container mx-auto mt-4 rounded-lg border-t border-blue-gray-50 bg-white px-6 py-5">
-            <ul className="flex flex-col gap-4 text-blue-gray-900">
-              <NavItem>Home</NavItem>
-              <NavItem>About</NavItem>
-              <NavItem>Contact</NavItem>
-  
-            </ul>
-            <div className="mt-4 flex gap-2">
-              <IconButton variant="text" color="blue-gray" size="sm">
-                <i className="fa-brands fa-twitter text-base" />
-              </IconButton>
-              <IconButton variant="text" color="blue-gray" size="sm">
-                <i className="fa-brands fa-facebook text-base" />
-              </IconButton>
-              <IconButton variant="text" color="blue-gray" size="sm">
-                <i className="fa-brands fa-instagram text-base" />
-              </IconButton>
-            </div>
-          </div>
-        </Collapse>
+        </div> 
+       
       </Navbar>
       <div className="relative min-h-screen w-full bg-[url('/img/bg-hero-4.jpg')] bg-cover bg-no-repeat">
         <div className="absolute inset-0 h-full w-full bg-black/50" />
