@@ -37,7 +37,7 @@ const fetchFeatured = async () => {
 
 export async function FeatureSection6() {
   const data = await fetchFeatured();
-  console.log(data);
+  
   return (
     <section className="py-28 px-4">
       <div className="container mx-auto mb-20 text-center">
@@ -51,7 +51,7 @@ export async function FeatureSection6() {
           variant="lead"
           className="mx-auto w-full px-4 !text-gray-500 lg:w-11/12 lg:px-8 "
         >
-          The OpenEPI project mission is to support local innovation that is fueld by a global platform of open data, technology and AI.
+          The OpenEPI project mission is to support local innovation that is fuelled by a global platform of open data, technology and AI.
         </Typography>
       </div>
       <div className="container mx-auto grid max-w-6xl grid-cols-1 gap-3 gap-y-12 md:grid-cols-2">

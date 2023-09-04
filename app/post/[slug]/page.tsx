@@ -10,7 +10,7 @@ import Footer3 from "@/components/footer-3";
   const fetchPost = async () => {
     const faq = `*[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, description, body}`
     const res = await sanityClient.fetch(faq, {
-      slug: "first-post",
+      slug: "about-project",
   });
     return res;
     
@@ -21,7 +21,6 @@ import Footer3 from "@/components/footer-3";
   async function Post({ slug }: any) {
     
     const myPost = await fetchPost();
-    console.log(myPost);
     return (
        
       <div className=" mx-auto">

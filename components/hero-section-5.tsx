@@ -70,7 +70,7 @@ export function HeroSection5() {
             </Typography>
             
             <div className="mt-8 mb-4 flex gap-2">
-            <Link href="/post/first-post">
+            <Link href="/post/about-project">
               <Button  color="white" aria-label="Read more button" variant="gradient" >
                 Read more
               </Button>  
