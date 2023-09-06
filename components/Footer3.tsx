@@ -1,22 +1,9 @@
 "use client";
 import { Typography } from "@material-tailwind/react";
-import { sanityClient } from "../sanity";
+import { fetchPartners } from "../sanity/api";
 import { AiOutlineMail } from "react-icons/ai";
 
 const currentYear = new Date().getFullYear();
-
-interface Partner {
-  _id: string;
-  title: string;
-  url: string;
-  description: string;
-}
-
-const fetchPartners = async () => {
-	const faq = `*[_type == "partner"] | order(_createdAt asc) {_id, title, url, description}`;
-	const res = await sanityClient.fetch<Partner[]>(faq);
-	return res;
-};
 
 export async function Footer3() {
 	const data = await fetchPartners();

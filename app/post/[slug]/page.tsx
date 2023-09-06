@@ -1,18 +1,10 @@
-import { sanityClient } from "@/sanity";
+import { fetchPost } from "@/sanity/api";
 import PortableText from "react-portable-text";
 import Header from "@/components/Header";
 import Footer3 from "@/components/Footer3";
 
-const fetchPost = async () => {
-	const faq = `*[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, description, body}`;
-	const res = await sanityClient.fetch(faq, {
-		slug: "about-project",
-	});
-	return res;
-};
-
 async function Post({ slug }: any) {
-	const myPost = await fetchPost();
+	const { body } = await fetchPost(slug);
 	return (
 		<div className=" mx-auto">
 			<Header />
@@ -21,7 +13,7 @@ async function Post({ slug }: any) {
 					className="mt-10"
 					dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
 					projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-					content={myPost.body}
+					content={body}
 					serializers={{
 						h1: (props: any) => (
 							<h1

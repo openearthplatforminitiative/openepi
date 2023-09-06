@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
-import { sanityClient } from "@/sanity";
+import { fetchFeaturedPosts } from "@/sanity/api";
 import { Card, CardBody, Typography } from "@material-tailwind/react";
-import { Posty } from "@/typings";
 
 interface FeatureCardPropsType {
-  title: string;
-  children: React.ReactNode;
+	title: string;
+	children: React.ReactNode;
 }
 
 function FeatureCard({ title, children }: FeatureCardPropsType) {
@@ -24,14 +23,8 @@ function FeatureCard({ title, children }: FeatureCardPropsType) {
 	);
 }
 
-const fetchFeatured = async () => {
-	const faq = `*[_type == "featured"]{_id, title, url, description}`;
-	const res = await sanityClient.fetch<Posty[]>(faq);
-	return res;
-};
-
 export async function FeatureSection6() {
-	const data = await fetchFeatured();
+	const featuredPosts = await fetchFeaturedPosts();
 
 	return (
 		<section className="py-28 px-4">
@@ -51,8 +44,8 @@ export async function FeatureSection6() {
 				</Typography>
 			</div>
 			<div className="container mx-auto grid max-w-6xl grid-cols-1 gap-3 gap-y-12 md:grid-cols-2">
-				{data.map(({ title, description }) => (
-					<FeatureCard key={title} title={title}>
+				{featuredPosts.map(({ _id, title, description }) => (
+					<FeatureCard key={_id} title={title}>
 						{description}
 					</FeatureCard>
 				))}
