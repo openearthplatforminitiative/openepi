@@ -1,21 +1,18 @@
-import React from 'react'
-import { sanityClient, urlFor } from "../../../sanity";
-import Partners from "../../../components/Partners"
+import React from "react";
+import Partners from "@/components/Partners";
 
 type PageProps = {
-    params: {
-      id: string
-    }
-  }
+	params: {
+		id: string;
+	};
+};
 
-  
-async function Partnerlist({params: {id}}: PageProps)  {
-   
-    return (
-    <div>
-        <Partners />
-    </div>
-  )
+async function Partnerlist({ params: { id } }: PageProps) {
+	return (
+		<div>
+			<Partners />
+		</div>
+	);
 }
 
-export default Partnerlist
+export default Partnerlist;
