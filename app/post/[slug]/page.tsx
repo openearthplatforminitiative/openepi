@@ -1,12 +1,12 @@
-import { fetchPost } from "@/sanity/api";
+import { fetchPostBySlug, fetchPosts } from "@/sanity/api";
 import PortableText from "react-portable-text";
 import Header from "@/components/Header";
 import Footer3 from "@/components/Footer3";
 
-async function Post({ slug }: any) {
-	const { body } = await fetchPost(slug);
+async function Post({ params }: { params: { slug: string } }) {
+	const { body } = await fetchPostBySlug(params.slug);
 	return (
-		<div className=" mx-auto">
+		<div className="mx-auto">
 			<Header />
 			<div className="p-3 max-w-5xl mx-auto">
 				<PortableText
@@ -47,6 +47,11 @@ async function Post({ slug }: any) {
 			<Footer3 />
 		</div>
 	);
+}
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+	const posts = await fetchPosts();
+	return posts.map(({ slug }) => ({ slug }));
 }
 
 export default Post;

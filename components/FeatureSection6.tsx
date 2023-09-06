@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { fetchFeaturedPosts } from "@/sanity/api";
+import { fetchFeatured } from "@/sanity/api";
 import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 interface FeatureCardPropsType {
@@ -24,7 +24,7 @@ function FeatureCard({ title, children }: FeatureCardPropsType) {
 }
 
 export async function FeatureSection6() {
-	const featuredPosts = await fetchFeaturedPosts();
+	const featuredPosts = await fetchFeatured();
 
 	return (
 		<section className="py-28 px-4">

@@ -1,6 +1,6 @@
 import { createClient } from "next-sanity";
 
-export interface FeaturedPost {
+export interface Featured {
 	_id: string;
 	title: string;
 	url: string;
@@ -33,14 +33,19 @@ const config = {
 
 const sanityClient = createClient(config);
 
-export async function fetchFeaturedPosts(): Promise<FeaturedPost[]> {
+export async function fetchFeatured(): Promise<Featured[]> {
 	const query = `*[_type == "featured"]{_id, title, url, description}`;
 	return sanityClient.fetch(query);
 }
 
-export async function fetchPost(slug: string): Promise<Post> {
-	const query = `*[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, description, body}`;
+export async function fetchPostBySlug(slug: string): Promise<Post> {
+	const query = `*[_type == "post" && slug.current == $slug][0]{_id, title, "slug": slug.current, mainImage, description, body}`;
 	return sanityClient.fetch(query, { slug });
+}
+
+export async function fetchPosts(): Promise<Post[]> {
+	const query = `*[_type == "post" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body}`;
+	return sanityClient.fetch(query);
 }
 
 export async function fetchPartners(): Promise<Partner[]> {
