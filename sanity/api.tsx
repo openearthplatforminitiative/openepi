@@ -17,7 +17,7 @@ export interface Post {
 	description: string;
 }
 
-interface Partner {
+export interface Partner {
 	_id: string;
 	title: string;
 	url: string;

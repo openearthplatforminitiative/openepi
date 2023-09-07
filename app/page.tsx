@@ -1,15 +1,13 @@
 import HeroSection5 from "@/components/HeroSection5";
 import FeatureCard from "@/components/FeatureSection6";
-import Footer3 from "@/components/Footer3";
+import { fetchFeatured } from "@/sanity/api";
 
-export default function Home() {
+export default async function HomePage() {
+	const featured = await fetchFeatured();
 	return (
 		<main>
-			<div className="bg-white">
-				<HeroSection5 />
-				<FeatureCard />
-				<Footer3 />
-			</div>
+			<HeroSection5 />
+			<FeatureCard featured={featured} />
 		</main>
 	);
 }

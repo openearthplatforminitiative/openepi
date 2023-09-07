@@ -1,6 +1,8 @@
+import Footer from "@/components/Footer3";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { fetchPartners } from "@/sanity/api";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,14 +12,18 @@ export const metadata: Metadata = {
 		"An open, global digital innovation platform for climate and nature",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	const partners = await fetchPartners();
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				{children}
+				<Footer partners={partners} />
+			</body>
 		</html>
 	);
 }

@@ -1,33 +1,10 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
 import { Navbar, Button, Typography } from "@material-tailwind/react";
 
-interface NavItemPropsType {
-	children: React.ReactNode;
-}
-
-function NavItem({ children }: NavItemPropsType) {
-	return (
-		<li>
-			<Typography as="a" href="#" variant="small" className="font-medium">
-				{children}
-			</Typography>
-		</li>
-	);
-}
-
 export function HeroSection5() {
-	const [open, setOpen] = React.useState(false);
-	const handleOpen = () => setOpen((cur) => !cur);
-
-	React.useEffect(() => {
-		window.addEventListener(
-			"resize",
-			() => window.innerWidth >= 960 && setOpen(false),
-		);
-	}, []);
-
 	return (
 		<>
 			<Navbar
@@ -38,11 +15,6 @@ export function HeroSection5() {
 			>
 				<div className="container mx-auto flex items-center justify-between">
 					<Typography variant="h6">OpenEPI.io</Typography>
-					<ul className="ml-10 hidden items-center gap-6 ">
-						<NavItem>Home</NavItem>
-						<NavItem>About</NavItem>
-						<NavItem>Contact</NavItem>
-					</ul>
 				</div>
 			</Navbar>
 			<div className="relative min-h-screen w-full bg-[url('/img/bg-hero-4.jpg')] bg-cover bg-no-repeat">

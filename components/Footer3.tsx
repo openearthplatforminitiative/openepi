@@ -1,12 +1,16 @@
 "use client";
+
 import { Typography } from "@material-tailwind/react";
-import { fetchPartners } from "../sanity/api";
+import { Partner } from "@/sanity/api";
 import { AiOutlineMail } from "react-icons/ai";
 
 const currentYear = new Date().getFullYear();
 
-export async function Footer3() {
-	const data = await fetchPartners();
+interface FooterProps {
+	partners: Partner[];
+}
+
+export default function Footer({ partners }: FooterProps) {
 	return (
 		<footer className="mt-10 bg-gradient-to-tr from-gray-900 to-gray-800 px-8 pt-12">
 			<div className="container mx-auto">
@@ -16,7 +20,7 @@ export async function Footer3() {
 							The OpenEPI Project Partners
 						</Typography>
 						<ul className="flex flex-col items-left justify-center md:justify-start">
-							{data.map((partner) => (
+							{partners.map((partner) => (
 								<li key={partner.url}>
 									<Typography
 										as="a"
@@ -51,5 +55,3 @@ export async function Footer3() {
 		</footer>
 	);
 }
-
-export default Footer3;
