@@ -17,7 +17,7 @@ export function HeroSection() {
 					<Typography variant="h6">OpenEPI.io</Typography>
 				</div>
 			</Navbar>
-			<div className="relative min-h-screen w-full bg-[url('/img/bg-hero-4.jpg')] bg-cover bg-no-repeat">
+			<div className="relative min-h-screen w-full bg-[url('/img/bg-hero-4.jpg')] bg-cover bg-no-repeat bg-black">
 				<div className="absolute inset-0 h-full w-full bg-black/50" />
 				<div className="grid min-h-screen px-8">
 					<div className="container relative z-10 my-auto mx-auto md:pl-10">

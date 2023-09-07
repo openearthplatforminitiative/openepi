@@ -11,10 +11,10 @@ export default function FeatureCard({ title, children }: FeatureCardProps) {
 	return (
 		<Card color="white" shadow={false}>
 			<CardBody className="grid justify-start">
-				<Typography variant="h5" color="blue-gray" className="mb-2">
+				<Typography variant="h2" color="blue-gray" className="mb-2 text-xl">
 					{title}
 				</Typography>
-				<Typography className="font-normal !text-gray-500">
+				<Typography className="font-normal text-gray-700">
 					{children}
 				</Typography>
 			</CardBody>

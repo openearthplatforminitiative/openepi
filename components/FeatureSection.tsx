@@ -21,7 +21,7 @@ export default function FeatureSection({ featured }: FeatureSectionProps) {
 				</Typography>
 				<Typography
 					variant="lead"
-					className="mx-auto w-full px-4 !text-gray-500 lg:w-11/12 lg:px-8 "
+					className="mx-auto w-full px-4 !text-gray-700 lg:w-11/12 lg:px-8 "
 				>
 					The OpenEPI project mission is to support local innovation that is
 					fuelled by a global platform of open data, technology and AI.

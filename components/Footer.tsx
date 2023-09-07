@@ -16,7 +16,7 @@ export default function Footer({ partners }: FooterProps) {
 			<div className="container mx-auto">
 				<div className="flex flex-wrap justify-center gap-8 md:justify-between">
 					<div className="text-center md:text-left">
-						<Typography variant="h5" color="white" className="mb-4">
+						<Typography variant="h2" color="white" className="mb-4 text-xl">
 							The OpenEPI Project Partners
 						</Typography>
 						<ul className="flex flex-col items-left justify-center md:justify-start">

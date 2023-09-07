@@ -1,4 +1,4 @@
-function Header() {
+export default function Header() {
 	return (
 		<div>
 			<header>
@@ -12,22 +12,9 @@ function Header() {
 								EPI
 							</span>
 						</a>
-
-						<div className="flex items-center lg:order-2">
-							<a
-								href="/"
-								className="text-white  font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 hover:bg-gray-700 focus:outline-none focus:ring-gray-800"
-							></a>
-						</div>
-						<div
-							className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-							id="mobile-menu-2"
-						></div>
 					</div>
 				</nav>
 			</header>
 		</div>
 	);
 }
-
-export default Header;
