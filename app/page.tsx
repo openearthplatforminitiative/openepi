@@ -1,12 +1,12 @@
-import HeroSection5 from "@/components/HeroSection5";
-import FeatureCard from "@/components/FeatureSection6";
+import HeroSection from "@/components/HeroSection";
+import FeatureCard from "@/components/FeatureSection";
 import { fetchFeatured } from "@/sanity/api";
 
 export default async function HomePage() {
 	const featured = await fetchFeatured();
 	return (
 		<main>
-			<HeroSection5 />
+			<HeroSection />
 			<FeatureCard featured={featured} />
 		</main>
 	);

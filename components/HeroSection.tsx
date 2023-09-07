@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Navbar, Button, Typography } from "@material-tailwind/react";
 
-export function HeroSection5() {
+export function HeroSection() {
 	return (
 		<>
 			<Navbar
@@ -49,4 +49,4 @@ export function HeroSection5() {
 	);
 }
 
-export default HeroSection5;
+export default HeroSection;

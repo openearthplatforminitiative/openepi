@@ -3,13 +3,13 @@
 import React from "react";
 import { Featured } from "@/sanity/api";
 import { Typography } from "@material-tailwind/react";
-import FeatureCard from "./FeaturedCard";
+import FeatureCard from "./FeatureCard";
 
 interface FeatureSectionProps {
 	featured: Featured[];
 }
 
-export default function FeatureSection6({ featured }: FeatureSectionProps) {
+export default function FeatureSection({ featured }: FeatureSectionProps) {
 	return (
 		<section className="py-28 px-4">
 			<div className="container mx-auto mb-20 text-center">
