@@ -32,7 +32,7 @@ export function HeroSection() {
 							nature.
 						</Typography>
 						<div className="mt-8 mb-4 flex gap-2">
-							<Link href="/post/about-project">
+							<Link href="/posts/about-project">
 								<Button
 									color="white"
 									aria-label="Read more button"

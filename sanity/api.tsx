@@ -27,7 +27,7 @@ export interface Partner {
 const config = {
 	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-	useCdn: true,
+	useCdn: false,
 	apiVersion: "2021-10-21",
 };
 
