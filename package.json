@@ -1,34 +1,47 @@
 {
-  "name": "openepi-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@heroicons/react": "^2.0.18",
-    "@material-tailwind/react": "^2.1.1",
-    "@portabletext/react": "^3.0.7",
-    "@sanity/client": "^6.4.9",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/portable-text-editor": "^3.16.2",
-    "@types/node": "20.5.7",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.15",
-    "axios": "^1.5.0",
-    "heroicons": "^2.0.18",
-    "next": "13.4.19",
-    "next-sanity": "^5.4.6",
-    "postcss": "8.4.29",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.10.1",
-    "react-portable-text": "^0.6.0",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.2.2"
-  }
+	"name": "openepi-frontend",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write .",
+		"format-check": "prettier --check .",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@heroicons/react": "^2.0.18",
+		"@material-tailwind/react": "^2.1.1",
+		"@portabletext/react": "^3.0.7",
+		"@sanity/client": "^6.4.9",
+		"@sanity/image-url": "^1.0.2",
+		"@sanity/portable-text-editor": "^3.16.2",
+		"@types/node": "20.5.7",
+		"@types/react": "18.2.21",
+		"@types/react-dom": "18.2.7",
+		"autoprefixer": "10.4.15",
+		"axios": "^1.5.0",
+		"heroicons": "^2.0.18",
+		"next": "13.4.19",
+		"next-sanity": "^5.4.6",
+		"postcss": "8.4.29",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.10.1",
+		"react-portable-text": "^0.6.0",
+		"tailwindcss": "3.3.3",
+		"typescript": "5.2.2"
+	},
+	"devDependencies": {
+		"eslint": "8.48.0",
+		"eslint-config-next": "13.4.19",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-unused-imports": "^3.0.0",
+		"prettier": "^3.0.3"
+	},
+	"prettier": {
+		"useTabs": true
+	}
 }
