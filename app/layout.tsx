@@ -20,7 +20,7 @@ export default async function RootLayout({
 	const partners = await fetchPartners();
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={`${inter.className} min-h-screen flex flex-col justify-between`}>
 				{children}
 				<Footer partners={partners} />
 			</body>
