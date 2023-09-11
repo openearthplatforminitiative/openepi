@@ -9,7 +9,7 @@ export default async function PostPage({
 }) {
 	const { body } = await fetchPostBySlug(params.slug);
 	return (
-		<div className="mx-auto">
+		<div>
 			<Header />
 			<div className="p-3 max-w-5xl mx-auto">
 				<PortableText
