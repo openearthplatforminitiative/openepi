@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 			return new Response(errorMessage, { status: 401 });
 		}
 
-		if (!body?._type || !["post", "feature", "partner"].includes(body._type)) {
+		if (!body?._type || !["post", "featured", "partner"].includes(body._type)) {
 			const errorMessage = "Invalid _type";
 			console.error(errorMessage, { body });
 			return new Response(errorMessage, { status: 400 });
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 		const staleRoutes = [];
 
 		switch (body._type) {
-			case "feature":
+			case "featured":
 				staleRoutes.push("/");
 				break;
 			case "post":
@@ -36,7 +36,9 @@ export async function POST(req: NextRequest) {
 				break;
 		}
 
-		await Promise.all(staleRoutes.map((route) => revalidatePath(route)));
+        for (const route of staleRoutes) {
+            await revalidatePath(route);
+        }
 
 		const message = `Updated routes: ${staleRoutes.join(", ")}`;
 		console.log(message);
