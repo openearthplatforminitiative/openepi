@@ -9,9 +9,13 @@ interface FeatureCardProps {
 
 export default function FeatureCard({ title, children }: FeatureCardProps) {
 	return (
-		<Card color="white" shadow={false}>
-			<CardBody className="grid justify-start">
-				<Typography variant="h2" color="blue-gray" className="mb-2 text-xl">
+		<Card style={{ background: "#F2F4EF" }} shadow={false}>
+			<CardBody className="grid justify-start m-[40px]">
+				<Typography
+					variant="h2"
+					color="blue-gray"
+					className="mb-[24px] text-xl"
+				>
 					{title}
 				</Typography>
 				<Typography className="font-normal text-gray-700">

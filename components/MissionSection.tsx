@@ -1,26 +1,36 @@
 "use client";
 
-
 import { Typography } from "@material-tailwind/react";
 import React from "react";
+import { MissionLogo } from "@/public/icons/MissionLogo";
 
 export default function MissionSection() {
 	return (
-		<section className="py-28 px-4 bg-mission-background">
-			<div className="container mx-auto mb-20 text-center">
-				<Typography color="black" className="mb-2 font-bold uppercase">
-					Our mission
-				</Typography>
-				<Typography variant="h1" color="blue-gray" className="mb-4">
-					Local Tech Innovation
-				</Typography>
-				<Typography
-					variant="lead"
-					className="mx-auto w-full px-4 !text-gray-700 lg:w-11/12 lg:px-8 "
-				>
-					The OpenEPI project mission is to support local innovation that is
-					fuelled by a global platform of open data, technology and AI.
-				</Typography>
+		<section className="py-28 px-8 bg-[#D1E8D5]">
+			<div className="flex flex-row justify-center items-center">
+				<MissionLogo />
+				<div className="container ml-[49px]">
+					<Typography
+						color="black"
+						className="h-fit mb-[16px] text-[16px] font-[400] text-[#0C1F14]"
+					>
+						Our mission
+					</Typography>
+					<Typography
+						variant="h1"
+						color="blue-gray"
+						className="mb-[16px] text-[32px] text-[#0C1F14] font-[600]"
+					>
+						Local Tech Innovation
+					</Typography>
+					<Typography
+						variant="lead"
+						className="text-[#0C1F14] lg:w-11/12 "
+					>
+						The OpenEPI project mission is to support local innovation that is
+						fuelled by a global platform of open data, technology and AI.
+					</Typography>
+				</div>
 			</div>
 		</section>
 	);

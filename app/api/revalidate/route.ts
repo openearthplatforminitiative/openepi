@@ -36,9 +36,9 @@ export async function POST(req: NextRequest) {
 				break;
 		}
 
-        for (const route of staleRoutes) {
-            await revalidatePath(route);
-        }
+		for (const route of staleRoutes) {
+			await revalidatePath(route);
+		}
 
 		const message = `Updated routes: ${staleRoutes.join(", ")}`;
 		console.log(message);
