@@ -14,6 +14,11 @@ const config = withMT({
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
+			colors: {
+				"main-background": "#FBFDF8",
+				"mission-background": "#D1E8D5",
+				"footer-background": "#006D41"
+			}
 		},
 	},
 	plugins: [],

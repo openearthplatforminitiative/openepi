@@ -1,13 +1,15 @@
 import HeroSection from "@/components/HeroSection";
-import FeatureCard from "@/components/FeatureSection";
+import FeatureSection from "@/components/FeatureSection";
 import { fetchFeatured } from "@/sanity/api";
+import MissionSection from "@/components/MissionSection";
 
 export default async function HomePage() {
 	const featured = await fetchFeatured();
 	return (
 		<main>
 			<HeroSection />
-			<FeatureCard featured={featured} />
+			<MissionSection />
+			<FeatureSection featured={featured} />
 		</main>
 	);
 }
