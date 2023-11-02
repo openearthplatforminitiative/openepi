@@ -43,7 +43,6 @@ export default function Footer({ partners }: FooterProps) {
 								color="white"
 								className="text-[22px] font-400"
 							>
-								{" "}
 								Funded by the{" "}
 								<a
 									href="https://www.norad.no/en/front/"
