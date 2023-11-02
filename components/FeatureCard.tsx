@@ -1,13 +1,15 @@
 "use client";
 
-import { Card, CardBody, Typography } from "@material-tailwind/react";
+import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
+import { CustomButton } from "@/sanity/api";
 
 interface FeatureCardProps {
 	title: string;
 	children: React.ReactNode;
+	buttons: CustomButton[];
 }
 
-export default function FeatureCard({ title, children }: FeatureCardProps) {
+export default function FeatureCard({ title, children, buttons }: FeatureCardProps) {
 	return (
 		<Card style={{ background: "#F2F4EF" }} shadow={false}>
 			<CardBody className="grid justify-start m-[40px]">
@@ -21,6 +23,22 @@ export default function FeatureCard({ title, children }: FeatureCardProps) {
 				<Typography className="font-normal text-gray-700">
 					{children}
 				</Typography>
+				<div className=" flex flex-row gap-3 mt-[24px]">
+				{(buttons ?? []).map((button) => {
+					return (
+						<a key={button.url} href={button.url}>
+						<Button
+							size="sm"
+							style={{ backgroundColor: '#006D41'}}
+							className="rounded-full h-fit font-[500] capitalize text-white text-[14px] mt-[22px] lg:mt-[0]"
+						>
+							{button?.text}
+						</Button>
+						</a>
+					)
+				}
+				)}
+				</div>
 			</CardBody>
 		</Card>
 	);

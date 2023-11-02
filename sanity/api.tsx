@@ -1,10 +1,15 @@
 import { createClient } from "next-sanity";
 
+export type CustomButton = {
+	text: string;
+	url: string;
+}
+
 export interface Featured {
 	_id: string;
 	title: string;
-	url: string;
 	description: string;
+	buttons: CustomButton[];
 }
 
 export interface Post {
@@ -34,7 +39,7 @@ const config = {
 const sanityClient = createClient(config);
 
 export async function fetchFeatured(): Promise<Featured[]> {
-	const query = `*[_type == "featured"]{_id, title, url, description}`;
+	const query = `*[_type == "featured"]{_id, title, description, buttons}`;
 	return sanityClient.fetch(query);
 }
 

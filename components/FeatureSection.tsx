@@ -12,8 +12,8 @@ export default function FeatureSection({ featured }: FeatureSectionProps) {
 	return (
 		<section className="py-28 px-4 w-full bg-[#FBFDF8]">
 			<div className="container mx-auto grid max-w-6xl grid-cols-1 gap-[24px] md:grid-cols-2 ">
-				{featured.map(({ _id, title, description }) => (
-					<FeatureCard key={_id} title={title}>
+				{featured.map(({ _id, title, description, buttons }) => (
+					<FeatureCard key={_id} title={title} buttons={buttons}>
 						{description}
 					</FeatureCard>
 				))}

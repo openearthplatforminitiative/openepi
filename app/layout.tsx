@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { fetchPartners } from "@/sanity/api";
+import NavBarSection from "@/components/NavBarSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default async function RootLayout({
 			<body
 				className={`${inter.className} min-h-screen flex flex-col justify-between`}
 			>
+			<NavBarSection />
 				{children}
 				<Footer partners={partners} />
 			</body>
