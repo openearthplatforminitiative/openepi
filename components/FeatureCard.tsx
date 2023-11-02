@@ -28,11 +28,11 @@ export default function FeatureCard({
 				<Typography
 					variant="h2"
 					color="blue-gray"
-					className="mb-[24px] text-xl"
+					className="mb-[24px] text-[24px] font-[600]"
 				>
 					{title}
 				</Typography>
-				<Typography className="font-normal text-gray-700">
+				<Typography className="text-[16px] font-[400] text-black">
 					{children}
 				</Typography>
 				<div className=" flex flex-row gap-3 mt-[24px]">
