@@ -37,7 +37,7 @@ export default function Footer({ partners }: FooterProps) {
 								</li>
 							))}
 						</ul>
-						<div className="flex justify-between mt-[40px] items-center ">
+						<div className="flex lg:flex-row flex-col justify-between mt-[40px] items-center ">
 							<Typography
 								variant="paragraph"
 								color="white"
@@ -55,7 +55,7 @@ export default function Footer({ partners }: FooterProps) {
 							<Button
 								size="sm"
 								color="white"
-								className="rounded-full flex gap-2 items-center h-[40px] font-[500] text-[#006D41] lowercase text-[14px]"
+								className="rounded-full flex gap-2 items-center h-[40px] font-[500] text-[#006D41] lowercase text-[14px] mt-[22px] lg:mt-[0]"
 							>
 								<AiOutlineMail size={18} />
 								contact@openepi.io

@@ -7,8 +7,8 @@ import { Background } from "@/public/icons/Background";
 export function HeroSection() {
 	return (
 		<section className="flex flex-row pt-[258px] pb-[299px] px-8 bg-[#FBFDF8] justify-center">
-			<div className="flex flex-row justify-center items-center">
-				<div className="w-[38%]">
+			<div className="flex lg:flex-row flex-col justify-center items-center">
+				<div className="lg:w-[40%] pl-5">
 					<Typography variant="h1" color="black" className="text-[45px]">
 						Open Earth Platform Initiative
 					</Typography>
@@ -18,7 +18,9 @@ export function HeroSection() {
 						An open, global digital innovation platform for climate and nature.
 					</Typography>
 				</div>
+				<div className="lg:flex hidden">
 				<Background />
+				</div>
 			</div>
 		</section>
 	);

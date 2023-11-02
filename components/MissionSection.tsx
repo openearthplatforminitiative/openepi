@@ -8,7 +8,9 @@ export default function MissionSection() {
 	return (
 		<section className="py-28 px-8 bg-[#D1E8D5]">
 			<div className="flex flex-row justify-center items-center">
+				<div className="lg:flex hidden">
 				<MissionLogo />
+				</div>
 				<div className=" ml-[49px] lg:w-[42%]">
 					<Typography
 						color="black"
@@ -25,7 +27,7 @@ export default function MissionSection() {
 					</Typography>
 					<Typography
 						variant="lead"
-						className="text-[#0C1F14] lg:w-[62%]"
+						className="text-[#0C1F14] lg:w-[69%] text-[22px]"
 					>
 						The OpenEPI project mission is to support local innovation that is
 						fuelled by a global platform of open data, technology and AI.
