@@ -1,6 +1,5 @@
 import { fetchPostBySlug, fetchPosts } from "@/sanity/api";
 import PortableText from "react-portable-text";
-import Header from "@/components/Header";
 
 export default async function PostPage({
 	params,
@@ -9,8 +8,6 @@ export default async function PostPage({
 }) {
 	const { body } = await fetchPostBySlug(params.slug);
 	return (
-		<div>
-			<Header />
 			<div className="p-3 max-w-5xl mx-auto">
 				<PortableText
 					className="mt-10"
@@ -47,7 +44,6 @@ export default async function PostPage({
 					}}
 				/>
 			</div>
-		</div>
 	);
 }
 
