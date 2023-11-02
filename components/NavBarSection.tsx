@@ -1,4 +1,3 @@
-
 import { OpenEPILogo } from "@/public/icons/OpenEPILogo";
 import React from "react";
 

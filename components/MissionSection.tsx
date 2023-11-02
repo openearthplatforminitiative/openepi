@@ -9,7 +9,7 @@ export default function MissionSection() {
 		<section className="py-28 px-8 bg-[#D1E8D5]">
 			<div className="flex flex-row justify-center items-center">
 				<div className="lg:flex hidden">
-				<MissionLogo />
+					<MissionLogo />
 				</div>
 				<div className=" ml-[49px] lg:w-[42%]">
 					<Typography

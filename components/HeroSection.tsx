@@ -12,14 +12,12 @@ export function HeroSection() {
 					<Typography variant="h1" color="black" className="text-[45px]">
 						Open Earth Platform Initiative
 					</Typography>
-					<Typography
-						className="mt-6 mb-10 text-black/80 md:pr-16 text-[36px] font-[400]"
-					>
+					<Typography className="mt-6 mb-10 text-black/80 md:pr-16 text-[36px] font-[400]">
 						An open, global digital innovation platform for climate and nature.
 					</Typography>
 				</div>
 				<div className="lg:flex hidden">
-				<Background />
+					<Background />
 				</div>
 			</div>
 		</section>

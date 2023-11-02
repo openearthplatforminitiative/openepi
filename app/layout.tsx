@@ -24,7 +24,7 @@ export default async function RootLayout({
 			<body
 				className={`${inter.className} min-h-screen flex flex-col justify-between`}
 			>
-			<NavBarSection />
+				<NavBarSection />
 				{children}
 				<Footer partners={partners} />
 			</body>
