@@ -20,9 +20,11 @@ export default function FeatureCard({
 	return (
 		<Card style={{ background: "#F2F4EF" }} shadow={false}>
 			<CardBody className="grid justify-start m-[40px]">
-				{promoted &&
-					<div className="absolute lg:left-[-40px] left-[-15px] top-[-40px]"><PromotedLogo /> </div>
-				}
+				{promoted && (
+					<div className="absolute lg:left-[-40px] left-[-15px] top-[-40px]">
+						<PromotedLogo />{" "}
+					</div>
+				)}
 				<Typography
 					variant="h2"
 					color="blue-gray"
