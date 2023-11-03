@@ -6,7 +6,7 @@ import { Background } from "@/public/icons/Background";
 
 export function HeroSection() {
 	return (
-		<section className="flex flex-row pt-[258px] pb-[299px] px-8 bg-[#FBFDF8] justify-center">
+		<section className="flex flex-row pt-[128px] pb-[192px] px-8 bg-[#FBFDF8] justify-center">
 			<div className="flex lg:flex-row flex-col justify-center items-center">
 				<div className="lg:w-[40%] pl-5">
 					<Typography variant="h1" color="black" className="text-[45px]">

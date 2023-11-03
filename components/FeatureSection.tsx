@@ -11,7 +11,7 @@ interface FeatureSectionProps {
 export default function FeatureSection({ featured }: FeatureSectionProps) {
 	return (
 		<section className="py-28 px-4 w-full bg-[#FBFDF8]">
-			<div className="container mx-auto grid max-w-6xl grid-cols-1 gap-[24px] md:grid-cols-2 ">
+			<div className="max-w-6xl mx-auto lg:columns-2 columns-1 gap-[24px]">
 				{featured
 					.sort((a) => (a.promoted ? -1 : 1))
 					.map(({ _id, title, description, buttons, promoted }) => (
