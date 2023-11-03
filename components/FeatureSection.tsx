@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Featured } from "@/sanity/api";
-import { Typography } from "@material-tailwind/react";
 import FeatureCard from "./FeatureCard";
 
 interface FeatureSectionProps {
@@ -11,28 +10,20 @@ interface FeatureSectionProps {
 
 export default function FeatureSection({ featured }: FeatureSectionProps) {
 	return (
-		<section className="py-28 px-4">
-			<div className="container mx-auto mb-20 text-center">
-				<Typography color="blue-gray" className="mb-2 font-bold uppercase">
-					Our mission
-				</Typography>
-				<Typography variant="h1" color="blue-gray" className="mb-4">
-					Local Tech Innovation
-				</Typography>
-				<Typography
-					variant="lead"
-					className="mx-auto w-full px-4 !text-gray-700 lg:w-11/12 lg:px-8 "
-				>
-					The OpenEPI project mission is to support local innovation that is
-					fuelled by a global platform of open data, technology and AI.
-				</Typography>
-			</div>
-			<div className="container mx-auto grid max-w-6xl grid-cols-1 gap-3 gap-y-12 md:grid-cols-2">
-				{featured.map(({ _id, title, description }) => (
-					<FeatureCard key={_id} title={title}>
-						{description}
-					</FeatureCard>
-				))}
+		<section className="py-28 px-4 w-full bg-[#FBFDF8]">
+			<div className="max-w-6xl mx-auto lg:columns-2 columns-1 gap-[24px]">
+				{featured
+					.sort((a) => (a.promoted ? -1 : 1))
+					.map(({ _id, title, description, buttons, promoted }) => (
+						<FeatureCard
+							key={_id}
+							title={title}
+							buttons={buttons}
+							promoted={promoted}
+						>
+							{description}
+						</FeatureCard>
+					))}
 			</div>
 		</section>
 	);
