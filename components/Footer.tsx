@@ -12,10 +12,10 @@ interface FooterProps {
 
 export default function Footer({ partners }: FooterProps) {
 	return (
-		<footer className=" bg-[#006D41] px-8 pt-12">
+		<footer className=" bg-[#006D41] px-8 pt-[112px]">
 			<div className="container mx-auto">
 				<div className="flex flex-wrap gap-8">
-					<div className="text-center md:text-left w-full">
+					<div className="text-left w-full">
 						<Typography
 							variant="h2"
 							color="white"
@@ -51,7 +51,7 @@ export default function Footer({ partners }: FooterProps) {
 									Norwegian Agency For Development Cooperation
 								</a>
 							</Typography>
-							<a href="mailto:contact@openepi.io">
+							<a href="mailto:contact@openepi.io" className="self-baseline mt-[40px]">
 								<Button
 									size="sm"
 									color="white"
@@ -65,7 +65,7 @@ export default function Footer({ partners }: FooterProps) {
 					</div>
 				</div>
 
-				<div className="mt-[72px] mb-2 flex flex-wrap items-center justify-center gap-y-4 gap-x-8 border-t border-[#C0C9C0] py-7 md:justify-between ">
+				<div className="mt-[72px] mb-2 flex flex-wrap items-center justify-center gap-y-4 gap-x-8 border-t border-[#C0C9C0] pb-[64px] pt-[32px] md:justify-between ">
 					<Typography
 						color="white"
 						className="text-center font-normal opacity-75 text-sm"

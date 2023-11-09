@@ -1,5 +1,4 @@
-// fun fact: `viewBox` has always been camel-cased.
-export const Background = () => {
+export const BackgroundDesktop = () => {
 	return (
 		<svg
 			width="593"

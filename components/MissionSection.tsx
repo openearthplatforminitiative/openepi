@@ -7,8 +7,8 @@ import { MissionLogo } from "@/public/icons/MissionLogo";
 export default function MissionSection() {
 	return (
 		<section className="py-28 px-8 bg-[#D1E8D5]">
-			<div className="flex flex-row justify-center items-center">
-				<div className="lg:flex hidden">
+			<div className="flex lg:flex-row flex-col justify-center items-baseline">
+				<div className="lg:m-0 mb-[32px]">
 					<MissionLogo />
 				</div>
 				<div className=" ml-[49px] lg:w-[42%]">
@@ -21,7 +21,7 @@ export default function MissionSection() {
 					<Typography
 						variant="h1"
 						color="blue-gray"
-						className="mb-[16px] text-[32px] text-[#0C1F14] font-[600] w-fit"
+						className="mb-[16px] lg:text-[32px] text-[28px] text-[#0C1F14] font-[600] w-fit"
 					>
 						Local Tech Innovation
 					</Typography>

@@ -1,9 +1,8 @@
-// fun fact: `viewBox` has always been camel-cased.
+
 export const MissionLogo = () => {
 	return (
 		<svg
-			width="176"
-			height="176"
+			className="lg:w-[176px] lg:h-[176px] w-[88px] h-[88px]"
 			viewBox="0 0 176 176"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
