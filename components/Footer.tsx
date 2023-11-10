@@ -30,14 +30,14 @@ export default function Footer({ partners }: FooterProps) {
 										as="a"
 										href={partner.url}
 										color="white"
-										className="py-1 p-1 text-[22px] font-400 transition-colors underline w-fit"
+										className="py-1 p-1 text-[22px] font-400 transition-colors underline w-fit hover:no-underline"
 									>
 										{partner.title}
 									</Typography>
 								</li>
 							))}
 						</ul>
-						<div className="flex lg:flex-row flex-col justify-between mt-[40px] items-center ">
+						<div className="flex lg:flex-row flex-col justify-between mt-[40px] gap-[40px] items-center ">
 							<Typography
 								variant="paragraph"
 								color="white"
@@ -46,7 +46,7 @@ export default function Footer({ partners }: FooterProps) {
 								Funded by the{" "}
 								<a
 									href="https://www.norad.no/en/front/"
-									className="text-white underline font-400 text-[22px]"
+									className="text-white underline hover:no-underline font-400 text-[22px]"
 								>
 									Norwegian Agency For Development Cooperation
 								</a>
@@ -55,7 +55,7 @@ export default function Footer({ partners }: FooterProps) {
 								<Button
 									size="sm"
 									color="white"
-									className="rounded-full flex gap-2 items-center h-[40px] font-[500] text-[#006D41] lowercase text-[14px] mt-[22px] lg:mt-[0]"
+									className="rounded-full flex gap-2 items-center h-[40px] font-[500] text-[#006D41] lowercase text-[16px] mt-[22px] lg:mt-[0]"
 								>
 									<AiOutlineMail size={18} />
 									contact@openepi.io

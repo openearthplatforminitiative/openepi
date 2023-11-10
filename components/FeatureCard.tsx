@@ -46,7 +46,7 @@ export default function FeatureCard({
 								<Button
 									size="sm"
 									style={{ backgroundColor: "#006D41" }}
-									className="rounded-full h-fit font-[500] capitalize text-white text-[14px] mt-[22px] lg:mt-[0]"
+									className="rounded-full h-fit font-[500] capitalize text-white text-[16px] mt-[22px] lg:mt-[0]"
 								>
 									{button?.text}
 								</Button>
