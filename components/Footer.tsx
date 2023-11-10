@@ -51,10 +51,7 @@ export default function Footer({ partners }: FooterProps) {
 									Norwegian Agency For Development Cooperation
 								</a>
 							</Typography>
-							<a
-								href="mailto:contact@openepi.io"
-								className="self-baseline"
-							>
+							<a href="mailto:contact@openepi.io" className="self-baseline">
 								<Button
 									size="sm"
 									color="white"

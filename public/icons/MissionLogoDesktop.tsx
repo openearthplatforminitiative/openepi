@@ -1,7 +1,8 @@
-export const MissionLogo = () => {
+export const MissionLogoDesktop = () => {
 	return (
 		<svg
-			className="lg:w-[176px] lg:h-[176px] w-[88px] h-[88px]"
+			width="176"
+			height="176"
 			viewBox="0 0 176 176"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
