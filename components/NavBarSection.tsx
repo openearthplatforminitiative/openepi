@@ -1,5 +1,5 @@
-import { OpenEPILogo } from "@/public/icons/OpenEPILogo";
 import React from "react";
+import { OpenEPILogo } from "@/components/icons/OpenEPILogo";
 
 export default function NavBarSection() {
 	return (

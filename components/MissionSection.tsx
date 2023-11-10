@@ -2,8 +2,9 @@
 
 import { Typography } from "@material-tailwind/react";
 import React from "react";
-import { MissionLogoDesktop } from "@/public/icons/MissionLogoDesktop";
-import { MissionLogoMobile } from "@/public/icons/MissionLogoMobile";
+import { MissionLogoDesktop } from "@/components/icons/MissionLogoDesktop";
+import { MissionLogoMobile } from "@/components/icons/MissionLogoMobile";
+
 
 export default function MissionSection() {
 	return (

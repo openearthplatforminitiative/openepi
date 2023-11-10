@@ -2,8 +2,9 @@
 
 import React from "react";
 import { Typography } from "@material-tailwind/react";
-import { BackgroundDesktop } from "@/public/icons/BackgroundDesktop";
-import { BackgroundMobile } from "@/public/icons/BackgroundMobile";
+import { BackgroundDesktop } from "@/components/icons/BackgroundDesktop";
+import { BackgroundMobile } from "@/components/icons/BackgroundMobile";
+
 
 export function HeroSection() {
 	return (

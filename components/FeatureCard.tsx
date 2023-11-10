@@ -2,7 +2,7 @@
 
 import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
 import { CustomButton } from "@/sanity/api";
-import { PromotedLogo } from "@/public/icons/PromotedLogo";
+import { PromotedLogo } from "@/components/icons/PromotedLogo";
 
 interface FeatureCardProps {
 	title: string;
