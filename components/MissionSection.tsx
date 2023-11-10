@@ -7,7 +7,7 @@ import { MissionLogo } from "@/public/icons/MissionLogo";
 export default function MissionSection() {
 	return (
 		<section className="py-28 px-8 bg-[#D1E8D5]">
-			<div className="flex lg:flex-row flex-col justify-center items-baseline">
+			<div className="flex lg:flex-row lg:items-center flex-col justify-center items-baseline">
 				<div className="lg:m-0 mb-[32px]">
 					<MissionLogo />
 				</div>

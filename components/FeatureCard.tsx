@@ -18,7 +18,11 @@ export default function FeatureCard({
 	promoted,
 }: FeatureCardProps) {
 	return (
-		<Card style={{ background: promoted ? '#D1E8D5' : "#F2F4EF" }} shadow={false} className="mb-[24px]">
+		<Card
+			style={{ background: promoted ? "#D1E8D5" : "#F2F4EF" }}
+			shadow={false}
+			className="mb-[24px]"
+		>
 			<CardBody className="p-[40px]">
 				{promoted && (
 					<div className="absolute lg:left-[-40px] left-[-15px] top-[-40px]">
