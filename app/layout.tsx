@@ -1,11 +1,15 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { fetchPartners } from "@/sanity/api";
 import NavBarSection from "@/components/NavBarSection";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
 	title: "Open Earth Platform Initiative (OpenEPI)",
@@ -20,10 +24,8 @@ export default async function RootLayout({
 }) {
 	const partners = await fetchPartners();
 	return (
-		<html lang="en">
-			<body
-				className={`${inter.className} min-h-screen flex flex-col justify-between`}
-			>
+		<html lang="en" className={inter.className}>
+			<body>
 				<NavBarSection />
 				{children}
 				<Footer partners={partners} />

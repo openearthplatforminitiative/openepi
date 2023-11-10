@@ -1,5 +1,4 @@
-// fun fact: `viewBox` has always been camel-cased.
-export const MissionLogo = () => {
+export const MissionLogoDesktop = () => {
 	return (
 		<svg
 			width="176"

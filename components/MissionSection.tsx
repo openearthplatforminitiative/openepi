@@ -2,14 +2,21 @@
 
 import { Typography } from "@material-tailwind/react";
 import React from "react";
-import { MissionLogo } from "@/public/icons/MissionLogo";
+import { MissionLogoDesktop } from "@/components/icons/MissionLogoDesktop";
+import { MissionLogoMobile } from "@/components/icons/MissionLogoMobile";
+
 
 export default function MissionSection() {
 	return (
 		<section className="py-28 px-8 bg-[#D1E8D5]">
-			<div className="flex flex-row justify-center items-center">
-				<div className="lg:flex hidden">
-					<MissionLogo />
+			<div className="flex lg:flex-row lg:items-center flex-col justify-center items-baseline">
+				<div className="lg:m-0 mb-[32px]">
+					<div className="lg:flex hidden">
+						<MissionLogoDesktop />
+					</div>
+					<div className="lg:hidden flex">
+						<MissionLogoMobile />
+					</div>
 				</div>
 				<div className=" ml-[49px] lg:w-[42%]">
 					<Typography
@@ -21,7 +28,7 @@ export default function MissionSection() {
 					<Typography
 						variant="h1"
 						color="blue-gray"
-						className="mb-[16px] text-[32px] text-[#0C1F14] font-[600] w-fit"
+						className="mb-[16px] lg:text-[32px] text-[28px] text-[#0C1F14] font-[600] w-fit"
 					>
 						Local Tech Innovation
 					</Typography>

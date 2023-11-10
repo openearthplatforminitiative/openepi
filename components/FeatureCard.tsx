@@ -2,7 +2,7 @@
 
 import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
 import { CustomButton } from "@/sanity/api";
-import { PromotedLogo } from "@/public/icons/PromotedLogo";
+import { PromotedLogo } from "@/components/icons/PromotedLogo";
 
 interface FeatureCardProps {
 	title: string;
@@ -18,7 +18,11 @@ export default function FeatureCard({
 	promoted,
 }: FeatureCardProps) {
 	return (
-		<Card style={{ background: promoted ? '#D1E8D5' : "#F2F4EF" }} shadow={false} className="mb-[24px]">
+		<Card
+			style={{ background: promoted ? "#D1E8D5" : "#F2F4EF" }}
+			shadow={false}
+			className="mb-[24px]"
+		>
 			<CardBody className="p-[40px]">
 				{promoted && (
 					<div className="absolute lg:left-[-40px] left-[-15px] top-[-40px]">
@@ -42,7 +46,7 @@ export default function FeatureCard({
 								<Button
 									size="sm"
 									style={{ backgroundColor: "#006D41" }}
-									className="rounded-full h-fit font-[500] capitalize text-white text-[14px] mt-[22px] lg:mt-[0]"
+									className="rounded-full h-fit font-[500] capitalize text-white text-[16px] mt-[22px] lg:mt-[0]"
 								>
 									{button?.text}
 								</Button>
