@@ -5,7 +5,6 @@ import React from "react";
 import { MissionLogoDesktop } from "@/components/icons/MissionLogoDesktop";
 import { MissionLogoMobile } from "@/components/icons/MissionLogoMobile";
 
-
 export default function MissionSection() {
 	return (
 		<section className="py-28 px-8 bg-[#D1E8D5]">

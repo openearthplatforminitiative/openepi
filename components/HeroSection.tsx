@@ -5,7 +5,6 @@ import { Typography } from "@material-tailwind/react";
 import { BackgroundDesktop } from "@/components/icons/BackgroundDesktop";
 import { BackgroundMobile } from "@/components/icons/BackgroundMobile";
 
-
 export function HeroSection() {
 	return (
 		<section className="flex flex-row pt-[128px] lg:pb-[182px] pb-[96px] px-8 bg-[#FBFDF8] justify-center">
