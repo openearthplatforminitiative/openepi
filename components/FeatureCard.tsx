@@ -21,7 +21,8 @@ export default function FeatureCard({
 		<Card
 			style={{ background: promoted ? "#D1E8D5" : "#F2F4EF" }}
 			shadow={false}
-			className="mb-[24px] break-inside-avoid-column">
+			className="mb-[24px] break-inside-avoid-column"
+		>
 			<CardBody className="p-[40px]">
 				{promoted && (
 					<div className="absolute lg:left-[-40px] left-[-15px] top-[-40px]">
