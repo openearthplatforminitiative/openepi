@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Featured } from "@/sanity/api";
 import FeatureCard from "./FeatureCard";
 
@@ -10,7 +9,7 @@ interface FeatureSectionProps {
 
 export default function FeatureSection({ featured }: FeatureSectionProps) {
 	return (
-		<section className="py-28 px-4 w-full bg-[#FBFDF8]">
+		<section className="py-28 px-4 w-full">
 			<div className="max-w-6xl mx-auto lg:columns-2 columns-1 gap-[24px]">
 				{featured
 					.sort((a) => (a.promoted ? -1 : 1))

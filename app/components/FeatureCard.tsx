@@ -1,12 +1,13 @@
 "use client";
 
-import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
 import { CustomButton } from "@/sanity/api";
-import { PromotedLogo } from "@/components/icons/PromotedLogo";
+import { Box, Button, Card, Typography } from "@mui/material";
+import { PromotedLogo } from "@/app/icons/PromotedLogo";
+import { ReactNode } from "react";
 
 interface FeatureCardProps {
 	title: string;
-	children: React.ReactNode;
+	children: ReactNode;
 	buttons: CustomButton[];
 	promoted: boolean;
 }
@@ -20,13 +21,12 @@ export default function FeatureCard({
 	return (
 		<Card
 			style={{ background: promoted ? "#D1E8D5" : "#F2F4EF" }}
-			shadow={false}
 			className="mb-[24px] break-inside-avoid-column"
 		>
-			<CardBody className="p-[40px]">
+			<Box className="relative p-[40px]">
 				{promoted && (
 					<div className="absolute lg:left-[-40px] left-[-15px] top-[-40px]">
-						<PromotedLogo />{" "}
+						<PromotedLogo />
 					</div>
 				)}
 				<Typography
@@ -44,7 +44,7 @@ export default function FeatureCard({
 						return (
 							<a key={button.url} href={button.url}>
 								<Button
-									size="sm"
+									size="small"
 									style={{ backgroundColor: "#006D41" }}
 									className="rounded-full h-fit font-[500] capitalize text-white text-[16px] mt-[22px] lg:mt-[0]"
 								>
@@ -54,7 +54,7 @@ export default function FeatureCard({
 						);
 					})}
 				</div>
-			</CardBody>
+			</Box>
 		</Card>
 	);
 }

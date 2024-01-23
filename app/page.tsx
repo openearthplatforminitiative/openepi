@@ -1,9 +1,8 @@
-import HeroSection from "@/components/HeroSection";
-import FeatureSection from "@/components/FeatureSection";
 import { fetchFeatured } from "@/sanity/api";
-import MissionSection from "@/components/MissionSection";
-
-export default async function HomePage() {
+import HeroSection from "@/app/components/HeroSection";
+import MissionSection from "@/app/components/MissionSection";
+import FeatureSection from "@/app/components/FeatureSection";
+const Home = async () => {
 	const featured = await fetchFeatured();
 	return (
 		<main>
@@ -12,4 +11,5 @@ export default async function HomePage() {
 			<FeatureSection featured={featured} />
 		</main>
 	);
-}
+};
+export default Home;
