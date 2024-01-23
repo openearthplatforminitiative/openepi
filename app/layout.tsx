@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { fetchPartners } from "@/sanity/api";
 import { Inter } from "next/font/google";
-import NavBarSection from "@/app/components/NavBarSection";
+import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
 import { ReactNode } from "react";
 
@@ -26,8 +26,8 @@ export default async function RootLayout({
 	const partners = await fetchPartners();
 	return (
 		<html lang="en" className={inter.className}>
-			<body>
-				<NavBarSection />
+			<body className={"bg-[#F2F4EF]"}>
+				<NavBar />
 				{children}
 				<Footer partners={partners} />
 			</body>

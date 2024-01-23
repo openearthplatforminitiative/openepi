@@ -6,7 +6,7 @@ import { BackgroundMobile } from "@/app/icons/BackgroundMobile";
 
 export function HeroSection() {
 	return (
-		<section className="flex flex-row pt-[128px] lg:pb-[182px] pb-[96px] px-8 bg-[#FBFDF8] justify-center">
+		<section className="flex flex-row pt-[128px] lg:pb-[182px] pb-[96px] px-8 justify-center">
 			<div className="flex lg:flex-row flex-col-reverse justify-center items-center ">
 				<div className="lg:w-[40%] pl-5">
 					<Typography
