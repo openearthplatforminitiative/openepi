@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, Typography } from "@material-tailwind/react";
 import { Partner } from "@/sanity/api";
-import { AiOutlineMail } from "react-icons/ai";
+import { Button, Typography } from "@mui/material";
+import Link from "next/link";
 
 const currentYear = new Date().getFullYear();
 
@@ -26,23 +26,19 @@ export default function Footer({ partners }: FooterProps) {
 						<ul className="flex flex-col items-left justify-center md:justify-start">
 							{partners.map((partner) => (
 								<li key={partner.url}>
-									<Typography
-										as="a"
-										href={partner.url}
-										color="white"
-										className="py-1 p-1 text-[22px] font-400 transition-colors underline w-fit hover:no-underline"
-									>
-										{partner.title}
-									</Typography>
+									<Link href={partner.url}>
+										<Typography
+											color="white"
+											className="py-1 p-1 text-[22px] font-400 transition-colors underline w-fit hover:no-underline"
+										>
+											{partner.title}
+										</Typography>
+									</Link>
 								</li>
 							))}
 						</ul>
 						<div className="flex lg:flex-row flex-col justify-between mt-[40px] gap-[40px] items-center ">
-							<Typography
-								variant="paragraph"
-								color="white"
-								className="text-[22px] font-400"
-							>
+							<Typography color="white" className="text-[22px] font-400">
 								Funded by the{" "}
 								<a
 									href="https://www.norad.no/en/front/"
@@ -51,16 +47,14 @@ export default function Footer({ partners }: FooterProps) {
 									Norwegian Agency For Development Cooperation
 								</a>
 							</Typography>
-							<a href="mailto:contact@openepi.io" className="self-baseline">
+							<Link href="mailto:contact@openepi.io" className="self-baseline">
 								<Button
-									size="sm"
-									color="white"
+									size="small"
 									className="rounded-full flex gap-2 items-center h-[40px] font-[500] text-[#006D41] lowercase text-[16px] mt-[22px] lg:mt-[0]"
 								>
-									<AiOutlineMail size={18} />
 									contact@openepi.io
 								</Button>
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>

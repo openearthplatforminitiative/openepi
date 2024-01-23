@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
-import { Typography } from "@material-tailwind/react";
-import { BackgroundDesktop } from "@/components/icons/BackgroundDesktop";
-import { BackgroundMobile } from "@/components/icons/BackgroundMobile";
+import { Typography } from "@mui/material";
+import { BackgroundDesktop } from "@/app/icons/BackgroundDesktop";
+import { BackgroundMobile } from "@/app/icons/BackgroundMobile";
 
 export function HeroSection() {
 	return (

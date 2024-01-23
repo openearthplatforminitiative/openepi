@@ -1,9 +1,8 @@
 "use client";
 
-import { Typography } from "@material-tailwind/react";
-import React from "react";
-import { MissionLogoDesktop } from "@/components/icons/MissionLogoDesktop";
-import { MissionLogoMobile } from "@/components/icons/MissionLogoMobile";
+import { Typography } from "@mui/material";
+import { MissionLogoDesktop } from "@/app/icons/MissionLogoDesktop";
+import { MissionLogoMobile } from "@/app/icons/MissionLogoMobile";
 
 export default function MissionSection() {
 	return (
@@ -31,10 +30,7 @@ export default function MissionSection() {
 					>
 						Local Tech Innovation
 					</Typography>
-					<Typography
-						variant="lead"
-						className="text-[#0C1F14] lg:w-[69%] text-[22px]"
-					>
+					<Typography className="text-[#0C1F14] lg:w-[69%] text-[22px]">
 						The OpenEPI project mission is to support local innovation that is
 						fuelled by a global platform of open data, technology and AI.
 					</Typography>

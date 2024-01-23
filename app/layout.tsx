@@ -1,9 +1,10 @@
-import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { fetchPartners } from "@/sanity/api";
-import NavBarSection from "@/components/NavBarSection";
 import { Inter } from "next/font/google";
+import NavBarSection from "@/app/components/NavBarSection";
+import Footer from "@/app/components/Footer";
+import { ReactNode } from "react";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
 	children,
 }: {
-	children: React.ReactNode;
+	children: ReactNode;
 }) {
 	const partners = await fetchPartners();
 	return (
