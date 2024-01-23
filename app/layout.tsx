@@ -26,7 +26,7 @@ export default async function RootLayout({
 	const partners = await fetchPartners();
 	return (
 		<html lang="en" className={inter.className}>
-			<body className={"bg-[#F2F4EF]"}>
+			<body className={"bg-[#FBFDF8]"}>
 				<NavBar />
 				{children}
 				<Footer partners={partners} />

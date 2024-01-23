@@ -15,7 +15,7 @@ const NavBar = () => {
 			? baseStyle + " bg-secondary-90"
 			: baseStyle + " hover:bg-[#1d1b2014]";
 	return (
-		<nav className=" flex flex-row items-center sm:p-12 p-6 justify-between">
+		<nav className="bg-[#F2F4EF] flex flex-row items-center sm:p-12 p-6 justify-between">
 			<Link href={"/"}>
 				<OpenEPILogo />
 			</Link>
