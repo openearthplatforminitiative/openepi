@@ -1,12 +1,8 @@
-"use client";
-
 import { Partner } from "@/sanity/api";
 import { Box, Divider, List, ListItem, Typography } from "@mui/material";
 import Link from "next/link";
 import { OpenEPILogoSmall } from "@/app/icons/OpenEPILogoSmall";
-import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
-
-const currentYear = new Date().getFullYear();
+import { ExternalLinkIconSmall } from "@/app/icons/ExternalLinkIconSmall";
 
 interface FooterProps {
 	partners: Partner[];
@@ -14,15 +10,17 @@ interface FooterProps {
 
 export default function Footer({ partners }: FooterProps) {
 	return (
-		<footer className={"bg-neutralVariant-90 w-full"}>
-			<Box className={"flex w-full flex-col "}>
-				<Box className={"flex flex-col items-baseline lg:mx-auto sm:mt-20"}>
-					<Box className={"mb-10"}>
+		<footer
+			className={"flex w-full flex-col items-center bg-neutralVariant-90"}
+		>
+			<Box className={"lg:max-w-7xl w-full"}>
+				<Box className={"flex  flex-col items-center p-6"}>
+					<Box className="flex flex-row gap-5 mb-6 mt-11 w-full">
 						<OpenEPILogoSmall />
 					</Box>
 					<Box
 						className={
-							"flex flex-wrap justify-between lg:text-base text-lg w-full"
+							"flex flex-wrap gap-x-[420px] lg:text-base text-lg w-full"
 						}
 					>
 						<Box>
@@ -59,7 +57,7 @@ export default function Footer({ partners }: FooterProps) {
 										}
 										href={"https://developer-test.openepi.io/"}
 									>
-										For developers <ExternalLinkIcon />
+										For developers <ExternalLinkIconSmall />
 									</a>
 								</ListItem>
 							</List>
@@ -81,7 +79,7 @@ export default function Footer({ partners }: FooterProps) {
 											<Typography className="py-1 p-1 text-base font-400 transition-colors underline w-fit hover:no-underline">
 												{partner.title}
 											</Typography>
-											<ExternalLinkIcon />
+											<ExternalLinkIconSmall />
 										</Link>
 									</ListItem>
 								))}
@@ -91,8 +89,8 @@ export default function Footer({ partners }: FooterProps) {
 					<Box className={"flex flex-col gap-6 pt-14 pb-20"}>
 						<Divider />
 						<Typography>
-							{currentYear} - Except where otherwise noted, content on this site
-							is licensed under a Creative Commons Attribution 4.0 International
+							2024 - Except where otherwise noted, content on this site is
+							licensed under a Creative Commons Attribution 4.0 International
 							license.
 						</Typography>
 					</Box>
