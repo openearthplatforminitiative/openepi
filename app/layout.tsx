@@ -28,7 +28,7 @@ export default async function RootLayout({
 		<html lang="en" className={inter.className}>
 			<body className={"bg-[#FBFDF8]"}>
 				<NavBar />
-				{children}
+				<main className="w-full flex justify-center">{children}</main>
 				<Footer partners={partners} />
 			</body>
 		</html>
