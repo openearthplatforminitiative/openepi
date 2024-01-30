@@ -20,13 +20,13 @@ const NavBar = () => {
 				<OpenEPILogo />
 			</Link>
 			<Box className="xl:flex xl:flex-row xl:text-2xl hidden">
-				<Link href="/about" className={linkClassName("/data-catalog/")}>
+				<Link href="/about" className={linkClassName("/about")}>
 					About OpenEPI
 				</Link>
-				<Link href="/get-involved" className={linkClassName("/resources/")}>
+				<Link href="/get-involved" className={linkClassName("/get-involved")}>
 					Get involved
 				</Link>
-				<Link href="/resources" className={linkClassName("/contact/")}>
+				<Link href="/resources" className={linkClassName("/resources")}>
 					Resources
 				</Link>
 				<Link
@@ -37,7 +37,7 @@ const NavBar = () => {
 						" flex flex-row items-center gap-1.5 hover:bg-[#1d1b2014]"
 					}
 				>
-					For developers <ExternalLinkIcon />
+					For developers <ExternalLinkIcon color={"black"} />
 				</Link>
 			</Box>
 		</nav>

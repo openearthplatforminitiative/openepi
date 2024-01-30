@@ -26,7 +26,9 @@ export default async function RootLayout({
 	const partners = await fetchPartners();
 	return (
 		<html lang="en" className={inter.className}>
-			<body className={"bg-[#FBFDF8]"}>
+			<body
+				className={"bg-[#FBFDF8] min-h-screen flex flex-col justify-between"}
+			>
 				<NavBar />
 				<main className="w-full flex justify-center">{children}</main>
 				<Footer partners={partners} />
