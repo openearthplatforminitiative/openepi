@@ -10,9 +10,7 @@ interface FooterProps {
 
 export default function Footer({ partners }: FooterProps) {
 	return (
-		<footer
-			className={"flex w-full flex-col items-center bg-neutralVariant-90"}
-		>
+		<footer className={"flex w-full flex-col items-center"}>
 			<Box className={"lg:max-w-7xl w-full"}>
 				<Box className={"flex  flex-col items-center p-6"}>
 					<Box className="flex flex-row gap-5 mb-6 mt-11 w-full">

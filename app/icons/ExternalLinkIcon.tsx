@@ -1,4 +1,8 @@
-export const ExternalLinkIcon = () => (
+interface IconColorProps {
+	color: string;
+}
+
+export const ExternalLinkIcon = ({ color }: IconColorProps) => (
 	<svg
 		width="14"
 		height="14"
@@ -8,7 +12,7 @@ export const ExternalLinkIcon = () => (
 	>
 		<path
 			d="M1.5 0.5V2.5H10.09L0.5 12.09L1.91 13.5L11.5 3.91V12.5H13.5V0.5H1.5Z"
-			fill="black"
+			fill={color}
 		/>
 	</svg>
 );
