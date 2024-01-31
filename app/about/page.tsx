@@ -1,9 +1,40 @@
 import { Box, Typography } from "@mui/material";
+import { AboutLogo } from "@/app/icons/AboutLogo";
+import { fetchPartners } from "@/sanity/api";
 
-const Home = () => {
+const Home = async () => {
+	const partners = await fetchPartners();
+
 	return (
-		<Box>
-			<Typography>This is the about page</Typography>
+		<Box className={"w-full"}>
+			<Box className={"flex justify-center bg-secondary-90"}>
+				<Box
+					className={
+						"flex flex-col-reverse px-8  md:flex-row items-baseline md:items-center lg:max-w-7xl  py-20 gap-16"
+					}
+				>
+					<Typography
+						variant={"h1"}
+						className={"leading-[48px] xs:leading-[64px] text-4xl xs:text-6xl"}
+					>
+						An initiative to drive local innovation globally
+					</Typography>
+					<Box>
+						<AboutLogo />
+					</Box>
+				</Box>
+			</Box>
+			<Box className={"flex w-full justify-center"}>
+				<Box
+					className={
+						"flex flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
+					}
+				>
+					<Box>About box</Box>
+					<Box>Objective box</Box>
+					<Box>Partners box</Box>
+				</Box>
+			</Box>
 		</Box>
 	);
 };
