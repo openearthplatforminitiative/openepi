@@ -17,7 +17,7 @@ const Home = () => {
 					>
 						Project documents and specifications
 					</Typography>
-					<Box className={"sm:w-80 sm:h-80 w-64 h64"}>
+					<Box>
 						<ResourcesLogo />
 					</Box>
 				</Box>

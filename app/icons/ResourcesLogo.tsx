@@ -1,8 +1,7 @@
 export const ResourcesLogo = () => (
 	<svg
+		className={"2xs:w-52 2xs:h-52 lg:w-80 lg:h-80 w-64 h64"}
 		xmlns="http://www.w3.org/2000/svg"
-		width="256"
-		height="256"
 		viewBox="0 0 256 256"
 		fill="none"
 	>

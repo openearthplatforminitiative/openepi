@@ -15,7 +15,7 @@ const ResourceCard = ({ href, text, externalLink }: ResourceCardProps) => {
 			href={href}
 			target={externalLink ? "_blank" : ""}
 			className={
-				"w-full flex flex-1 md:min-w-[400px] min-w-[270px] 2xs:max-w-[calc(100%-0.75rem)] xs:max-w-[calc(40%-0.75rem)]"
+				"flex flex-1 lg:min-w-[400px] md:min-w-[340px] 2xs:min-w-[270px] 2xs:max-w-[calc(100%-0.75rem)] xs:max-w-[calc(50%-0.75rem)] xl:max-w-[calc(40%-0.75rem)]"
 			}
 		>
 			<Card className={"group hover:bg-secondary-90 h-full w-full"}>
