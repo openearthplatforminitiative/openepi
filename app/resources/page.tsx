@@ -8,7 +8,7 @@ const Home = () => {
 			<Box className={"flex justify-center bg-secondary-90"}>
 				<Box
 					className={
-						"flex flex-col px-8 xs:mx-32 md:flex-row items-baseline md:items-center lg:max-w-7xl xl:mx-72 py-20 gap-16"
+						"flex flex-col-reverse px-8  md:flex-row items-baseline md:items-center lg:max-w-7xl  py-20 gap-16"
 					}
 				>
 					<Typography
@@ -23,7 +23,11 @@ const Home = () => {
 				</Box>
 			</Box>
 			<Box className={"flex w-full justify-center"}>
-				<Box className={"w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"}>
+				<Box
+					className={
+						"flex flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
+					}
+				>
 					<ResourceCard
 						externalLink={false}
 						text={"Our open policy"}
