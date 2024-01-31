@@ -2,6 +2,7 @@ import { Box, List, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
 import { fetchPartners } from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
+import Image from "next/image";
 
 const Home = async () => {
 	const partners = await fetchPartners();
@@ -80,6 +81,54 @@ const Home = async () => {
 					responsible for X and Y in the project.`}
 							href={"https://norad.no"}
 						/>
+					</Box>
+					<Box className={"flex flex-row gap-10 mt-40"}>
+						<Box>
+							<Image
+								src="/why-openepi.png"
+								width={360}
+								height={452}
+								alt={"Picture of farmers in a flood ridden area"}
+							/>
+						</Box>
+						<Box className={"flex flex-col gap-12 ml-32 justify-center"}>
+							<Typography variant={"h2"} className={"text-5xl"}>
+								Why OpenEPI
+							</Typography>
+							<Typography className={"text-xl max-w-[647px]"}>
+								There is a need for a robust and accessible digital
+								infrastructure for open data and algorithms on weather, water,
+								earth, and vegetation, across projects, sectors, and contexts –
+								providing a base for the necessary local technology innovation.
+								The Open Earth Platform (OpenEPI) is an initiative to prepare
+								for such an infrastructure.
+							</Typography>
+						</Box>
+					</Box>
+					<Box className={"flex flex-row gap-10 mt-32"}>
+						<Box className={"flex flex-col gap-12 mr-32 justify-end"}>
+							<Typography variant={"h2"} className={"text-5xl"}>
+								Pre-project and pilot phase{" "}
+							</Typography>
+							<Typography className={"text-xl max-w-[647px]"}>
+								In 2023-2024, OpenEPI will be run as a feasibility study, where
+								we will explore and develop the infrastructural concept and the
+								blueprint for the platform architecture, the conceptual set-up
+								for local innovation, and demonstrate actual solutions based on
+								open data and algorithms, addressing specific use cases in
+								sub-Saharan Africa. OpenEPI will be designed around open
+								principles for data and software, building on the work by
+								Norwegian Norad – regarding Digital Public Goods (DGP).
+							</Typography>
+						</Box>
+						<Box>
+							<Image
+								src="/pre-project.png"
+								width={360}
+								height={452}
+								alt={"Picture of farmers in a flood ridden area"}
+							/>
+						</Box>
 					</Box>
 				</Box>
 			</Box>
