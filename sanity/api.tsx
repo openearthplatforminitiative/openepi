@@ -28,6 +28,7 @@ export interface Partner {
 	title: string;
 	url: string;
 	description: string;
+	partnerLogo: string;
 }
 
 const config = {
@@ -37,7 +38,7 @@ const config = {
 	apiVersion: "2021-10-21",
 };
 
-const sanityClient = createClient(config);
+export const sanityClient = createClient(config);
 
 export async function fetchFeatured(): Promise<Featured[]> {
 	const query = `*[_type == "featured"]{_id, title, description, buttons, promoted}`;
@@ -55,6 +56,6 @@ export async function fetchPosts(): Promise<Post[]> {
 }
 
 export async function fetchPartners(): Promise<Partner[]> {
-	const query = `*[_type == "partner"] | order(_createdAt asc) {_id, title, url, description}`;
+	const query = `*[_type == "partner"] | order(_createdAt asc) {_id, title, url, description, partnerLogo}`;
 	return sanityClient.fetch(query);
 }

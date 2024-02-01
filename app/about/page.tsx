@@ -1,4 +1,4 @@
-import { Box, Button, List, Typography } from "@mui/material";
+import { Box, Button, Divider, List, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
 import { fetchPartners } from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
@@ -58,21 +58,30 @@ const Home = async () => {
 						</Box>
 					</Box>
 					<Box>
-						<Typography variant={"h2"} className={"text-5xl"}>
-							Partners
-						</Typography>
+						<Box className={"flex flex-col mb-20 gap-6"}>
+							<Typography variant={"h2"} className={"text-5xl"}>
+								Partners
+							</Typography>
+							<Typography className={"text-xl"}>
+								The project is possible through the cooperation of our partners.
+							</Typography>
+						</Box>
 						<List>
 							{partners.map((partner) => (
-								<PartnerCard
-									key={partner._id}
-									name={partner.title}
-									description={partner.description}
-									href={partner.url}
-								/>
+								<Box key={partner._id} className={"flex flex-col"}>
+									<PartnerCard
+										image={partner.partnerLogo}
+										name={partner.title}
+										description={partner.description}
+										href={partner.url}
+										sanityImg={true}
+									/>
+									<Divider className={"my-12"} />
+								</Box>
 							))}
 						</List>
 					</Box>
-					<Box className={"flex flex-col mt-28"}>
+					<Box className={"flex flex-col mt-16"}>
 						<Typography variant={"h2"} className={"text-3xl"}>
 							Funded by
 						</Typography>
@@ -82,22 +91,27 @@ const Home = async () => {
 					the world to achieve the UN's sustainability goals. They are
 					responsible for X and Y in the project.`}
 							href={"https://norad.no"}
+							sanityImg={false}
+							image={"/norad.png"}
 						/>
 					</Box>
-					<Box className={"flex flex-row gap-10 mt-40"}>
-						<Box>
-							<Image
-								src="/why-openepi.png"
-								width={360}
-								height={452}
-								alt={"Picture of farmers in a flood ridden area"}
-							/>
-						</Box>
-						<Box className={"flex flex-col gap-12 ml-32 justify-center"}>
+					<Box
+						className={
+							"flex flex-row flex-wrap-reverse gap-10 mt-40 justify-between"
+						}
+					>
+						<Image
+							src="/why-openepi.png"
+							width={360}
+							height={452}
+							alt={"Picture of farmers in a flood ridden area"}
+						/>
+
+						<Box className={"flex flex-col gap-12 justify-center flex-1"}>
 							<Typography variant={"h2"} className={"text-5xl"}>
 								Why OpenEPI
 							</Typography>
-							<Typography className={"text-xl max-w-[647px]"}>
+							<Typography className={"text-xl min-w-[380px] max-w-[647px]"}>
 								There is a need for a robust and accessible digital
 								infrastructure for open data and algorithms on weather, water,
 								earth, and vegetation, across projects, sectors, and contexts –
@@ -107,12 +121,14 @@ const Home = async () => {
 							</Typography>
 						</Box>
 					</Box>
-					<Box className={"flex flex-row gap-10 mt-32"}>
-						<Box className={"flex flex-col gap-12 mr-32 justify-end"}>
+					<Box
+						className={"flex flex-row flex-wrap gap-10 mt-32 justify-between"}
+					>
+						<Box className={"flex flex-col gap-12 justify-end flex-1"}>
 							<Typography variant={"h2"} className={"text-5xl"}>
-								Pre-project and pilot phase{" "}
+								Pre-project and pilot phase
 							</Typography>
-							<Typography className={"text-xl max-w-[647px]"}>
+							<Typography className={"text-xl min-w-[380px] max-w-[647px]"}>
 								In 2023-2024, OpenEPI will be run as a feasibility study, where
 								we will explore and develop the infrastructural concept and the
 								blueprint for the platform architecture, the conceptual set-up
@@ -123,20 +139,19 @@ const Home = async () => {
 								Norwegian Norad – regarding Digital Public Goods (DGP).
 							</Typography>
 						</Box>
-						<Box>
-							<Image
-								src="/pre-project.png"
-								width={360}
-								height={452}
-								alt={"Picture of farmers in a flood ridden area"}
-							/>
-						</Box>
+
+						<Image
+							src="/pre-project.png"
+							width={360}
+							height={452}
+							alt={"Picture of farmers in a flood ridden area"}
+						/>
 					</Box>
 					<Box className={"flex flex-col mt-28 gap-12 justify-end"}>
 						<Typography variant={"h2"} className={"text-5xl"}>
 							Latest updates
 						</Typography>
-						<Box className={"flex flex-row gap-12 justify-evenly"}>
+						<Box className={"flex flex-wrap gap-12 "}>
 							<ArticleCard
 								header={
 									"Revitalizing Local Solutions through Global Data and AI Innovation"
