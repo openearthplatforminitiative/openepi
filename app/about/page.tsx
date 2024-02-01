@@ -1,8 +1,10 @@
-import { Box, List, Typography } from "@mui/material";
+import { Box, Button, List, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
 import { fetchPartners } from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
 import Image from "next/image";
+import ArticleCard from "@/app/components/ArticleCard";
+import Link from "next/link";
 
 const Home = async () => {
 	const partners = await fetchPartners();
@@ -128,6 +130,47 @@ const Home = async () => {
 								height={452}
 								alt={"Picture of farmers in a flood ridden area"}
 							/>
+						</Box>
+					</Box>
+					<Box className={"flex flex-col mt-28 gap-12 justify-end"}>
+						<Typography variant={"h2"} className={"text-5xl"}>
+							Latest updates
+						</Typography>
+						<Box className={"flex flex-row gap-12 justify-evenly"}>
+							<ArticleCard
+								header={
+									"Revitalizing Local Solutions through Global Data and AI Innovation"
+								}
+								href={"/"}
+								imageUrl={"/article_1.png"}
+								alt={"Article 1 alt text"}
+							/>
+							<ArticleCard
+								header={
+									"Empowering Local Change with Unleashed Global Tech for Innovation"
+								}
+								href={"/"}
+								imageUrl={"/article_2.png"}
+								alt={"Article 2 alt text"}
+							/>
+							<ArticleCard
+								header={"Sample article"}
+								href={"/"}
+								imageUrl={"/article_2.png"}
+								alt={"Article 2 alt text"}
+							/>
+						</Box>
+						<Box className={"flex flex-row justify-end"}>
+							<Link href={"/"} className={"lg:w-fit w-full"}>
+								<Button
+									variant={"outlined"}
+									className={
+										"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg w-full h-10"
+									}
+								>
+									More articles
+								</Button>
+							</Link>
 						</Box>
 					</Box>
 				</Box>
