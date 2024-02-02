@@ -25,13 +25,15 @@ const PartnerCard = ({
 
 	return (
 		<Box className={"flex flex-row justify-between items-center"}>
-			<Box className={"flex justify-center items-center"}>
+			<Box className={"flex justify-center items-center w-[250px] h-fit"}>
 				<Image
-					src={sanityImg ? urlFor(image).toString() : image}
+					src={
+						sanityImg ? (image !== null ? urlFor(image).toString() : "") : image
+					}
 					alt={"partner logo"}
-					width={360}
-					height={360}
-					className={"w-full h-full"}
+					width={100}
+					height={100}
+					className={"h-full w-full max-w-[200px] max-h-[100px]"}
 				/>
 			</Box>
 

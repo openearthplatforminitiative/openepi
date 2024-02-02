@@ -82,7 +82,7 @@ const Home = async () => {
 						</List>
 					</Box>
 					<Box className={"flex flex-col mt-16"}>
-						<Typography variant={"h2"} className={"text-3xl"}>
+						<Typography variant={"h2"} className={"text-3xl mb-12"}>
 							Funded by
 						</Typography>
 						<PartnerCard
