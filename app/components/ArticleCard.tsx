@@ -17,7 +17,7 @@ const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 			target={"_blank"}
 			href={href}
 			className={
-				"flex flex-1 md:min-w-[350px] min-w-[250px] 2xs:max-w-[calc(100%-0.75rem)] xs:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33%-0.75rem)] "
+				"flex flex-1 md:min-w-[350px] 2xs:min-w-[250px] 2xs:max-w-[calc(100%-0.5rem)] xs:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33%-0.75rem)]"
 			}
 		>
 			<Card
@@ -28,7 +28,7 @@ const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 					alt={alt}
 					width={320}
 					height={320}
-					className={" w-full"}
+					className={"w-full"}
 				/>
 				<Box className={"flex flex-col p-6"}>
 					<Box className={"flex flex-row justify-between items-center"}>

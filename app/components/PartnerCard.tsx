@@ -24,8 +24,12 @@ const PartnerCard = ({
 	const urlFor = (source: string) => builder.image(source);
 
 	return (
-		<Box className={"flex flex-row justify-between items-center"}>
-			<Box className={"flex justify-center items-center w-[250px] h-fit"}>
+		<Box
+			className={
+				"flex flex-col gap-16 sm:gap-0 sm:flex-row justify-between items-center"
+			}
+		>
+			<Box className={"flex justify-center items-center min-w-[250px] h-fit"}>
 				<Image
 					src={
 						sanityImg ? (image !== null ? urlFor(image).toString() : "") : image
@@ -37,10 +41,8 @@ const PartnerCard = ({
 				/>
 			</Box>
 
-			<Box>
-				<Typography className={"max-w-[648px] text-base"}>
-					{description}
-				</Typography>
+			<Box className={"flex flex-col flex-1 w-fit min-w-[250px] max-w-[648px]"}>
+				<Typography className={" text-base"}>{description}</Typography>
 				<Link
 					href={href}
 					target={"_blank"}

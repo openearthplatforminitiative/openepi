@@ -1,7 +1,6 @@
 export const AboutLogo = () => (
 	<svg
-		width="360"
-		height="360"
+		className={"w-64 h-64 md:w-80 md:h-80"}
 		viewBox="0 0 360 360"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"

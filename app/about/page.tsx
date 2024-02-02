@@ -1,4 +1,4 @@
-import { Box, Button, Divider, List, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
 import { fetchPartners } from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
@@ -19,11 +19,11 @@ const Home = async () => {
 				>
 					<Typography
 						variant={"h1"}
-						className={"leading-[48px] xs:leading-[64px] text-4xl xs:text-6xl"}
+						className={"leading-[48px] xs:leading-[64px] text-5xl xs:text-6xl"}
 					>
 						An initiative to drive local innovation globally
 					</Typography>
-					<Box>
+					<Box className={"flex w-full justify-center"}>
 						<AboutLogo />
 					</Box>
 				</Box>
@@ -34,9 +34,13 @@ const Home = async () => {
 						"flex flex-col flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
 					}
 				>
-					<Box className={"flex flex-row mb-44"}>
-						<Box className={"flex flex-col gap-6 w-2/3 mr-28"}>
-							<Typography variant={"h2"} className={"text-5xl"}>
+					<Box className={"flex flex-row flex-wrap mb-44 w-fit"}>
+						<Box
+							className={
+								"flex flex-col gap-6 2xs:flex-1 mt-12 md:-2/3 xs:mr-28 2xs:min-w-[280px] w-fit"
+							}
+						>
+							<Typography variant={"h2"} className={"text-4xl xs:text-5xl"}>
 								About
 							</Typography>
 							<Typography className={"text-xl"}>
@@ -47,8 +51,12 @@ const Home = async () => {
 								and fisheries.
 							</Typography>
 						</Box>
-						<Box className={"flex flex-col gap-6 w-1/3"}>
-							<Typography variant={"h2"} className={"text-5xl"}>
+						<Box
+							className={
+								"flex flex-col gap-6 mt-12 2xs:flex-1  md:w-1/3 2xs:min-w-[250px] w-fit"
+							}
+						>
+							<Typography variant={"h2"} className={"text-4xl xs:text-5xl"}>
 								Objective
 							</Typography>
 							<Typography className={"text-xl"}>
@@ -59,30 +67,28 @@ const Home = async () => {
 					</Box>
 					<Box>
 						<Box className={"flex flex-col mb-20 gap-6"}>
-							<Typography variant={"h2"} className={"text-5xl"}>
+							<Typography variant={"h2"} className={"text-4xl xs:text-5xl"}>
 								Partners
 							</Typography>
 							<Typography className={"text-xl"}>
 								The project is possible through the cooperation of our partners.
 							</Typography>
 						</Box>
-						<List>
-							{partners.map((partner) => (
-								<Box key={partner._id} className={"flex flex-col"}>
-									<PartnerCard
-										image={partner.partnerLogo}
-										name={partner.title}
-										description={partner.description}
-										href={partner.url}
-										sanityImg={true}
-									/>
-									<Divider className={"my-12"} />
-								</Box>
-							))}
-						</List>
+						{partners.map((partner) => (
+							<Box key={partner._id} className={"flex flex-col"}>
+								<PartnerCard
+									image={partner.partnerLogo}
+									name={partner.title}
+									description={partner.description}
+									href={partner.url}
+									sanityImg={true}
+								/>
+								<Divider className={"my-12"} />
+							</Box>
+						))}
 					</Box>
 					<Box className={"flex flex-col mt-16"}>
-						<Typography variant={"h2"} className={"text-3xl mb-12"}>
+						<Typography variant={"h2"} className={"text-2xl xs:text-3xl mb-12"}>
 							Funded by
 						</Typography>
 						<PartnerCard
@@ -97,21 +103,27 @@ const Home = async () => {
 					</Box>
 					<Box
 						className={
-							"flex flex-row flex-wrap-reverse gap-10 mt-40 justify-between"
+							"flex flex-row flex-wrap-reverse md:gap-32 gap-10 mt-40 justify-between"
 						}
 					>
-						<Image
-							src="/why-openepi.png"
-							width={360}
-							height={452}
-							alt={"Picture of farmers in a flood ridden area"}
-						/>
+						<Box className={"min-w-250px w-[273px] h-[342px]"}>
+							<Image
+								src="/why-openepi.png"
+								width={273}
+								height={342}
+								alt={"Picture of farmers in a flood ridden area"}
+								className={"w-full h-full"}
+							/>
+						</Box>
 
 						<Box className={"flex flex-col gap-12 justify-center flex-1"}>
-							<Typography variant={"h2"} className={"text-5xl"}>
+							<Typography
+								variant={"h2"}
+								className={"text-4xl sm:text-5xl w-fit"}
+							>
 								Why OpenEPI
 							</Typography>
-							<Typography className={"text-xl min-w-[380px] max-w-[647px]"}>
+							<Typography className={"text-xl min-w-[250px] md:min-w-[380px] "}>
 								There is a need for a robust and accessible digital
 								infrastructure for open data and algorithms on weather, water,
 								earth, and vegetation, across projects, sectors, and contexts –
@@ -122,13 +134,15 @@ const Home = async () => {
 						</Box>
 					</Box>
 					<Box
-						className={"flex flex-row flex-wrap gap-10 mt-32 justify-between"}
+						className={
+							"flex flex-row flex-wrap md:gap-32 gap-10 mt-32 justify-between"
+						}
 					>
 						<Box className={"flex flex-col gap-12 justify-end flex-1"}>
-							<Typography variant={"h2"} className={"text-5xl"}>
+							<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
 								Pre-project and pilot phase
 							</Typography>
-							<Typography className={"text-xl min-w-[380px] max-w-[647px]"}>
+							<Typography className={"text-xl min-w-[250px] md:min-w-[380px] "}>
 								In 2023-2024, OpenEPI will be run as a feasibility study, where
 								we will explore and develop the infrastructural concept and the
 								blueprint for the platform architecture, the conceptual set-up
@@ -139,19 +153,21 @@ const Home = async () => {
 								Norwegian Norad – regarding Digital Public Goods (DGP).
 							</Typography>
 						</Box>
-
-						<Image
-							src="/pre-project.png"
-							width={360}
-							height={452}
-							alt={"Picture of farmers in a flood ridden area"}
-						/>
+						<Box className={"min-w-250px w-[273px] h-[342px]"}>
+							<Image
+								src="/pre-project.png"
+								width={273}
+								height={342}
+								alt={"Picture of farmers in a flood ridden area"}
+								className={"w-full h-full"}
+							/>
+						</Box>
 					</Box>
-					<Box className={"flex flex-col mt-28 gap-12 justify-end"}>
-						<Typography variant={"h2"} className={"text-5xl"}>
+					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
+						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
 							Latest updates
 						</Typography>
-						<Box className={"flex flex-wrap gap-12 "}>
+						<Box className={"flex flex-wrap gap-12"}>
 							<ArticleCard
 								header={
 									"Revitalizing Local Solutions through Global Data and AI Innovation"
@@ -175,12 +191,12 @@ const Home = async () => {
 								alt={"Article 2 alt text"}
 							/>
 						</Box>
-						<Box className={"flex flex-row justify-end"}>
+						<Box className={"flex flex-row justify-end w-fit"}>
 							<Link href={"/"} className={"lg:w-fit w-full"}>
 								<Button
 									variant={"outlined"}
 									className={
-										"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg w-full h-10"
+										"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg h-10"
 									}
 								>
 									More articles
