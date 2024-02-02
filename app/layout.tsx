@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
 import { ReactNode } from "react";
+import ThemeRegistry from "@/app/components/ThemeRegistry";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -26,13 +27,15 @@ export default async function RootLayout({
 	const partners = await fetchPartners();
 	return (
 		<html lang="en" className={inter.className}>
-			<body
-				className={"bg-[#FBFDF8] min-h-screen flex flex-col justify-between"}
-			>
-				<NavBar />
-				<main className="w-full flex justify-center">{children}</main>
-				<Footer partners={partners} />
-			</body>
+			<ThemeRegistry options={{ key: "mui" }}>
+				<body
+					className={"bg-[#FBFDF8] min-h-screen flex flex-col justify-between"}
+				>
+					<NavBar />
+					<main className="w-full flex justify-center">{children}</main>
+					<Footer partners={partners} />
+				</body>
+			</ThemeRegistry>
 		</html>
 	);
 }
