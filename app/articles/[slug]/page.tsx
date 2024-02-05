@@ -1,4 +1,9 @@
-import { fetchPostBySlug, fetchPosts, sanityClient } from "@/sanity/api";
+import {
+	Article,
+	fetchArticleBySlug,
+	fetchArticles,
+	sanityClient,
+} from "@/sanity/api";
 import PortableText from "react-portable-text";
 import { Box, Typography } from "@mui/material";
 import { BackIcon } from "@/app/icons/BackIcon";
@@ -6,13 +11,16 @@ import Link from "next/link";
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
+import ArticleCard from "@/app/components/ArticleCard";
 
 export default async function PostPage({
 	params,
 }: {
 	params: { slug: string };
 }) {
-	const { body } = await fetchPostBySlug(params.slug);
+	const article = await fetchArticleBySlug(params.slug);
+	const articles: Article[] = await fetchArticles();
+
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source: string) => builder.image(source);
 	return (
@@ -33,7 +41,7 @@ export default async function PostPage({
 			<PortableText
 				dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
 				projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-				content={body}
+				content={article.body}
 				serializers={{
 					h1: (props: any) => (
 						<h1 className="text-5xl xs:text-6xl mb-12" {...props} />
@@ -70,11 +78,33 @@ export default async function PostPage({
 					},
 				}}
 			/>
+			<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
+				<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
+					More articles
+				</Typography>
+				<Box className={"flex flex-wrap gap-12"}>
+					{articles
+						.filter((item) => item._id !== article._id)
+						.map((article) => (
+							<ArticleCard
+								key={article._id}
+								header={article.title}
+								href={"/articles/" + article.slug}
+								imageUrl={
+									article.mainImage !== null
+										? urlFor(article.mainImage).toString()
+										: "/article_1.png"
+								}
+								alt={"Link to content of article"}
+							/>
+						))}
+				</Box>
+			</Box>
 		</Box>
 	);
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-	const posts = await fetchPosts();
+	const posts = await fetchArticles();
 	return posts.map(({ slug }) => ({ slug }));
 }

@@ -1,45 +1,17 @@
-"use client";
-
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
-import {
-	fetchPartners,
-	fetchPosts,
-	Partner,
-	Post,
-	sanityClient,
-} from "@/sanity/api";
+import { fetchPartners, fetchArticles, sanityClient } from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import ArticleCard from "@/app/components/ArticleCard";
-import { usePathname } from "next/navigation";
 import imageUrlBuilder from "@sanity/image-url";
 
-const Home = () => {
-	const [partners, setPartners] = useState<Partner[]>([]);
-	const [posts, setPosts] = useState<Post[]>([]);
-	const currentPath = usePathname();
+const Home = async () => {
+	const partners = await fetchPartners();
+	const articles = await fetchArticles();
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source: string) => builder.image(source);
-
-	useEffect(() => {
-		fetchPosts()
-			.then((res) => {
-				setPosts(res);
-			})
-			.catch((error) => {
-				console.error("Failed to fetch articles:", error);
-			});
-		fetchPartners()
-			.then((res) => {
-				setPartners(res);
-			})
-			.catch((error) => {
-				console.error("Failed to fetch articles:", error);
-			});
-	}, []);
 
 	return (
 		<Box className={"w-full"}>
@@ -200,14 +172,14 @@ const Home = () => {
 							Latest updates
 						</Typography>
 						<Box className={"flex flex-wrap gap-12"}>
-							{posts.map((post) => (
+							{articles.map((article) => (
 								<ArticleCard
-									key={post._id}
-									header={post.title}
-									href={"/articles/" + post.slug}
+									key={article._id}
+									header={article.title}
+									href={"/articles/" + article.slug}
 									imageUrl={
-										post.mainImage !== null
-											? urlFor(post.mainImage).toString()
+										article.mainImage !== null
+											? urlFor(article.mainImage).toString()
 											: "/article_1.png"
 									}
 									alt={"Link to content of article"}

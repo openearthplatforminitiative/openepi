@@ -1,20 +1,20 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import { fetchPosts, Post, sanityClient } from "@/sanity/api";
+import { fetchArticles, Article, sanityClient } from "@/sanity/api";
 import ArticleCard from "@/app/components/ArticleCard";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 
 const Home = () => {
-	const [posts, setPosts] = useState<Post[]>([]);
+	const [posts, setPosts] = useState<Article[]>([]);
 	const currentPath = usePathname();
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source: string) => builder.image(source);
 
 	useEffect(() => {
-		fetchPosts()
+		fetchArticles()
 			.then((fetchedPosts) => {
 				console.log("Posts: ", fetchedPosts);
 				setPosts(fetchedPosts);

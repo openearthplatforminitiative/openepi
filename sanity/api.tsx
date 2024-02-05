@@ -13,7 +13,7 @@ export interface Featured {
 	promoted: boolean;
 }
 
-export interface Post {
+export interface Article {
 	_id: string;
 	_createAt: string;
 	title: string;
@@ -46,12 +46,12 @@ export async function fetchFeatured(): Promise<Featured[]> {
 	return sanityClient.fetch(query);
 }
 
-export async function fetchPostBySlug(slug: string): Promise<Post> {
+export async function fetchArticleBySlug(slug: string): Promise<Article> {
 	const query = `*[_type == "post" && slug.current == $slug][0]{_id, title, "slug": slug.current, mainImage, description, body}`;
 	return sanityClient.fetch(query, { slug });
 }
 
-export async function fetchPosts(): Promise<Post[]> {
+export async function fetchArticles(): Promise<Article[]> {
 	const query = `*[_type == "post" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body, publishedAt}`;
 	return sanityClient.fetch(query);
 }
