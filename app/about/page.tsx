@@ -192,7 +192,7 @@ const Home = async () => {
 							/>
 						</Box>
 						<Box className={"flex flex-row justify-end w-fit"}>
-							<Link href={"/"} className={"lg:w-fit w-full"}>
+							<Link href={"/articles"} className={"lg:w-fit w-full"}>
 								<Button
 									variant={"outlined"}
 									className={
