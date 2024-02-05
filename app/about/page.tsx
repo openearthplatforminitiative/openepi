@@ -169,6 +169,28 @@ const Home = async () => {
 					</Box>
 					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
 						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
+							Demonstrations and impact
+						</Typography>
+						<Box className={"flex flex-wrap gap-12"}>
+							<ArticleCard
+								key={"demo"}
+								header={"Article about demonstrator"}
+								href={"/articles/"}
+								imageUrl={"/demo.png"}
+								alt={"Link to content of article"}
+							/>
+							<ArticleCard
+								key={"impact"}
+								header={"Article about impact"}
+								href={"/articles/"}
+								imageUrl={"/impact.png"}
+								alt={"Link to content of article"}
+							/>
+						</Box>
+					</Box>
+
+					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
+						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
 							Latest updates
 						</Typography>
 						<Box className={"flex flex-wrap gap-12"}>
