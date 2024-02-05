@@ -36,7 +36,7 @@ const Home = () => {
 						Latest updates
 					</Typography>
 
-					<Box className={"flex flex-row flex-wrap gap-6 "}>
+					<Box className={"flex flex-row flex-wrap gap-6"}>
 						{posts.map((post) => (
 							<ArticleCard
 								key={post._id}
@@ -45,7 +45,7 @@ const Home = () => {
 								imageUrl={
 									post.mainImage !== null
 										? urlFor(post.mainImage).toString()
-										: ""
+										: "/article_1.png"
 								}
 								alt={"Link to content of article"}
 							/>

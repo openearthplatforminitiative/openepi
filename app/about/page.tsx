@@ -1,13 +1,45 @@
+"use client";
+
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
-import { fetchPartners } from "@/sanity/api";
+import {
+	fetchPartners,
+	fetchPosts,
+	Partner,
+	Post,
+	sanityClient,
+} from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
 import Image from "next/image";
-import ArticleCard from "@/app/components/ArticleCard";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import ArticleCard from "@/app/components/ArticleCard";
+import { usePathname } from "next/navigation";
+import imageUrlBuilder from "@sanity/image-url";
 
-const Home = async () => {
-	const partners = await fetchPartners();
+const Home = () => {
+	const [partners, setPartners] = useState<Partner[]>([]);
+	const [posts, setPosts] = useState<Post[]>([]);
+	const currentPath = usePathname();
+	const builder = imageUrlBuilder(sanityClient);
+	const urlFor = (source: string) => builder.image(source);
+
+	useEffect(() => {
+		fetchPosts()
+			.then((res) => {
+				setPosts(res);
+			})
+			.catch((error) => {
+				console.error("Failed to fetch articles:", error);
+			});
+		fetchPartners()
+			.then((res) => {
+				setPartners(res);
+			})
+			.catch((error) => {
+				console.error("Failed to fetch articles:", error);
+			});
+	}, []);
 
 	return (
 		<Box className={"w-full"}>
@@ -168,28 +200,19 @@ const Home = async () => {
 							Latest updates
 						</Typography>
 						<Box className={"flex flex-wrap gap-12"}>
-							<ArticleCard
-								header={
-									"Revitalizing Local Solutions through Global Data and AI Innovation"
-								}
-								href={"/"}
-								imageUrl={"/article_1.png"}
-								alt={"Article 1 alt text"}
-							/>
-							<ArticleCard
-								header={
-									"Empowering Local Change with Unleashed Global Tech for Innovation"
-								}
-								href={"/"}
-								imageUrl={"/article_2.png"}
-								alt={"Article 2 alt text"}
-							/>
-							<ArticleCard
-								header={"Sample article"}
-								href={"/"}
-								imageUrl={"/article_2.png"}
-								alt={"Article 2 alt text"}
-							/>
+							{posts.map((post) => (
+								<ArticleCard
+									key={post._id}
+									header={post.title}
+									href={"/articles/" + post.slug}
+									imageUrl={
+										post.mainImage !== null
+											? urlFor(post.mainImage).toString()
+											: "/article_1.png"
+									}
+									alt={"Link to content of article"}
+								/>
+							))}
 						</Box>
 						<Box className={"flex flex-row justify-end w-fit"}>
 							<Link href={"/articles"} className={"lg:w-fit w-full"}>

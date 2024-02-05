@@ -21,6 +21,7 @@ export interface Post {
 	slug: string;
 	mainImage: string;
 	description: string;
+	publishedAt: string;
 }
 
 export interface Partner {
@@ -51,7 +52,7 @@ export async function fetchPostBySlug(slug: string): Promise<Post> {
 }
 
 export async function fetchPosts(): Promise<Post[]> {
-	const query = `*[_type == "post" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body}`;
+	const query = `*[_type == "post" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body, publishedAt}`;
 	return sanityClient.fetch(query);
 }
 
