@@ -1,13 +1,20 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
-import { fetchPartners } from "@/sanity/api";
+import {
+	fetchPartners,
+	sanityClient,
+	fetchTwoNewestArticles,
+} from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
 import Image from "next/image";
-import ArticleCard from "@/app/components/ArticleCard";
 import Link from "next/link";
+import ArticleCard from "@/app/components/ArticleCard";
+import imageUrlBuilder from "@sanity/image-url";
 
 const Home = async () => {
 	const partners = await fetchPartners();
+	const articles = await fetchTwoNewestArticles();
+	const builder = imageUrlBuilder(sanityClient);
 
 	return (
 		<Box className={"w-full"}>
@@ -168,31 +175,22 @@ const Home = async () => {
 							Latest updates
 						</Typography>
 						<Box className={"flex flex-wrap gap-12"}>
-							<ArticleCard
-								header={
-									"Revitalizing Local Solutions through Global Data and AI Innovation"
-								}
-								href={"/"}
-								imageUrl={"/article_1.png"}
-								alt={"Article 1 alt text"}
-							/>
-							<ArticleCard
-								header={
-									"Empowering Local Change with Unleashed Global Tech for Innovation"
-								}
-								href={"/"}
-								imageUrl={"/article_2.png"}
-								alt={"Article 2 alt text"}
-							/>
-							<ArticleCard
-								header={"Sample article"}
-								href={"/"}
-								imageUrl={"/article_2.png"}
-								alt={"Article 2 alt text"}
-							/>
+							{articles.map((article) => (
+								<ArticleCard
+									key={article._id}
+									header={article.title}
+									href={"/articles/" + article.slug}
+									imageUrl={
+										article.mainImage !== null
+											? builder.image(article.mainImage).toString()
+											: "/article-placeholder.png"
+									}
+									alt={"Link to content of article"}
+								/>
+							))}
 						</Box>
 						<Box className={"flex flex-row justify-end w-fit"}>
-							<Link href={"/"} className={"lg:w-fit w-full"}>
+							<Link href={"/articles"} className={"lg:w-fit w-full"}>
 								<Button
 									variant={"outlined"}
 									className={

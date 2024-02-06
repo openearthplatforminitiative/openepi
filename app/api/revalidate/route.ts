@@ -26,11 +26,11 @@ export async function POST(req: NextRequest) {
 				staleRoutes.push("/");
 				break;
 			case "post":
-				// revalidatePath does not acccept literal paths yet e.g. "/posts/${body.slug}", see https://github.com/vercel/next.js/discussions/53154
+				// revalidatePath does not acccept literal paths yet e.g. "/articles/${body.slug}", see https://github.com/vercel/next.js/discussions/53154
 				staleRoutes.push("/posts/[slug]");
 				break;
 			case "partner":
-				staleRoutes.push("/", "/posts/[slug]");
+				staleRoutes.push("/", "/articles/[slug]");
 				break;
 			default:
 				break;

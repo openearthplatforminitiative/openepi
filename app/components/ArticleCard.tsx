@@ -14,7 +14,6 @@ interface ResourceCardProps {
 const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 	return (
 		<Link
-			target={"_blank"}
 			href={href}
 			className={
 				"flex flex-1 md:min-w-[350px] 2xs:min-w-[250px] 2xs:max-w-[calc(100%-0.5rem)] xs:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33%-0.75rem)]"

@@ -21,7 +21,6 @@ const PartnerCard = ({
 	sanityImg,
 }: PartnerCardProps) => {
 	const builder = imageUrlBuilder(sanityClient);
-	const urlFor = (source: string) => builder.image(source);
 
 	return (
 		<Box
@@ -32,7 +31,11 @@ const PartnerCard = ({
 			<Box className={"flex justify-center items-center min-w-[250px] h-fit"}>
 				<Image
 					src={
-						sanityImg ? (image !== null ? urlFor(image).toString() : "") : image
+						sanityImg
+							? image !== null
+								? builder.image(image).toString()
+								: ""
+							: image
 					}
 					alt={"partner logo"}
 					width={100}
