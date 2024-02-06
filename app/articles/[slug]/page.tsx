@@ -53,14 +53,28 @@ export default async function PostPage({
 						h3: (props: any) => (
 							<h3 className="text-3xl xs:text-4xl mb-6" {...props} />
 						),
+						h4: (props: any) => (
+							<h4 className="text-2xl xs:text-3xl mb-6" {...props} />
+						),
 						normal: (props: any) => (
 							<p className="text-base mb-10" {...props} />
 						),
 						li: ({ children }: any) => (
-							<li className="ml-4 list-disc">{children}</li>
+							<li className="ml-4 text-base list-disc">{children}</li>
+						),
+						ul: ({ children }: any) => (
+							<ul className={"ml-4 mb-6"}>{children}</ul>
+						),
+						blockquote: ({ children }: any) => (
+							<blockquote className={"ml-4 text-base italic"}>
+								{children}
+							</blockquote>
 						),
 						link: ({ href, children }: any) => (
-							<a href={href} className="text-blue underline hover:no-underline">
+							<a
+								href={href}
+								className="text-primary-main underline hover:no-underline"
+							>
 								{children}
 							</a>
 						),
