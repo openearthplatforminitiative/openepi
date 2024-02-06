@@ -104,27 +104,19 @@ export default async function PostPage({
 					More articles
 				</Typography>
 				<Box className={"flex flex-wrap gap-12"}>
-					{articles
-						.filter((item) => item._id !== article._id)
-						.sort(
-							(a, b) =>
-								new Date(b.publishedAt).getTime() -
-								new Date(a.publishedAt).getTime(),
-						)
-						.slice(0, 2)
-						.map((article) => (
-							<ArticleCard
-								key={article._id}
-								header={article.title}
-								href={"/articles/" + article.slug}
-								imageUrl={
-									article.mainImage !== null
-										? urlFor(article.mainImage).toString()
-										: "/article_1.png"
-								}
-								alt={"Link to content of article"}
-							/>
-						))}
+					{articles.map((article) => (
+						<ArticleCard
+							key={article._id}
+							header={article.title}
+							href={"/articles/" + article.slug}
+							imageUrl={
+								article.mainImage !== null
+									? urlFor(article.mainImage).toString()
+									: "/article_1.png"
+							}
+							alt={"Link to content of article"}
+						/>
+					))}
 				</Box>
 			</Box>
 		</Box>
@@ -132,6 +124,6 @@ export default async function PostPage({
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-	const posts = await fetchArticles();
-	return posts.map(({ slug }) => ({ slug }));
+	const data = await fetchArticles();
+	return data.articles.map(({ slug }) => ({ slug }));
 }

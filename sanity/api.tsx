@@ -24,6 +24,11 @@ export interface Article {
 	publishedAt: string;
 }
 
+export interface ArticleObject {
+	articles: Article[];
+	total: number;
+}
+
 export interface Partner {
 	_id: string;
 	title: string;
@@ -51,10 +56,16 @@ export async function fetchArticleBySlug(slug: string): Promise<Article> {
 	return sanityClient.fetch(query, { slug });
 }
 
-export async function fetchArticles(start = 0, limit = 5): Promise<Article[]> {
-	const query = `*[_type == "article" && defined(slug.current)]{
-    _id, title, "slug": slug.current, mainImage, description, body, publishedAt
- }[${start}..${start + limit}]`;
+export async function fetchArticles(
+	start = 0,
+	limit = 5,
+): Promise<ArticleObject> {
+	const query = `{
+    "articles": *[_type == "article" && defined(slug.current)] | order(dateTime(publishedAt) desc) {
+      _id, title, "slug": slug.current, mainImage, description, body, publishedAt
+    }[${start}..${start + limit}],
+    "total": count(*[_type == "article" && defined(slug.current)])
+  }`;
 	return sanityClient.fetch(query);
 }
 
