@@ -194,19 +194,25 @@ const Home = async () => {
 							Latest updates
 						</Typography>
 						<Box className={"flex flex-wrap gap-12"}>
-							{articles.map((article) => (
-								<ArticleCard
-									key={article._id}
-									header={article.title}
-									href={"/articles/" + article.slug}
-									imageUrl={
-										article.mainImage !== null
-											? urlFor(article.mainImage).toString()
-											: "/article_1.png"
-									}
-									alt={"Link to content of article"}
-								/>
-							))}
+							{articles
+								.sort(
+									(a, b) =>
+										new Date(b.publishedAt).getTime() -
+										new Date(a.publishedAt).getTime(),
+								)
+								.map((article) => (
+									<ArticleCard
+										key={article._id}
+										header={article.title}
+										href={"/articles/" + article.slug}
+										imageUrl={
+											article.mainImage !== null
+												? urlFor(article.mainImage).toString()
+												: "/article_1.png"
+										}
+										alt={"Link to content of article"}
+									/>
+								))}
 						</Box>
 						<Box className={"flex flex-row justify-end w-fit"}>
 							<Link href={"/articles"} className={"lg:w-fit w-full"}>

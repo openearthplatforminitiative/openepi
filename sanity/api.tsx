@@ -47,12 +47,12 @@ export async function fetchFeatured(): Promise<Featured[]> {
 }
 
 export async function fetchArticleBySlug(slug: string): Promise<Article> {
-	const query = `*[_type == "post" && slug.current == $slug][0]{_id, title, "slug": slug.current, mainImage, description, body}`;
+	const query = `*[_type == "article" && slug.current == $slug][0]{_id, title, "slug": slug.current, mainImage, description, body}`;
 	return sanityClient.fetch(query, { slug });
 }
 
 export async function fetchArticles(): Promise<Article[]> {
-	const query = `*[_type == "post" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body, publishedAt}`;
+	const query = `*[_type == "article" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body, publishedAt}`;
 	return sanityClient.fetch(query);
 }
 

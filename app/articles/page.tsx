@@ -37,19 +37,25 @@ const Home = () => {
 					</Typography>
 
 					<Box className={"flex flex-row flex-wrap gap-6"}>
-						{posts.map((post) => (
-							<ArticleCard
-								key={post._id}
-								header={post.title}
-								href={currentPath + "/" + post.slug}
-								imageUrl={
-									post.mainImage !== null
-										? urlFor(post.mainImage).toString()
-										: "/article_1.png"
-								}
-								alt={"Link to content of article"}
-							/>
-						))}
+						{posts
+							.sort(
+								(a, b) =>
+									new Date(b.publishedAt).getTime() -
+									new Date(a.publishedAt).getTime(),
+							)
+							.map((post) => (
+								<ArticleCard
+									key={post._id}
+									header={post.title}
+									href={currentPath + "/" + post.slug}
+									imageUrl={
+										post.mainImage !== null
+											? urlFor(post.mainImage).toString()
+											: "/article_1.png"
+									}
+									alt={"Link to content of article"}
+								/>
+							))}
 					</Box>
 				</Box>
 			</Box>

@@ -38,46 +38,52 @@ export default async function PostPage({
 				<BackIcon />
 				<Typography className={"text-base"}> Back to articles </Typography>
 			</Link>
-			<PortableText
-				dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-				projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-				content={article.body}
-				serializers={{
-					h1: (props: any) => (
-						<h1 className="text-5xl xs:text-6xl mb-12" {...props} />
-					),
-					h2: (props: any) => (
-						<h2 className="text-4xl xs:text-5xl mb-6" {...props} />
-					),
-					h3: (props: any) => (
-						<h3 className="text-3xl xs:text-4xl mb-6" {...props} />
-					),
-					normal: (props: any) => <p className="text-base mb-10" {...props} />,
-					li: ({ children }: any) => (
-						<li className="ml-4 list-disc">{children}</li>
-					),
-					link: ({ href, children }: any) => (
-						<a href={href} className="text-blue underline hover:no-underline">
-							{children}
-						</a>
-					),
-					image: (value: any, props: any) => {
-						const { width, height } = getImageDimensions(value);
+			{article.body !== null ? (
+				<PortableText
+					dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+					projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+					content={article.body}
+					serializers={{
+						h1: (props: any) => (
+							<h1 className="text-5xl xs:text-6xl mb-12" {...props} />
+						),
+						h2: (props: any) => (
+							<h2 className="text-4xl xs:text-5xl mb-6" {...props} />
+						),
+						h3: (props: any) => (
+							<h3 className="text-3xl xs:text-4xl mb-6" {...props} />
+						),
+						normal: (props: any) => (
+							<p className="text-base mb-10" {...props} />
+						),
+						li: ({ children }: any) => (
+							<li className="ml-4 list-disc">{children}</li>
+						),
+						link: ({ href, children }: any) => (
+							<a href={href} className="text-blue underline hover:no-underline">
+								{children}
+							</a>
+						),
+						image: (value: any, props: any) => {
+							const { width, height } = getImageDimensions(value);
 
-						return (
-							<Image
-								src={value !== null ? urlFor(value).toString() : ""}
-								alt={""}
-								loading={"lazy"}
-								height={height}
-								width={width}
-								className={"w-auto h-auto my-20"}
-								{...props}
-							/>
-						);
-					},
-				}}
-			/>
+							return (
+								<Image
+									src={value !== null ? urlFor(value).toString() : ""}
+									alt={""}
+									loading={"lazy"}
+									height={height}
+									width={width}
+									className={"w-auto h-auto my-20"}
+									{...props}
+								/>
+							);
+						},
+					}}
+				/>
+			) : (
+				<Typography>No content published yet</Typography>
+			)}
 			<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
 				<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
 					More articles
@@ -85,6 +91,11 @@ export default async function PostPage({
 				<Box className={"flex flex-wrap gap-12"}>
 					{articles
 						.filter((item) => item._id !== article._id)
+						.sort(
+							(a, b) =>
+								new Date(b.publishedAt).getTime() -
+								new Date(a.publishedAt).getTime(),
+						)
 						.map((article) => (
 							<ArticleCard
 								key={article._id}
