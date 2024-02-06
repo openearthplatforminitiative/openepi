@@ -2,6 +2,7 @@ import {
 	Article,
 	fetchArticleBySlug,
 	fetchArticles,
+	fetchTwoNewestArticlesBySlug,
 	sanityClient,
 } from "@/sanity/api";
 import PortableText from "react-portable-text";
@@ -19,7 +20,7 @@ export default async function PostPage({
 	params: { slug: string };
 }) {
 	const article = await fetchArticleBySlug(params.slug);
-	const articles: Article[] = await fetchArticles();
+	const articles: Article[] = await fetchTwoNewestArticlesBySlug(params.slug);
 
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source: string) => builder.image(source);
@@ -110,6 +111,7 @@ export default async function PostPage({
 								new Date(b.publishedAt).getTime() -
 								new Date(a.publishedAt).getTime(),
 						)
+						.slice(0, 2)
 						.map((article) => (
 							<ArticleCard
 								key={article._id}

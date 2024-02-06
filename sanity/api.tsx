@@ -51,9 +51,27 @@ export async function fetchArticleBySlug(slug: string): Promise<Article> {
 	return sanityClient.fetch(query, { slug });
 }
 
-export async function fetchArticles(): Promise<Article[]> {
-	const query = `*[_type == "article" && defined(slug.current)]{_id, title, "slug": slug.current, mainImage, description, body, publishedAt}`;
+export async function fetchArticles(start = 0, limit = 5): Promise<Article[]> {
+	const query = `*[_type == "article" && defined(slug.current)]{
+    _id, title, "slug": slug.current, mainImage, description, body, publishedAt
+ }[${start}..${start + limit}]`;
 	return sanityClient.fetch(query);
+}
+
+export async function fetchTwoNewestArticles(): Promise<Article[]> {
+	const query = `*[_type == "article" && defined(slug.current)] | order(dateTime(publishedAt) desc) [0...2]{
+    _id, title, "slug": slug.current, mainImage, description, body, publishedAt
+  }`;
+	return sanityClient.fetch(query);
+}
+
+export async function fetchTwoNewestArticlesBySlug(
+	slug: string,
+): Promise<Article[]> {
+	const query = `*[_type == "article" && defined(slug.current) && slug.current != $slug] | order(dateTime(publishedAt) desc) [0...2]{
+    _id, title, "slug": slug.current, mainImage, description, body, publishedAt
+  }`;
+	return sanityClient.fetch(query, { slug });
 }
 
 export async function fetchPartners(): Promise<Partner[]> {

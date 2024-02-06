@@ -1,6 +1,10 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
-import { fetchPartners, fetchArticles, sanityClient } from "@/sanity/api";
+import {
+	fetchPartners,
+	sanityClient,
+	fetchTwoNewestArticles,
+} from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +13,7 @@ import imageUrlBuilder from "@sanity/image-url";
 
 const Home = async () => {
 	const partners = await fetchPartners();
-	const articles = await fetchArticles();
+	const articles = await fetchTwoNewestArticles();
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source: string) => builder.image(source);
 
@@ -169,50 +173,22 @@ const Home = async () => {
 					</Box>
 					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
 						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
-							Demonstrations and impact
-						</Typography>
-						<Box className={"flex flex-wrap gap-12"}>
-							<ArticleCard
-								key={"demo"}
-								header={"Article about demonstrator"}
-								href={"/articles/"}
-								imageUrl={"/demo.png"}
-								alt={"Link to content of article"}
-							/>
-							<ArticleCard
-								key={"impact"}
-								header={"Article about impact"}
-								href={"/articles/"}
-								imageUrl={"/impact.png"}
-								alt={"Link to content of article"}
-							/>
-						</Box>
-					</Box>
-
-					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
-						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
 							Latest updates
 						</Typography>
 						<Box className={"flex flex-wrap gap-12"}>
-							{articles
-								.sort(
-									(a, b) =>
-										new Date(b.publishedAt).getTime() -
-										new Date(a.publishedAt).getTime(),
-								)
-								.map((article) => (
-									<ArticleCard
-										key={article._id}
-										header={article.title}
-										href={"/articles/" + article.slug}
-										imageUrl={
-											article.mainImage !== null
-												? urlFor(article.mainImage).toString()
-												: "/article_1.png"
-										}
-										alt={"Link to content of article"}
-									/>
-								))}
+							{articles.map((article) => (
+								<ArticleCard
+									key={article._id}
+									header={article.title}
+									href={"/articles/" + article.slug}
+									imageUrl={
+										article.mainImage !== null
+											? urlFor(article.mainImage).toString()
+											: "/article_1.png"
+									}
+									alt={"Link to content of article"}
+								/>
+							))}
 						</Box>
 						<Box className={"flex flex-row justify-end w-fit"}>
 							<Link href={"/articles"} className={"lg:w-fit w-full"}>

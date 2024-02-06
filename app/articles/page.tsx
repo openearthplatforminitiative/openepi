@@ -1,23 +1,39 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { fetchArticles, Article, sanityClient } from "@/sanity/api";
 import ArticleCard from "@/app/components/ArticleCard";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import imageUrlBuilder from "@sanity/image-url";
+import { PlusIcon } from "@/app/icons/PlusIcon";
 
 const Home = () => {
-	const [posts, setPosts] = useState<Article[]>([]);
+	const [articles, setArticles] = useState<Article[]>([]);
+	const [startIndex, setStartIndex] = useState<number>(0); // State to track the starting index
+
 	const currentPath = usePathname();
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source: string) => builder.image(source);
 
+	const loadMoreArticles = () => {
+		const newStartIndex = articles.length;
+		fetchArticles(newStartIndex, 2)
+			.then((fetchedArticles) => {
+				if (fetchedArticles.length > 0) {
+					setArticles([...articles, ...fetchedArticles]);
+					setStartIndex(newStartIndex);
+				}
+			})
+			.catch((error) => {
+				console.error("Failed to fetch articles:", error);
+			});
+	};
+
 	useEffect(() => {
-		fetchArticles()
+		fetchArticles(0, 5)
 			.then((fetchedPosts) => {
-				console.log("Posts: ", fetchedPosts);
-				setPosts(fetchedPosts);
+				setArticles(fetchedPosts);
 			})
 			.catch((error) => {
 				console.error("Failed to fetch articles:", error);
@@ -37,7 +53,7 @@ const Home = () => {
 					</Typography>
 
 					<Box className={"flex flex-row flex-wrap gap-6"}>
-						{posts
+						{articles
 							.sort(
 								(a, b) =>
 									new Date(b.publishedAt).getTime() -
@@ -57,6 +73,20 @@ const Home = () => {
 								/>
 							))}
 					</Box>
+					{articles.length > 5 && (
+						<Box className={"flex w-full justify-end mt-8"}>
+							<Button
+								variant={"outlined"}
+								className={
+									"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg h-10"
+								}
+								startIcon={<PlusIcon />}
+								onClick={loadMoreArticles}
+							>
+								More articles
+							</Button>
+						</Box>
+					)}
 				</Box>
 			</Box>
 		</Box>
