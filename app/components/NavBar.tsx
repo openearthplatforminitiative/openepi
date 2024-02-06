@@ -1,14 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { Box } from "@mui/material";
+import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
 import { OpenEPILogo } from "@/app/icons/OpenEPILogo";
+import { useState } from "react";
+import { BurgerMenu } from "@/app/icons/BurgerMenu";
 
 const NavBar = () => {
 	const baseStyle: string = "px-6 py-2 rounded-full";
 	const currentRoute = usePathname();
+	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const handleClose = () => {
+		setIsOpen(false);
+	};
+	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+		setAnchorEl(event.currentTarget);
+		setIsOpen(true);
+	};
 
 	const linkClassName = (path: string) =>
 		currentRoute.startsWith(path)
@@ -39,6 +50,51 @@ const NavBar = () => {
 				>
 					For developers <ExternalLinkIcon color={"black"} />
 				</Link>
+			</Box>
+			<Box className={"xl:hidden"}>
+				<IconButton
+					size="large"
+					edge="start"
+					color="inherit"
+					aria-label="menu"
+					onClick={handleClick}
+				>
+					<BurgerMenu width={36} height={24} />
+				</IconButton>
+				<Menu
+					open={isOpen}
+					onClose={handleClose}
+					disableScrollLock={true}
+					anchorEl={anchorEl}
+				>
+					<MenuItem onClick={handleClose}>
+						<Link href="/about" className={"p-2"}>
+							<Typography className={"text-lg"}>About</Typography>
+						</Link>
+					</MenuItem>
+					<MenuItem onClick={handleClose}>
+						<Link href="/get-involved" className={"p-2"}>
+							<Typography className={"text-lg"}>Get involved </Typography>
+						</Link>
+					</MenuItem>
+					<MenuItem onClick={handleClose}>
+						<Link href="/resources" className={"p-2"}>
+							<Typography className={"text-lg"}>Resources</Typography>
+						</Link>
+					</MenuItem>
+					<MenuItem onClick={handleClose}>
+						<Link
+							href={"https://developer-test.openepi.io/"}
+							target={"_blank"}
+							className={
+								"flex flex-row items-center gap-1.5 p-2 hover:bg-[#1d1b2014]"
+							}
+						>
+							<Typography className={"text-lg"}>For developers</Typography>{" "}
+							<ExternalLinkIcon color={"black"} />
+						</Link>
+					</MenuItem>
+				</Menu>
 			</Box>
 		</nav>
 	);
