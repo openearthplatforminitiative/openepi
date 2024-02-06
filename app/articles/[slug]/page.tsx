@@ -23,7 +23,6 @@ export default async function PostPage({
 	const articles: Article[] = await fetchTwoNewestArticlesBySlug(params.slug);
 
 	const builder = imageUrlBuilder(sanityClient);
-	const urlFor = (source: string) => builder.image(source);
 	return (
 		<Box
 			className={
@@ -84,8 +83,8 @@ export default async function PostPage({
 
 							return (
 								<Image
-									src={value !== null ? urlFor(value).toString() : ""}
-									alt={""}
+									src={value !== null ? builder.image(value).toString() : ""}
+									alt={"Article photo"}
 									loading={"lazy"}
 									height={height}
 									width={width}
@@ -111,8 +110,8 @@ export default async function PostPage({
 							href={"/articles/" + article.slug}
 							imageUrl={
 								article.mainImage !== null
-									? urlFor(article.mainImage).toString()
-									: "/article_1.png"
+									? builder.image(article.mainImage).toString()
+									: "/article-placeholder.png"
 							}
 							alt={"Link to content of article"}
 						/>

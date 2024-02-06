@@ -15,7 +15,6 @@ const Home = () => {
 
 	const currentPath = usePathname();
 	const builder = imageUrlBuilder(sanityClient);
-	const urlFor = (source: string) => builder.image(source);
 
 	const loadMoreArticles = () => {
 		const newStartIndex = articles.length;
@@ -62,8 +61,8 @@ const Home = () => {
 								href={currentPath + "/" + post.slug}
 								imageUrl={
 									post.mainImage !== null
-										? urlFor(post.mainImage).toString()
-										: "/article_1.png"
+										? builder.image(post.mainImage).toString()
+										: "/article-placeholder.png"
 								}
 								alt={"Link to content of article"}
 							/>

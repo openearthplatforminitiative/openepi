@@ -15,7 +15,6 @@ const Home = async () => {
 	const partners = await fetchPartners();
 	const articles = await fetchTwoNewestArticles();
 	const builder = imageUrlBuilder(sanityClient);
-	const urlFor = (source: string) => builder.image(source);
 
 	return (
 		<Box className={"w-full"}>
@@ -183,8 +182,8 @@ const Home = async () => {
 									href={"/articles/" + article.slug}
 									imageUrl={
 										article.mainImage !== null
-											? urlFor(article.mainImage).toString()
-											: "/article_1.png"
+											? builder.image(article.mainImage).toString()
+											: "/article-placeholder.png"
 									}
 									alt={"Link to content of article"}
 								/>
