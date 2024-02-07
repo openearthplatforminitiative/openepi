@@ -6,6 +6,7 @@ import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
 import { ReactNode } from "react";
 import ThemeRegistry from "@/app/components/ThemeRegistry";
+import HelpButton from "@/app/components/HelpButton";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -33,6 +34,7 @@ export default async function RootLayout({
 				>
 					<NavBar />
 					<main className="w-full flex justify-center">{children}</main>
+					<HelpButton />
 					<Footer partners={partners} />
 				</body>
 			</ThemeRegistry>
