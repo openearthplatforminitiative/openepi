@@ -1,11 +1,6 @@
-interface MenuProps {
-	width: number;
-	height: number;
-}
-export const BurgerMenu = ({ width, height }: MenuProps) => (
+export const BurgerMenu = () => (
 	<svg
-		width={width}
-		height={height}
+		className={"h-5 w-8 xs:w-9 xs:h-6"}
 		viewBox="0 0 18 12"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"

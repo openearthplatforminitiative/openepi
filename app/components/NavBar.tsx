@@ -59,7 +59,7 @@ const NavBar = () => {
 					aria-label="menu"
 					onClick={handleClick}
 				>
-					<BurgerMenu width={36} height={24} />
+					<BurgerMenu />
 				</IconButton>
 				<Menu
 					open={isOpen}
