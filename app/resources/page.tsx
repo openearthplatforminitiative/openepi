@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { ResourcesLogo } from "@/app/icons/ResourcesLogo";
 import ResourceCard from "@/app/components/ResourceCard";
+import { fetchDocuments } from "@/sanity/api";
 
-const Home = () => {
+const Home = async () => {
+	const documents = await fetchDocuments();
 	return (
 		<Box className={"w-full"}>
 			<Box className={"flex justify-center bg-secondary-90"}>
@@ -28,16 +30,14 @@ const Home = () => {
 						"flex flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
 					}
 				>
-					<ResourceCard
-						externalLink={false}
-						text={"Our open policy"}
-						href={"/resources/open-policy"}
-					/>
-					<ResourceCard
-						externalLink={false}
-						text={"Our metadata specification"}
-						href={"/resources/metadata"}
-					/>
+					{documents.map((document) => (
+						<ResourceCard
+							key={document._id}
+							externalLink={false}
+							text={document.title}
+							href={`/resources/${document.slug}`}
+						/>
+					))}
 					<ResourceCard
 						externalLink={true}
 						text={"OpenAPI specification"}
