@@ -33,9 +33,9 @@ const HelpButton = () => {
 				aria-label="add"
 				onClick={handleClick}
 			>
-				<Box className={"flex flex-row gap-3 p-4"}>
+				<Box className={"flex flex-row gap-3 p-4 items-center"}>
 					<MessageIcon />
-					<Typography className={"text-primary-main text-sm normal-case"}>
+					<Typography className={"text-primary-main text-sm normal-case h-fit"}>
 						Need help?
 					</Typography>
 				</Box>
