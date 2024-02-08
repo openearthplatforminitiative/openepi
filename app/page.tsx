@@ -13,25 +13,25 @@ const Home = async () => {
 	return (
 		<Box className={"w-full"}>
 			<Box className={"flex flex-row w-screen justify-center"}>
-				<Box className={"lg:max-w-7xl my-56 relative"}>
-					<Typography className={"text-3xl xs:text-4xl text-600"}>
+				<Box className={"flex flex-col w-1/2 lg:max-w-7xl my-56 pr-56"}>
+					<Typography className={"text-3xl xs:text-4xl font-semibold"}>
 						Open Earth Platform Initiative
 					</Typography>
 					<Typography variant={"h1"} className={"text-5xl xs:text-6xl"}>
 						An open, global digital innovation platform for climate and nature.
 					</Typography>
 				</Box>
-				<Box className={"w-fit h-screen absolute right-0 top-0 z-0"}>
+				<Box className={"absolute w-max h-max right-0 top-0 z-0"}>
 					<Image
 						src="/welcome.jpeg"
 						width={660}
 						height={794}
-						alt={"Picture of farmers in a flood ridden area"}
-						className={"w-fit h-fit"}
+						alt={"Picture of rainforest"}
+						className={"w-max h-max"}
 					/>
 				</Box>
 			</Box>
-			<Box className={"flex justify-center bg-secondary-90"}>
+			<Box className={"flex justify-center bg-secondary-90 z-10"}>
 				<Box
 					className={
 						"flex flex-col-reverse px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-16"
