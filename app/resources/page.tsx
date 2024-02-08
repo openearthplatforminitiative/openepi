@@ -30,14 +30,22 @@ const Home = async () => {
 						"flex flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
 					}
 				>
-					{documents.map((document) => (
-						<ResourceCard
-							key={document._id}
-							externalLink={false}
-							text={document.title}
-							href={`/resources/${document.slug}`}
-						/>
-					))}
+					{documents.map(
+						(document) =>
+							document.slug !== "metadata-specification" && (
+								<ResourceCard
+									key={document._id}
+									externalLink={false}
+									text={document.title}
+									href={`/resources/${document.slug}`}
+								/>
+							),
+					)}
+					<ResourceCard
+						externalLink={false}
+						text={"Our metadata specification"}
+						href={`/resources/metadata`}
+					/>
 					<ResourceCard
 						externalLink={true}
 						text={"OpenAPI specification"}

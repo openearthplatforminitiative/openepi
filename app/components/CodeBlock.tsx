@@ -6,7 +6,7 @@ import { CopyIcon } from "@/app/icons/CopyIcon";
 import { IconButton, Tooltip } from "@mui/material";
 import { CheckIcon } from "@/app/icons/CheckIcon";
 import Box from "@mui/material/Box";
-import { myCustomStyle } from "@/app/custom-code-style";
+import { myCustomStyle } from "@/app/theme/custom-code-style";
 import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
 import python from "react-syntax-highlighter/dist/cjs/languages/hljs/python";
 
