@@ -30,22 +30,15 @@ export const AboutLogo = () => (
 			strokeWidth="4"
 		/>
 
-		<circle
-			id="Ellipse  2"
-			cx="180" // Center of the SVG
-			cy="140" // Center of the SVG
-			r="100.9062"
-			stroke="#006D41"
-			strokeWidth="4"
-		/>
+		<circle cx="180" cy="140" r="100.9062" stroke="#006D41" strokeWidth="4" />
 
 		<circle
-			cx="180" // Center of the SVG
-			cy="140" // Center of the SVG
+			cx="180"
+			cy="140"
 			r="120.9062"
 			stroke="#006D41"
 			strokeWidth="4"
-			strokeDasharray="88 32 128 32"
+			strokeDasharray="66 32 128 32"
 		/>
 	</svg>
 );

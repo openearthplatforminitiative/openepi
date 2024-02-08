@@ -12,8 +12,10 @@ const Home = async () => {
 
 	return (
 		<Box className={"w-full"}>
-			<Box className={"flex flex-row w-screen justify-center"}>
-				<Box className={"flex flex-col w-1/2 lg:max-w-7xl my-56 pr-56"}>
+			<Box className={"flex flex-row w-screen"}>
+				<Box
+					className={"flex flex-col lg:mx-auto pr-64 lg:max-w-7xl my-56 gap-6"}
+				>
 					<Typography className={"text-3xl xs:text-4xl font-semibold"}>
 						Open Earth Platform Initiative
 					</Typography>
@@ -21,13 +23,17 @@ const Home = async () => {
 						An open, global digital innovation platform for climate and nature.
 					</Typography>
 				</Box>
-				<Box className={"absolute w-max h-max right-0 top-0 z-0"}>
+				<Box
+					className={
+						"absolute w-fit overflow-hidden md:h-[776px] right-0 top-0 z-0"
+					}
+				>
 					<Image
 						src="/welcome.jpeg"
 						width={660}
 						height={794}
 						alt={"Picture of rainforest"}
-						className={"w-max h-max"}
+						className={"h-full object-cover"}
 					/>
 				</Box>
 			</Box>
