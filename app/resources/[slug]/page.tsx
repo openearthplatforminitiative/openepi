@@ -20,8 +20,6 @@ export default async function DocumentPage({
 	const document = await fetchDocumentBySlug(params.slug);
 	const builder = imageUrlBuilder(sanityClient);
 
-	console.log("Document: ", document);
-
 	return (
 		<Box
 			className={
@@ -105,7 +103,7 @@ export default async function DocumentPage({
 			{document.code_examples &&
 				document.code_examples.map((codeBlock, index) => (
 					<Box key={index}>
-						<Typography>Example {index}</Typography>
+						<Typography>{codeBlock.language.toUpperCase()}</Typography>
 						<CodeBlock
 							codeString={codeBlock.code}
 							language={codeBlock.language}
