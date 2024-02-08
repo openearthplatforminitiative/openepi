@@ -1,20 +1,14 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { AboutLogo } from "@/app/icons/AboutLogo";
-import {
-	fetchPartners,
-	sanityClient,
-	fetchTwoNewestArticles,
-} from "@/sanity/api";
+import { fetchPartners, fetchTwoNewestArticles } from "@/sanity/api";
 import PartnerCard from "@/app/components/PartnerCard";
 import Image from "next/image";
-import Link from "next/link";
-import ArticleCard from "@/app/components/ArticleCard";
-import imageUrlBuilder from "@sanity/image-url";
+
+import LatestUpdates from "@/app/components/LatestUpdates";
 
 const Home = async () => {
 	const partners = await fetchPartners();
 	const articles = await fetchTwoNewestArticles();
-	const builder = imageUrlBuilder(sanityClient);
 
 	return (
 		<Box className={"w-full"}>
@@ -170,38 +164,7 @@ const Home = async () => {
 							/>
 						</Box>
 					</Box>
-					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
-						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
-							Latest updates
-						</Typography>
-						<Box className={"flex flex-wrap gap-12"}>
-							{articles.map((article) => (
-								<ArticleCard
-									key={article._id}
-									header={article.title}
-									href={"/articles/" + article.slug}
-									imageUrl={
-										article.mainImage !== null
-											? builder.image(article.mainImage).toString()
-											: "/article-placeholder.png"
-									}
-									alt={"Link to content of article"}
-								/>
-							))}
-						</Box>
-						<Box className={"flex flex-row justify-end w-fit"}>
-							<Link href={"/articles"} className={"lg:w-fit w-full"}>
-								<Button
-									variant={"outlined"}
-									className={
-										"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg h-10"
-									}
-								>
-									More articles
-								</Button>
-							</Link>
-						</Box>
-					</Box>
+					<LatestUpdates articles={articles} />
 				</Box>
 			</Box>
 		</Box>
