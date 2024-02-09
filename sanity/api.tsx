@@ -104,11 +104,11 @@ export async function fetchPartners(): Promise<Partner[]> {
 }
 
 export async function fetchDocumentBySlug(slug: string): Promise<Document> {
-	const query = `*[_type == "documents" && defined(slug.current) && slug.current == $slug][0] {_id, title, "slug": slug.current, body, code_examples}`;
+	const query = `*[_type == "documents" && slug.current == $slug][0]{..., body[]{..., markDefs[]{..., _type == "internalLink" => {"slug": @.reference->slug}}}}`;
 	return sanityClient.fetch(query, { slug });
 }
 
 export async function fetchDocuments(): Promise<Document[]> {
-	const query = `*[_type == "documents"] {_id, title, "slug": slug.current, body, code_examples}`;
+	const query = '*[_type == "documents"] {_id, title, "slug": slug.current, body, code_examples}';
 	return sanityClient.fetch(query);
 }
