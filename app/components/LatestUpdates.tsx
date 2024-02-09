@@ -35,7 +35,7 @@ const LatestUpdates = ({ articles }: LatestUpdatesProps) => {
 					<Button
 						variant={"outlined"}
 						className={
-							"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg h-10"
+							"text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-base h-10"
 						}
 					>
 						More articles
