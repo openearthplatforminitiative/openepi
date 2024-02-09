@@ -6,15 +6,17 @@ import LatestUpdates from "@/app/components/LatestUpdates";
 import { fetchTwoNewestArticles } from "@/sanity/api";
 import { GetInvolvedLogo } from "@/app/icons/GetInvolvedLogo";
 import Link from "next/link";
+import Image from "next/image";
+
 const Home = async () => {
 	const articles = await fetchTwoNewestArticles();
 
 	return (
 		<Box className={"w-full"}>
-			<Box className={"flex flex-row relative w-screen"}>
+			<Box className={"flex flex-col xs:flex-row w-screen"}>
 				<Box
 					className={
-						"flex flex-col lg:mx-auto lg:pr-64 lg:max-w-7xl my-16 lg:my-56 gap-6 p-6"
+						"flex flex-col sm:ml-16 xl:ml-64 lg:max-w-7xl my-16 lg:my-56 gap-6 p-6 relative z-10 justify-center"
 					}
 				>
 					<Typography className={"text-3xl xs:text-4xl font-semibold"}>
@@ -24,18 +26,18 @@ const Home = async () => {
 						An open, global digital innovation platform for climate and nature.
 					</Typography>
 				</Box>
-				{/*<Box className={"flex absolute h-max right-0 top-0 z-0"}>
-					<Image
-						src="/welcome.jpeg"
-						quality={100}
-						width={660}
-						height={794}
-						alt={"Picture of rainforest"}
-						className={"flex-1 h-max w-full object-cover"}
-					/>
-				</Box>*/}
+				<Image
+					src="/welcome.jpeg"
+					width={1160}
+					height={1298}
+					className={
+						"object-cover relative xs:-mb-[144px] xs:w-2/5 w-full xs:-top-[144px]"
+					}
+					quality={100}
+					alt={"Picture of rainforest"}
+				/>
 			</Box>
-			<Box className={"flex justify-center bg-secondary-90 z-10"}>
+			<Box className={"flex justify-center bg-secondary-90"}>
 				<Box
 					className={
 						"flex flex-col xs:flex-row px-8 items-baseline xs:items-center lg:max-w-7xl py-20 gap-6 lg:gap-16"
