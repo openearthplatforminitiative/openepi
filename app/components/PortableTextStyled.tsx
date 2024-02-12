@@ -36,7 +36,7 @@ export default function PortableTextStyled({ content }: { content: any }) {
 				table: ({ rows }: { rows: Row[] }) => {
 					return (
 						<>
-							<table className={"w-full"}>
+							<table className={"w-full my-4"}>
 								<tbody>
 									{rows.map((row) => {
 										return (
