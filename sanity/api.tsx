@@ -29,6 +29,19 @@ export interface ArticleObject {
 	total: number;
 }
 
+interface CodeBlock {
+	code: string;
+	language: string;
+}
+
+export interface Document {
+	_id: string;
+	title: string;
+	slug: string;
+	body: object[];
+	code_examples: CodeBlock[];
+}
+
 export interface Partner {
 	_id: string;
 	title: string;
@@ -87,5 +100,15 @@ export async function fetchTwoNewestArticlesBySlug(
 
 export async function fetchPartners(): Promise<Partner[]> {
 	const query = `*[_type == "partner"] | order(_createdAt asc) {_id, title, url, description, partnerLogo}`;
+	return sanityClient.fetch(query);
+}
+
+export async function fetchDocumentBySlug(slug: string): Promise<Document> {
+	const query = `*[_type == "documents" && slug.current == $slug][0]{..., body[]{..., markDefs[]{..., _type == "internalLink" => {"slug": @.reference->slug, "type": @.reference->_type}}}}`;
+	return sanityClient.fetch(query, { slug });
+}
+
+export async function fetchDocuments(): Promise<Document[]> {
+	const query = '*[_type == "documents"] {_id, title, "slug": slug.current, body, code_examples}';
 	return sanityClient.fetch(query);
 }
