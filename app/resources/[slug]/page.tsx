@@ -7,6 +7,7 @@ import { Box, Typography } from "@mui/material";
 import { BackIcon } from "@/app/icons/BackIcon";
 import Link from "next/link";
 import CodeBlock from "@/app/components/CodeBlock";
+import { notFound } from "next/navigation";
 
 export default async function DocumentPage({
 	params,
@@ -14,6 +15,9 @@ export default async function DocumentPage({
 	params: { slug: string };
 }) {
 	const document = await fetchDocumentBySlug(params.slug);
+	if (!document) {
+		return notFound();
+	}
 	return (
 		<Box
 			className={
@@ -30,10 +34,7 @@ export default async function DocumentPage({
 				<Typography className={"text-base"}> Back to resources </Typography>
 			</Link>
 			{document.body !== null && document.body !== undefined ? (
-				<PortableTextStyled
-					content={document.body}
-					internalLinkPrefix={"/resources"}
-				/>
+				<PortableTextStyled content={document.body} />
 			) : (
 				<Typography>No content published yet</Typography>
 			)}

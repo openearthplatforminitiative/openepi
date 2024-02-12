@@ -104,7 +104,7 @@ export async function fetchPartners(): Promise<Partner[]> {
 }
 
 export async function fetchDocumentBySlug(slug: string): Promise<Document> {
-	const query = `*[_type == "documents" && slug.current == $slug][0]{..., body[]{..., markDefs[]{..., _type == "internalLink" => {"slug": @.reference->slug}}}}`;
+	const query = `*[_type == "documents" && slug.current == $slug][0]{..., body[]{..., markDefs[]{..., _type == "internalLink" => {"slug": @.reference->slug, "type": @.reference->_type}}}}`;
 	return sanityClient.fetch(query, { slug });
 }
 

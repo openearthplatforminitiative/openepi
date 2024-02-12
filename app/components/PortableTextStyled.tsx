@@ -4,14 +4,9 @@ import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import { sanityClient } from "@/sanity/api";
 import PortableText from "react-portable-text";
-import React from "react";
+import { ReactElement } from "react";
 
-type Props = {
-	content: any,
-	internalLinkPrefix?: string
-}
-
-export default function PortableTextStyled({ content, internalLinkPrefix = "" }: Props) {
+export default function PortableTextStyled({ content }: { content: any }) {
 	const builder = imageUrlBuilder(sanityClient);
 	return (
 		<PortableText
@@ -68,11 +63,15 @@ export default function PortableTextStyled({ content, internalLinkPrefix = "" }:
 						/>
 					);
 				},
-				internalLink: ({slug, children}: { slug: any, children: React.ReactElement }) => {
-					const href = `${internalLinkPrefix}/${slug.current}`
-					return <a className={"text-primary-main underline hover:no-underline"} href={href}>{children}</a>
+				internalLink: ({ slug, type, children }: { slug: any, type: string, children: ReactElement }) => {
+					let prefix = "/"
+					if (type === "documents") {
+						prefix = "/resources";
+					}
+					const href = `${prefix}/${slug.current}`;
+					return <a className={"text-primary-main underline hover:no-underline"} href={href}>{children}</a>;
 				},
-				externalLink: ({ href, openInNewTab, children}: { href: string, openInNewTab: boolean, children: React.ReactElement }) => {
+				externalLink: ({ href, openInNewTab, children }: { href: string, openInNewTab: boolean, children: ReactElement }) => {
 					return openInNewTab
 						? (
 							<a
