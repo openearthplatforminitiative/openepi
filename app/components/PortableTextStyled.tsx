@@ -114,7 +114,15 @@ export default function PortableTextStyled({ content }: { content: any }) {
 								{children}
 							</a>
 						)
-				}
+				},
+				emailLink: ({ href, children }: { href: string, children: ReactElement }) => (
+					<a
+						className={"text-primary-main underline hover:no-underline"}
+						href={`mailto:${href}`}
+					>
+						{children}
+					</a>
+				)
 			}}
 		/>
 	);
