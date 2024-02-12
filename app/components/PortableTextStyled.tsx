@@ -32,17 +32,22 @@ export default function PortableTextStyled({ content }: { content: any }) {
 				),
 				normal: (props: any) => <p className="text-base mb-10" {...props} />,
 				table: ({ rows }: { rows: Row[] }) => {
+					const [headerRow, ...bodyRows] = rows;
 					return (
 						<>
 							<table className={"w-full my-4"}>
+								<thead className={"border-b border-neutral-80 font-bold"}>
+									{headerRow.cells.map((cell, cellIndex) => (
+										<td className={"p-4 border-neutral-80"} key={cellIndex}>
+											{cell}
+										</td>
+									))}
+								</thead>
 								<tbody>
-									{rows.map((row, rowIndex) => {
-										const rowStyle = "border-b border-neutral-80";
+									{bodyRows.map((row, rowIndex) => {
 										return (
 											<tr
-												className={
-													rowIndex === 0 ? rowStyle + " font-bold" : rowStyle
-												}
+												className={"border-b border-neutral-80"}
 												key={row._key}
 											>
 												{row.cells.map((cell, cellIndex) => (
