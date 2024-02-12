@@ -32,6 +32,9 @@ export async function POST(req: NextRequest) {
 			case "partner":
 				staleRoutes.push("/", "/articles/[slug]");
 				break;
+			case "documents":
+				staleRoutes.push("/resources", "/resources/[slug]");
+				break;
 			default:
 				break;
 		}
