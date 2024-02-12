@@ -1,10 +1,14 @@
-import { Table } from "@mui/material";
 import { getImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import { sanityClient } from "@/sanity/api";
 import PortableText from "react-portable-text";
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
+
+type Row = {
+	_key: string;
+	cells: string[];
+}
 
 export default function PortableTextStyled({ content }: { content: any }) {
 	const builder = imageUrlBuilder(sanityClient);
@@ -29,7 +33,27 @@ export default function PortableTextStyled({ content }: { content: any }) {
 				normal: (props: any) => (
 					<p className="text-base mb-10" {...props} />
 				),
-				table: (props: any) => <Table {...props} />, //Dette funker ikke
+				table: ({ rows }: { rows: Row[] }) => {
+					return (
+						<>
+							<table className={"w-full"}>
+								<tbody>
+									{rows.map((row) => {
+										return (
+											<tr className={"border-b border-neutral-80"} key={row._key}>
+												{row.cells.map((cell, index) => (
+													<td className={"p-4"} key={index}>
+														{cell}
+													</td>
+												))}
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</>
+					);
+				},
 				li: ({ children }: any) => (
 					<li className="ml-4 text-base list-disc">{children}</li>
 				),
