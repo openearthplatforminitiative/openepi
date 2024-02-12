@@ -3,8 +3,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import { DiscordIcon } from "@/app/icons/DiscordIcon";
-import TextField from "@mui/material/TextField";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "next/link";
 import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
 import { GetInvolvedLogo } from "@/app/icons/GetInvolvedLogo";
@@ -78,81 +76,6 @@ const Home = () => {
 					</Box>
 					<Divider className={"my-16"} />
 					<Box className={"flex sm:flex-row flex-col gap-28"}>
-						<Box className={"sm:w-1/2"}>
-							<Typography
-								variant={"h2"}
-								className={"text-xl xs:text-2xl mb-10"}
-							>
-								General enquiry about the project
-							</Typography>
-							<Box className={"flex flex-col w-full gap-3.5"}>
-								<TextField
-									className={"w-full"}
-									variant={"filled"}
-									placeholder={"Name"}
-									label={"Name"}
-									sx={{
-										"& .MuiFilledInput-underline:after": {
-											borderBottomColor: "#006D41",
-										},
-										"& label.Mui-focused": {
-											color: "#006D41",
-										},
-									}}
-								/>
-								<TextField
-									className={"w-full "}
-									variant={"filled"}
-									placeholder={"Email"}
-									label={"Email"}
-									sx={{
-										"& .MuiFilledInput-underline:after": {
-											borderBottomColor: "#006D41",
-										},
-										"& label.Mui-focused": {
-											color: "#006D41",
-										},
-									}}
-								/>
-								<TextField
-									className={"w-full h-36"}
-									variant={"filled"}
-									rows={5}
-									placeholder={"Message"}
-									label={"Message"}
-									multiline={true}
-									sx={{
-										"& .MuiFilledInput-underline:after": {
-											borderBottomColor: "#006D41",
-										},
-										"& label.Mui-focused": {
-											color: "#006D41",
-										},
-									}}
-								/>
-							</Box>
-							<Box className={"flex flex-col"}>
-								<Box className={"flex flex-row items-center my-6"}>
-									<Checkbox />
-									<Typography className={"text-base"}>
-										I agree to&nbsp;
-									</Typography>
-									<Typography
-										className={"text-base text-primary-main underline"}
-									>
-										these terms
-									</Typography>
-								</Box>
-								<Button
-									variant={"contained"}
-									className={
-										"bg-primary-main rounded-full sm:w-fit mt-8 px-6 py-2.5 normal-case sm:text-sm text-lg w-full h-10"
-									}
-								>
-									Send message
-								</Button>
-							</Box>
-						</Box>
 						<Box className={"sm:w-1/2"}>
 							<Typography variant={"h2"} className={"text-xl xs:text-2xl mb-8"}>
 								Send us a line

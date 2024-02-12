@@ -26,11 +26,11 @@ const NavBar = () => {
 			? baseStyle + " bg-secondary-90"
 			: baseStyle + " hover:bg-[#1d1b2014]";
 	return (
-		<nav className="bg-[#FBFDF8] flex flex-row items-center sm:p-12 p-6 justify-between">
+		<nav className="flex flex-row items-center sm:p-12 p-6 justify-between z-10">
 			<Link href={"/"}>
 				<OpenEPILogo />
 			</Link>
-			<Box className="xl:flex xl:flex-row xl:text-2xl hidden">
+			<Box className="xl:flex xl:flex-row xl:text-2xl xl:rounded-full xl:bg-[#FBFDF8] hidden">
 				<Link href="/about" className={linkClassName("/about")}>
 					About OpenEPI
 				</Link>
