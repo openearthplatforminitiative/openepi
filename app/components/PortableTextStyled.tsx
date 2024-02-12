@@ -3,12 +3,12 @@ import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
 import { sanityClient } from "@/sanity/api";
 import PortableText from "react-portable-text";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 
 type Row = {
 	_key: string;
 	cells: string[];
-}
+};
 
 export default function PortableTextStyled({ content }: { content: any }) {
 	const builder = imageUrlBuilder(sanityClient);
@@ -30,36 +30,50 @@ export default function PortableTextStyled({ content }: { content: any }) {
 				h4: (props: any) => (
 					<h4 className="text-2xl xs:text-3xl mb-6 mt-12" {...props} />
 				),
-				normal: (props: any) => (
-					<p className="text-base mb-10" {...props} />
-				),
+				normal: (props: any) => <p className="text-base mb-10" {...props} />,
 				table: ({ rows }: { rows: Row[] }) => {
+					if (!rows) {
+						return null;
+					}
+					const [headerRow, ...bodyRows] = rows;
 					return (
-						<>
-							<table className={"w-full my-4"}>
-								<tbody>
-									{rows.map((row) => {
-										return (
-											<tr className={"border-b border-neutral-80"} key={row._key}>
-												{row.cells.map((cell, index) => (
-													<td className={"p-4"} key={index}>
-														{cell}
-													</td>
-												))}
-											</tr>
-										);
-									})}
-								</tbody>
-							</table>
-						</>
+						<table className={"w-full my-4"}>
+							<thead className={"border-b border-neutral-80 font-bold"}>
+								<tr>
+									{headerRow.cells.map((cell, cellIndex) => (
+										<th className={"p-4 border-neutral-80 text-left"} key={cellIndex}>
+											{cell}
+										</th>
+									))}
+								</tr>
+							</thead>
+							<tbody>
+								{bodyRows.map((row) => {
+									return (
+										<tr
+											className={"border-b border-neutral-80"}
+											key={row._key}
+										>
+											{row.cells.map((cell, cellIndex) => (
+												<td
+													className={"p-4 border-neutral-80"}
+													key={cellIndex}
+												>
+													{cell}
+												</td>
+											))}
+										</tr>
+									);
+								})}
+							</tbody>
+						</table>
 					);
 				},
 				li: ({ children }: any) => (
 					<li className="ml-4 text-base list-disc">{children}</li>
 				),
-				ul: ({ children }: any) => (
-					<ul className={"ml-4 mb-6"}>{children}</ul>
-				),
+				ul: ({ children }: any) => <ul className={"ml-4 mb-6"}>{children}</ul>,
+				ol: ({ children }: any) => <ol className={"ml-4 mb-6"}>{children}</ol>,
 				blockquote: ({ children }: any) => (
 					<blockquote className={"ml-4 text-base italic"}>
 						{children}
@@ -87,42 +101,70 @@ export default function PortableTextStyled({ content }: { content: any }) {
 						/>
 					);
 				},
-				internalLink: ({ slug, type, children }: { slug: any, type: string, children: ReactElement }) => {
-					let prefix = "/"
+				internalLink: ({
+					slug,
+					type,
+					children,
+				}: {
+					slug: any;
+					type: string;
+					children: ReactElement;
+				}) => {
+					let prefix = "/";
 					if (type === "documents") {
 						prefix = "/resources";
 					}
 					const href = `${prefix}/${slug.current}`;
-					return <a className={"text-primary-main underline hover:no-underline"} href={href}>{children}</a>;
+					return (
+						<a
+							className={"text-primary-main underline hover:no-underline"}
+							href={href}
+						>
+							{children}
+						</a>
+					);
 				},
-				externalLink: ({ href, openInNewTab, children }: { href: string, openInNewTab: boolean, children: ReactElement }) => {
-					return openInNewTab
-						? (
-							<a
-								className={"text-primary-main underline hover:no-underline"}
-								href={href}
-								target={"_blank "}
-								rel={"noopener noreferrer"}
-							>
-								{children}
-							</a>
-						) : (
-							<a
-								className={"text-primary-main underline hover:no-underline"}
-								href={href}
-							>
-								{children}
-							</a>
-						)
+				externalLink: ({
+					href,
+					openInNewTab,
+					children,
+				}: {
+					href: string;
+					openInNewTab: boolean;
+					children: ReactElement;
+				}) => {
+					return openInNewTab ? (
+						<a
+							className={"text-primary-main underline hover:no-underline"}
+							href={href}
+							target={"_blank "}
+							rel={"noopener noreferrer"}
+						>
+							{children}
+						</a>
+					) : (
+						<a
+							className={"text-primary-main underline hover:no-underline"}
+							href={href}
+						>
+							{children}
+						</a>
+					);
 				},
-				emailLink: ({ href, children }: { href: string, children: ReactElement }) => (
+				emailLink: ({
+					href,
+					children,
+				}: {
+					href: string;
+					children: ReactElement;
+				}) => (
 					<a
 						className={"text-primary-main underline hover:no-underline"}
 						href={`mailto:${href}`}
 					>
 						{children}
 					</a>
-				)
+				),
 			}}
 		/>
 	);
