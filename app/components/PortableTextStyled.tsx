@@ -22,13 +22,13 @@ export default function PortableTextStyled({ content }: { content: any }) {
 					<h1 className="text-5xl xs:text-6xl mb-12" {...props} />
 				),
 				h2: (props: any) => (
-					<h2 className="text-4xl xs:text-5xl mb-6" {...props} />
+					<h2 className="text-4xl xs:text-5xl mb-6 mt-12" {...props} />
 				),
 				h3: (props: any) => (
-					<h3 className="text-3xl xs:text-4xl mb-6" {...props} />
+					<h3 className="text-3xl xs:text-4xl mb-6 mt-12" {...props} />
 				),
 				h4: (props: any) => (
-					<h4 className="text-2xl xs:text-3xl mb-6" {...props} />
+					<h4 className="text-2xl xs:text-3xl mb-6 mt-12" {...props} />
 				),
 				normal: (props: any) => (
 					<p className="text-base mb-10" {...props} />
