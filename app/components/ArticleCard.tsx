@@ -27,7 +27,7 @@ const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 					alt={alt}
 					width={320}
 					height={320}
-					className={"w-full"}
+					className={"h-[240px] w-full object-cover"}
 				/>
 				<Box className={"flex flex-col p-6"}>
 					<Box className={"flex flex-row justify-between items-center"}>
