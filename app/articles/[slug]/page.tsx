@@ -41,26 +41,28 @@ export default async function PostPage({
 			) : (
 				<Typography>No content published yet</Typography>
 			)}
-			<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
-				<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
-					More articles
-				</Typography>
-				<Box className={"flex flex-wrap gap-12"}>
-					{articles.map((article) => (
-						<ArticleCard
-							key={article._id}
-							header={article.title}
-							href={"/articles/" + article.slug}
-							imageUrl={
-								article.mainImage !== null
-									? builder.image(article.mainImage).toString()
-									: "/article-placeholder.png"
-							}
-							alt={"Link to content of article"}
-						/>
-					))}
+			{articles.length > 0 && (
+				<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
+					<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
+						More articles
+					</Typography>
+					<Box className={"flex flex-wrap gap-12"}>
+						{articles.map((article) => (
+							<ArticleCard
+								key={article._id}
+								header={article.title}
+								href={"/articles/" + article.slug}
+								imageUrl={
+									article.mainImage !== null
+										? builder.image(article.mainImage).toString()
+										: "/article-placeholder.png"
+								}
+								alt={"Link to content of article"}
+							/>
+						))}
+					</Box>
 				</Box>
-			</Box>
+			)}
 		</Box>
 	);
 }
