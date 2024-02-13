@@ -13,7 +13,7 @@ const Home = async () => {
 
 	return (
 		<Box className={"w-full"}>
-			<Box className={"flex flex-col xs:flex-row"}>
+			<Box className={"flex flex-col xs:flex-row justify-between"}>
 				<Box
 					className={
 						"flex flex-col sm:ml-16 xl:ml-64 lg:max-w-7xl my-16 lg:my-56 gap-6 p-6 relative z-10 justify-center"
