@@ -29,11 +29,9 @@ export default async function RootLayout({
 	return (
 		<html lang="en" className={inter.className}>
 			<ThemeRegistry options={{ key: "mui" }}>
-				<body
-					className={"bg-[#FBFDF8] min-h-screen flex flex-col justify-between"}
-				>
+				<body className={"bg-[#FBFDF8] min-h-screen flex flex-col"}>
 					<NavBar />
-					<main className="w-full flex justify-center">{children}</main>
+					<main className="w-full flex-1 flex justify-center">{children}</main>
 					<HelpButton />
 					<Footer partners={partners} />
 				</body>
