@@ -40,7 +40,7 @@ const Home = async () => {
 			<Box className={"flex justify-center bg-secondary-90"}>
 				<Box
 					className={
-						"flex flex-col xs:flex-row px-8 items-baseline xs:items-center lg:max-w-7xl py-20 gap-6 lg:gap-16"
+						"flex flex-col lg:px-0 px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-10 lg:gap-28"
 					}
 				>
 					<Box className={"flex w-fit "}>
@@ -79,13 +79,13 @@ const Home = async () => {
 						</Box>
 						<AboutLogo />
 					</Box>
-					<LatestUpdates articles={articles} />
+					{articles.length > 0 && <LatestUpdates articles={articles} />}
 				</Box>
 			</Box>
 			<Box className={"flex justify-center bg-secondary-90"}>
 				<Box
 					className={
-						"flex flex-col px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-10 lg:gap-28"
+						"flex flex-col lg:px-0 px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-10 lg:gap-28"
 					}
 				>
 					<Box className={"w-fit h-fit"}>

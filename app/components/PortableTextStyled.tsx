@@ -40,23 +40,37 @@ export default function PortableTextStyled({ content }: { content: any }) {
 						<table className={"w-full my-4"}>
 							<thead className={"border-b border-neutral-80 font-bold"}>
 								<tr>
-									{headerRow.cells.map((cell, cellIndex) => (
-										<th className={"p-4 border-neutral-80 text-left"} key={cellIndex}>
-											{cell}
-										</th>
-									))}
+									{headerRow.cells.map((cell, cellIndex) => {
+										const cellStyle = "xs:p-4 p-0 border-neutral-80";
+
+										return (
+											<th
+												className={
+													cellIndex > 0 &&
+													cellIndex < headerRow.cells.length - 1
+														? cellStyle + " text-center"
+														: cellStyle + " text-left"
+												}
+												key={cellIndex}
+											>
+												{cell}
+											</th>
+										);
+									})}
 								</tr>
 							</thead>
 							<tbody>
 								{bodyRows.map((row) => {
+									const cellStyle = "xs:p-4 p-0 border-neutral-80";
 									return (
-										<tr
-											className={"border-b border-neutral-80"}
-											key={row._key}
-										>
+										<tr className={"border-b border-neutral-80"} key={row._key}>
 											{row.cells.map((cell, cellIndex) => (
 												<td
-													className={"p-4 border-neutral-80"}
+													className={
+														cellIndex > 0 && cellIndex < row.cells.length - 1
+															? cellStyle + " text-center"
+															: cellStyle
+													}
 													key={cellIndex}
 												>
 													{cell}

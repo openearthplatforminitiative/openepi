@@ -1,7 +1,4 @@
-import {
-	fetchDocumentBySlug,
-	fetchDocuments,
-} from "@/sanity/api";
+import { fetchDocumentBySlug, fetchDocuments } from "@/sanity/api";
 import PortableTextStyled from "@/app/components/PortableTextStyled";
 import { Box, Typography } from "@mui/material";
 import { BackIcon } from "@/app/icons/BackIcon";
@@ -52,12 +49,22 @@ export default async function DocumentPage({
 			)}
 
 			{document.code_examples && document.code_examples.length > 0 && (
-				<Typography>Examples</Typography>
+				<Typography
+					variant={"h2"}
+					className={"text-4xl xs:text-5xl mb-6 mt-12"}
+				>
+					Examples
+				</Typography>
 			)}
 			{document.code_examples &&
 				document.code_examples.map((codeBlock, index) => (
-					<Box key={index}>
-						<Typography>{codeBlock.language.toUpperCase()}</Typography>
+					<Box key={index} className={"flex flex-col h-fit"}>
+						<Typography
+							variant={"h3"}
+							className={"text-3xl xs:text-4xl mb-6 mt-12"}
+						>
+							{codeBlock.language.toUpperCase()}
+						</Typography>
 						<CodeBlock
 							codeString={codeBlock.code}
 							language={codeBlock.language}
