@@ -22,7 +22,7 @@ const Home = () => {
 					>
 						Contribute and get engaged in the project
 					</Typography>
-					<Box className={"sm:w-80 sm:h-80 w-64 h64"}>
+					<Box className={"flex w-full justify-center"}>
 						<GetInvolvedLogo />
 					</Box>
 				</Box>

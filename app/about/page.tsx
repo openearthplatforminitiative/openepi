@@ -15,12 +15,12 @@ const Home = async () => {
 			<Box className={"flex justify-center bg-secondary-90"}>
 				<Box
 					className={
-						"flex flex-col-reverse px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-16"
+						"flex flex-col px-8 xs:mx-32 md:flex-row items-baseline md:items-center lg:max-w-7xl xl:mx-72 py-20 gap-16"
 					}
 				>
 					<Typography
 						variant={"h1"}
-						className={"leading-[48px] xs:leading-[64px] text-5xl xs:text-6xl"}
+						className={"leading-[48px] xs:leading-[64px] text-4xl xs:text-6xl"}
 					>
 						An initiative to drive local innovation globally
 					</Typography>
