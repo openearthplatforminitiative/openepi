@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { ResourcesLogo } from "@/app/icons/ResourcesLogo";
 import ResourceCard from "@/app/components/ResourceCard";
-import { fetchDocuments } from "@/sanity/api";
+import { fetchRootDocuments } from "@/sanity/api";
 
 const Home = async () => {
-	const documents = await fetchDocuments();
+	const documents = await fetchRootDocuments();
 	return (
 		<Box className={"w-full"}>
 			<Box className={"flex justify-center bg-secondary-90"}>
@@ -35,7 +35,7 @@ const Home = async () => {
 							key={document._id}
 							externalLink={false}
 							text={document.title}
-							href={`/resources/${document.slug}`}
+							href={`/resources/${document.slug.current}`}
 						/>
 					)}
 					<ResourceCard

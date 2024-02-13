@@ -24,15 +24,27 @@ export default async function DocumentPage({
 				"flex flex-col flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
 			}
 		>
-			<Link
-				href="/resources"
-				className={
-					"flex flex-row items-center text-primary-main underline hover:no-underline -mt-20 gap-1 mb-14 w-fit"
-				}
-			>
-				<BackIcon />
-				<Typography className={"text-base"}> Back to resources </Typography>
-			</Link>
+			{document.parentSlug ? (
+				<Link
+					href={`/resources/${document.parentSlug.current}`}
+					className={
+						"flex flex-row items-center text-primary-main underline hover:no-underline -mt-20 gap-1 mb-14 w-fit"
+					}
+				>
+					<BackIcon />
+					<Typography className={"text-base"}>Back to {`"${document.parentTitle}"`}</Typography>
+				</Link>
+			) : (
+				<Link
+					href="/resources"
+					className={
+						"flex flex-row items-center text-primary-main underline hover:no-underline -mt-20 gap-1 mb-14 w-fit"
+					}
+				>
+					<BackIcon />
+					<Typography className={"text-base"}>Back to resources</Typography>
+				</Link>
+			)}
 			{document.body !== null && document.body !== undefined ? (
 				<PortableTextStyled content={document.body} />
 			) : (
@@ -58,5 +70,5 @@ export default async function DocumentPage({
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
 	const data = await fetchDocuments();
-	return data.map(({ slug }) => ({ slug }));
+	return data.map(({ slug }) => ({ slug: slug.current }));
 }
