@@ -30,8 +30,8 @@ const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 					className={"h-[240px] w-full object-cover"}
 				/>
 				<Box className={"flex flex-col p-6"}>
-					<Box className={"flex flex-row justify-between items-center"}>
-						<Typography variant="h5" className={"text-xl xs:text-2xl"}>
+					<Box className={"flex flex-row justify-between items-start"}>
+						<Typography className={"leading-6 text-xl"}>
 							{header}
 						</Typography>
 						<Box className="transform transition-transform duration-300 group-hover:translate-x-2">
