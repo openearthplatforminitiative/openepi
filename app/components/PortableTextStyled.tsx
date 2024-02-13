@@ -41,7 +41,7 @@ export default function PortableTextStyled({ content }: { content: any }) {
 							<thead className={"border-b border-neutral-80 font-bold"}>
 								<tr>
 									{headerRow.cells.map((cell, cellIndex) => {
-										const cellStyle = "p-4 border-neutral-80";
+										const cellStyle = "xs:p-4 p-0 border-neutral-80";
 
 										return (
 											<th
@@ -61,7 +61,7 @@ export default function PortableTextStyled({ content }: { content: any }) {
 							</thead>
 							<tbody>
 								{bodyRows.map((row) => {
-									const cellStyle = "p-4 border-neutral-80";
+									const cellStyle = "xs:p-4 p-0 border-neutral-80";
 									return (
 										<tr className={"border-b border-neutral-80"} key={row._key}>
 											{row.cells.map((cell, cellIndex) => (

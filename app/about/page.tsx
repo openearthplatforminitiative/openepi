@@ -164,7 +164,7 @@ const Home = async () => {
 							/>
 						</Box>
 					</Box>
-					<LatestUpdates articles={articles} />
+					{articles.length > 0 && <LatestUpdates articles={articles} />}
 				</Box>
 			</Box>
 		</Box>
