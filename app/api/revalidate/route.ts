@@ -19,12 +19,6 @@ export async function POST(req: NextRequest) {
 			return new Response(errorMessage, { status: 400 });
 		}
 
-		if (!body?._type || !["post", "featured", "partner"].includes(body._type)) {
-			const errorMessage = "Invalid _type";
-			console.error(errorMessage, { body });
-			return new Response(errorMessage, { status: 400 });
-		}
-
 		const staleRoutes = [];
 
 		switch (body._type) {
