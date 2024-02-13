@@ -4,10 +4,23 @@ import imageUrlBuilder from "@sanity/image-url";
 import { sanityClient } from "@/sanity/api";
 import PortableText from "react-portable-text";
 import { ReactElement } from "react";
+import { Box, Tooltip } from "@mui/material";
+import { CaptionIcon } from "@/app/icons/CaptionIcon";
 
 type Row = {
 	_key: string;
 	cells: string[];
+};
+
+type SanityImage = {
+	_type: string;
+	alt: string;
+	caption: string;
+	_key: string;
+	asset: {
+		_ref: string;
+		_type: string;
+	};
 };
 
 export default function PortableTextStyled({ content }: { content: any }) {
@@ -101,18 +114,35 @@ export default function PortableTextStyled({ content }: { content: any }) {
 						{children}
 					</a>
 				),
-				image: (value: any, props: any) => {
+				image: (value: SanityImage, props: any) => {
 					const { width, height } = getImageDimensions(value);
 					return (
-						<Image
-							src={value !== null ? builder.image(value).toString() : ""}
-							alt={"Article photo"}
-							loading={"lazy"}
-							height={height}
-							width={width}
-							className={"w-auto h-auto my-20"}
-							{...props}
-						/>
+						<Box className={"relative w-fit"}>
+							<Image
+								src={
+									value && value?.asset?._ref
+										? builder.image(value.asset._ref).toString()
+										: ""
+								}
+								alt={value && value?.alt ? value.alt : ""}
+								loading={"lazy"}
+								height={height}
+								width={width}
+								className={"my-20 rounded-xl"}
+								{...props}
+							/>
+							{value && value?.caption && (
+								<Tooltip placement={"left-end"} title={value.caption} arrow>
+									<Box
+										className={
+											"w-fit h-fit rounded-full bg-secondary-90 hover:bg-secondary-80 absolute bottom-0 right-0 m-2"
+										}
+									>
+										<CaptionIcon />
+									</Box>
+								</Tooltip>
+							)}
+						</Box>
 					);
 				},
 				internalLink: ({
