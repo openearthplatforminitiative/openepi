@@ -61,7 +61,7 @@ const Home = () => {
 								See what’s going on, get help or start a conversation on our
 								open Discord server.
 							</Typography>
-							<Link href={"https://discord.gg/HatbmfCY"} target={"_blank"}>
+							<Link href={"https://discord.gg/R4ASSWRe7c"} target={"_blank"}>
 								<Button
 									variant={"contained"}
 									className={
