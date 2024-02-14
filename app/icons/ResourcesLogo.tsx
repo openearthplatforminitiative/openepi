@@ -1,0 +1,119 @@
+export const ResourcesLogo = () => (
+	<svg
+		className={"2xs:w-52 2xs:h-52 lg:w-80 lg:h-80 w-64 h64"}
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 256 256"
+		fill="none"
+	>
+		<path d="M128 72V24H24V167H116" stroke="#006D41" strokeWidth="4" />
+		<rect
+			x="116"
+			y="72"
+			width="114"
+			height="157"
+			stroke="#006D41"
+			strokeWidth="4"
+		/>
+		<line x1="137" y1="98" x2="188" y2="98" stroke="#006D41" strokeWidth="4" />
+		<line
+			x1="137"
+			y1="114"
+			x2="211"
+			y2="114"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+		<line
+			x1="137"
+			y1="131"
+			x2="192"
+			y2="131"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="80 24 48 24"
+		/>
+		<line
+			x1="137"
+			y1="149"
+			x2="211"
+			y2="149"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+		<line
+			x1="137"
+			y1="165"
+			x2="200"
+			y2="165"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="80 24 48 24"
+		/>
+		<line
+			x1="137"
+			y1="182"
+			x2="178"
+			y2="182"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+		<line
+			x1="137"
+			y1="199"
+			x2="211"
+			y2="199"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+		<line x1="37" y1="49" x2="89" y2="49" stroke="#006D41" strokeWidth="4" />
+		<line
+			x1="37"
+			y1="65"
+			x2="110"
+			y2="65"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+		<line
+			x1="37"
+			y1="83"
+			x2="86"
+			y2="83"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="80 24 48 24"
+		/>
+		<line
+			x1="37"
+			y1="100"
+			x2="102"
+			y2="100"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+		<line
+			x1="37"
+			y1="116"
+			x2="94"
+			y2="116"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="80 24 48 24"
+		/>
+		<line
+			x1="37"
+			y1="134"
+			x2="73"
+			y2="134"
+			stroke="#006D41"
+			strokeWidth="4"
+			strokeDasharray="88 32 128 32"
+		/>
+	</svg>
+);

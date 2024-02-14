@@ -1,9 +1,12 @@
-import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { fetchPartners } from "@/sanity/api";
-import NavBarSection from "@/components/NavBarSection";
 import { Inter } from "next/font/google";
+import NavBar from "@/app/components/NavBar";
+import Footer from "@/app/components/Footer";
+import { ReactNode } from "react";
+import ThemeRegistry from "@/app/components/ThemeRegistry";
+import HelpButton from "@/app/components/HelpButton";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -20,16 +23,19 @@ export const metadata: Metadata = {
 export default async function RootLayout({
 	children,
 }: {
-	children: React.ReactNode;
+	children: ReactNode;
 }) {
 	const partners = await fetchPartners();
 	return (
 		<html lang="en" className={inter.className}>
-			<body>
-				<NavBarSection />
-				{children}
-				<Footer partners={partners} />
-			</body>
+			<ThemeRegistry options={{ key: "mui" }}>
+				<body className={"bg-[#FBFDF8] min-h-screen flex flex-col"}>
+					<NavBar />
+					<main className="w-full flex-1 flex justify-center">{children}</main>
+					<HelpButton />
+					<Footer partners={partners} />
+				</body>
+			</ThemeRegistry>
 		</html>
 	);
 }

@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
 			return new Response(errorMessage, { status: 401 });
 		}
 
-		if (!body?._type || !["post", "featured", "partner"].includes(body._type)) {
-			const errorMessage = "Invalid _type";
+		if (!body?._type) {
+			const errorMessage = "Missing body or body._type";
 			console.error(errorMessage, { body });
 			return new Response(errorMessage, { status: 400 });
 		}
@@ -25,15 +25,20 @@ export async function POST(req: NextRequest) {
 			case "featured":
 				staleRoutes.push("/");
 				break;
-			case "post":
-				// revalidatePath does not acccept literal paths yet e.g. "/posts/${body.slug}", see https://github.com/vercel/next.js/discussions/53154
-				staleRoutes.push("/posts/[slug]");
+			case "article":
+				// revalidatePath does not acccept literal paths yet e.g. "/articles/${body.slug}", see https://github.com/vercel/next.js/discussions/53154
+				staleRoutes.push("/", "/article", "/articles/[slug]");
 				break;
 			case "partner":
-				staleRoutes.push("/", "/posts/[slug]");
+				staleRoutes.push("/", "/articles/[slug]");
+				break;
+			case "documents":
+				staleRoutes.push("/resources", "/resources/[slug]");
 				break;
 			default:
-				break;
+				const errorMessage = "Invalid _type";
+				console.error(errorMessage, { body });
+				return new Response(errorMessage, { status: 400 });
 		}
 
 		for (const route of staleRoutes) {
