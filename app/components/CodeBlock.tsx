@@ -9,9 +9,13 @@ import Box from "@mui/material/Box";
 import { myCustomStyle } from "@/app/theme/custom-code-style";
 import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
 import python from "react-syntax-highlighter/dist/cjs/languages/hljs/python";
+import yaml from "react-syntax-highlighter/dist/cjs/languages/hljs/yaml";
+import json from "react-syntax-highlighter/dist/esm/languages/hljs/json";
 
 SyntaxHighlighter.registerLanguage("javascript", js);
 SyntaxHighlighter.registerLanguage("python", python);
+SyntaxHighlighter.registerLanguage("yaml", yaml);
+SyntaxHighlighter.registerLanguage("json", json);
 
 interface CodeBlockProps {
 	codeString: string;

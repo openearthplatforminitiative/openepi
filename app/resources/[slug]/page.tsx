@@ -29,7 +29,9 @@ export default async function DocumentPage({
 					}
 				>
 					<BackIcon />
-					<Typography className={"text-base"}>Back to {`"${document.parentTitle}"`}</Typography>
+					<Typography className={"text-base"}>
+						Back to {`"${document.parentTitle}"`}
+					</Typography>
 				</Link>
 			) : (
 				<Link
@@ -67,7 +69,7 @@ export default async function DocumentPage({
 						</Typography>
 						<CodeBlock
 							codeString={codeBlock.code}
-							language={codeBlock.language}
+							language={codeBlock.language} //Remember to register new languages at top of CodeBlock.tsx
 						/>
 					</Box>
 				))}
