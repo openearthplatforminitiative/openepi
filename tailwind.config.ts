@@ -149,6 +149,7 @@ const config: Config = {
 				99: "#F6FFF5",
 				100: "#FFFFFF",
 			},
+			card: "#F2F4EF",
 		},
 		extend: {
 			backgroundImage: {

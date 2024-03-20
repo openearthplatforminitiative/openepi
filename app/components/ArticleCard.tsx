@@ -11,7 +11,7 @@ interface ResourceCardProps {
 	imageUrl: string;
 	alt: string;
 }
-const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
+const ArticleCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 	return (
 		<Link
 			href={href}
@@ -20,7 +20,7 @@ const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 			}
 		>
 			<Card
-				className={"group rounded-xl bg-[#F2F4EF] hover:bg-secondary-90 w-full"}
+				className={"group rounded-xl shadow-none bg-card hover:bg-secondary-90 w-full"}
 			>
 				<Image
 					src={imageUrl}
@@ -44,4 +44,4 @@ const ResourceCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 	);
 };
 
-export default ResourceCard;
+export default ArticleCard;
