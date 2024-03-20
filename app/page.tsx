@@ -31,7 +31,7 @@ const Home = async () => {
 					width={1160}
 					height={1298}
 					className={
-						"object-cover relative xs:-mb-[144px] xs:w-2/5 w-full xs:-top-[144px]"
+						"object-cover relative xs:-mb-[160px] xs:w-2/5 w-full xs:-top-[160px]"
 					}
 					priority={true}
 					quality={100}
@@ -60,7 +60,7 @@ const Home = async () => {
 				>
 					<Box className={"flex xs:flex-row flex-col-reverse gap-14 w-full "}>
 						<Box className={"flex flex-col gap-10 xs:w-2/3"}>
-							<Typography variant={"h4"} className={"text-xl xs:text-2xl"}>
+							<Typography className={"text-xl xs:text-[2rem]/10"}>
 								Open data, AI, and digital technologies will be crucial
 								catalysts for collaboration, innovation, and informed
 								decision-making in addressing climate change – building
@@ -71,7 +71,7 @@ const Home = async () => {
 								<Button
 									variant={"contained"}
 									className={
-										"bg-primary-main rounded-full sm:w-fit pr-6 pl-4 py-2.5 normal-case sm:text-sm text-base w-full h-10"
+										"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
 									}
 								>
 									Learn more about the project
@@ -105,7 +105,7 @@ const Home = async () => {
 							<Button
 								variant={"contained"}
 								className={
-									"bg-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-base h-10"
+									"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
 								}
 							>
 								Get involved
