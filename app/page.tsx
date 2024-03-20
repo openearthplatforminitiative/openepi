@@ -60,7 +60,7 @@ const Home = async () => {
 				>
 					<Box className={"flex xs:flex-row flex-col-reverse gap-14 w-full "}>
 						<Box className={"flex flex-col gap-10 xs:w-2/3"}>
-							<Typography variant={"h4"} className={"text-xl xs:text-2xl"}>
+							<Typography className={"text-xl xs:text-[2rem]/10"}>
 								Open data, AI, and digital technologies will be crucial
 								catalysts for collaboration, innovation, and informed
 								decision-making in addressing climate change – building
