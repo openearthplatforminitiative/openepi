@@ -71,7 +71,7 @@ const Home = async () => {
 								<Button
 									variant={"contained"}
 									className={
-										"bg-primary-main rounded-full sm:w-fit pr-6 pl-4 py-2.5 normal-case sm:text-sm text-base w-full h-10"
+										"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
 									}
 								>
 									Learn more about the project
@@ -105,7 +105,7 @@ const Home = async () => {
 							<Button
 								variant={"contained"}
 								className={
-									"bg-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-base h-10"
+									"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
 								}
 							>
 								Get involved
