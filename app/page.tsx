@@ -31,7 +31,7 @@ const Home = async () => {
 					width={1160}
 					height={1298}
 					className={
-						"object-cover relative xs:-mb-[144px] xs:w-2/5 w-full xs:-top-[144px]"
+						"object-cover relative xs:-mb-[160px] xs:w-2/5 w-full xs:-top-[160px]"
 					}
 					priority={true}
 					quality={100}
