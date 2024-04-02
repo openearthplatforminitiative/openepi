@@ -2,7 +2,7 @@ import { Partner } from "@/sanity/api";
 import { Box, Divider, Typography } from "@mui/material";
 import Link from "next/link";
 import { OpenEPILogoSmall } from "@/app/icons/OpenEPILogoSmall";
-import { ExternalLinkIconSmall } from "@/app/icons/ExternalLinkIconSmall";
+import ExternalLinkIconSmall from "@/app/icons/external-link-icon-small.svg";
 
 interface FooterProps {
 	partners: Partner[];
@@ -10,7 +10,7 @@ interface FooterProps {
 
 export default function Footer({ partners }: FooterProps) {
 	return (
-		<footer className={"flex justify-center w-full pt-20 pb-28 px-6 sm:px-20"}>
+		<footer className={"flex justify-center w-full pt-20 pb-28 px-6 md:px-20"}>
 			<Box className={"flex flex-col max-w-6xl w-full"}>
 				<OpenEPILogoSmall />
 				<Box className={"flex flex-col sm:flex-row flex-wrap text-base w-full my-12 gap-y-12"}>

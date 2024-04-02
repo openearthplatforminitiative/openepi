@@ -1,7 +1,6 @@
-"use client";
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
-import { ExternalLinkIconSmall } from "@/app/icons/ExternalLinkIconSmall";
+import ExternalLinkIconSmall from "@/app/icons/external-link-icon-small.svg";
 import imageUrlBuilder from "@sanity/image-url";
 import { sanityClient } from "@/sanity/api";
 import Image from "next/image";
@@ -15,43 +14,34 @@ interface PartnerCardProps {
 }
 
 const PartnerCard = ({
-	image,
+	name,
 	description,
 	href,
 	sanityImg,
+	image,
 }: PartnerCardProps) => {
 	const builder = imageUrlBuilder(sanityClient);
-
 	return (
-		<Box
-			className={
-				"flex flex-col gap-16 sm:gap-0 sm:flex-row justify-between items-center"
-			}
-		>
-			<Box className={"flex justify-center items-center min-w-[250px] h-fit"}>
+		<Box className={"flex flex-col sm:flex-row gap-y-8 gap-x-16 justify-between sm:items-center"}>
+			<Box className={"flex flex-shrink-0 bg-white justify-center items-center h-28 sm:w-72 lg:w-96 lg:h-32 px-12 py-6"}>
 				<Image
 					src={
 						sanityImg
-							? image !== null
-								? builder.image(image).toString()
-								: ""
+							? builder.image(image).url()
 							: image
 					}
-					alt={"partner logo"}
-					width={100}
-					height={100}
-					className={"h-full w-full max-w-[200px] max-h-[100px]"}
+					alt={`${name} logo`}
+					width={360}
+					height={142}
+					className={"object-contain w-full h-full"}
 				/>
 			</Box>
-
-			<Box className={"flex flex-col flex-1 w-fit min-w-[250px] max-w-[648px]"}>
-				<Typography className={" text-base"}>{description}</Typography>
+			<Box>
+				<Typography className={"text-base mb-6"}>{description}</Typography>
 				<Link
 					href={href}
 					target={"_blank"}
-					className={
-						"flex flex-row items-center underline hover:no-underline mt-6 text-base gap-1"
-					}
+					className={"flex items-center underline hover:no-underline text-base gap-1"}
 				>
 					{href} <ExternalLinkIconSmall />
 				</Link>

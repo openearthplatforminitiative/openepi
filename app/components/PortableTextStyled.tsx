@@ -23,13 +23,19 @@ type SanityImage = {
 	};
 };
 
-export default function PortableTextStyled({ content }: { content: any }) {
+interface PortableTextStyledProps {
+	content: any;
+	className?: string;
+}
+
+export default function PortableTextStyled({ content, className }: PortableTextStyledProps) {
 	const builder = imageUrlBuilder(sanityClient);
 	return (
 		<PortableText
 			dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
 			projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
 			content={content}
+			className={className}
 			serializers={{
 				h1: (props: any) => (
 					<h1 className="text-5xl xs:text-6xl mb-12" {...props} />

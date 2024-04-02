@@ -1,35 +1,25 @@
 import { Box, Typography } from "@mui/material";
-import { ResourcesLogo } from "@/app/icons/ResourcesLogo";
+import ResourcesLogo from "@/app/icons/resources-logo.svg";
 import ResourceCard from "@/app/components/ResourceCard";
 import { fetchRootDocuments } from "@/sanity/api";
 
 const Home = async () => {
 	const documents = await fetchRootDocuments();
 	return (
-		<Box className={"w-full"}>
-			<Box className={"flex justify-center bg-secondary-90"}>
-				<Box
-					className={
-						"flex flex-col px-8 xs:mx-32 md:flex-row items-baseline md:items-center lg:max-w-7xl xl:mx-72 py-20 gap-16"
-					}
-				>
+		<>
+			<Box className={"flex justify-center bg-secondary-90 px-6 sm:px-20 py-16 sm:py-28"}>
+				<Box className={"flex flex-col gap-x-6 gap-y-8 max-w-6xl sm:flex-row-reverse sm:items-center"}>
+					<ResourcesLogo className={"w-40 h-40 sm:w-72 sm:h-72 lg:w-96 lg:h-96 flex-shrink-0"} />
 					<Typography
 						variant={"h1"}
-						className={"leading-[48px] xs:leading-[64px] text-4xl xs:text-6xl"}
+						className={"text-4xl md:text-6xl"}
 					>
 						Project documents and specifications
 					</Typography>
-					<Box className={"flex w-full justify-center"}>
-						<ResourcesLogo />
-					</Box>
 				</Box>
 			</Box>
-			<Box className={"flex w-full justify-center"}>
-				<Box
-					className={
-						"flex flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"
-					}
-				>
+			<Box className={"flex justify-center px-6 md:px-20 py-16 xs:py-28"}>
+				<Box className={"grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-6xl flex-1 justify-items-stretch"}>
 					{documents.map((document) => (
 						<ResourceCard
 							key={document._id}
@@ -45,7 +35,7 @@ const Home = async () => {
 					/>
 				</Box>
 			</Box>
-		</Box>
+		</>
 	);
 };
 

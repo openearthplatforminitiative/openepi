@@ -9,9 +9,8 @@ interface LatestUpdatesProps {
 }
 const LatestUpdates = ({ articles }: LatestUpdatesProps) => {
 	const builder = imageUrlBuilder(sanityClient);
-
 	return (
-		<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
+		<Box className={"flex flex-col gap-12 md:justify-end"}>
 			<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
 				Latest updates
 			</Typography>
@@ -35,7 +34,7 @@ const LatestUpdates = ({ articles }: LatestUpdatesProps) => {
 					<Button
 						variant={"outlined"}
 						className={
-							"text-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
+							"text-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none text-xl px-8 py-4"
 						}
 					>
 						More articles
