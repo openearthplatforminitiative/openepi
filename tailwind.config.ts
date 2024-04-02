@@ -29,6 +29,7 @@ const config: Config = {
 			// => @media (min-width: 1536px) { ... }
 		},
 		colors: {
+			white: "#FFFFFF",
 			primary: {
 				main: "#006D41",
 				0: "#000000",

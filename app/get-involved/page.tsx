@@ -5,32 +5,26 @@ import Divider from "@mui/material/Divider";
 import { DiscordIcon } from "@/app/icons/DiscordIcon";
 import Link from "next/link";
 import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
-import { GetInvolvedLogo } from "@/app/icons/GetInvolvedLogo";
+import GetInvolved from "@/app/icons/get-involved.svg";
 
 const Home = () => {
 	return (
-		<Box className={"w-full"}>
-			<Box className={"flex justify-center bg-secondary-90"}>
-				<Box
-					className={
-						"flex flex-col px-8 xs:mx-32 md:flex-row items-baseline md:items-center lg:max-w-7xl xl:mx-72 py-20 gap-16"
-					}
-				>
+		<>
+			<Box className={"flex justify-center bg-secondary-90 px-6 sm:px-20 py-16 sm:py-28"}>
+				<Box className={"flex flex-col gap-x-6 gap-y-8 max-w-6xl sm:flex-row-reverse sm:items-center"}>
+					<GetInvolved className={"w-40 h-40 sm:w-72 sm:h-72 lg:w-96 lg:h-96 flex-shrink-0"} />
 					<Typography
 						variant={"h1"}
-						className={"leading-[48px] xs:leading-[64px] text-4xl xs:text-6xl"}
+						className={"text-4xl md:text-6xl"}
 					>
 						Contribute and get engaged in the project
 					</Typography>
-					<Box className={"flex w-full justify-center"}>
-						<GetInvolvedLogo />
-					</Box>
 				</Box>
 			</Box>
-			<Box className={"flex w-full justify-center"}>
-				<Box className={"w-full h-full lg:max-w-7xl p-6 lg:my-44 my-20"}>
-					<Box className={"flex sm:flex-row-reverse flex-col gap-28"}>
-						<Box className={"flex flex-col sm:w-1/2"}>
+			<Box className={"flex justify-center px-6 md:px-20 py-16 xs:py-28"}>
+				<Box className={"flex flex-col max-w-6xl"}>
+					<Box className={"flex flex-col sm:flex-row gap-x-24 lg:gap-x-32 gap-y-12"}>
+						<Box className={"flex-1"}>
 							<Typography variant={"h2"} className={"text-2xl xs:text-3xl "}>
 								Developer portal
 							</Typography>
@@ -45,7 +39,7 @@ const Home = () => {
 								<Button
 									variant={"contained"}
 									className={
-										"bg-primary-main rounded-full sm:w-fit pr-6 pl-4 py-2.5 normal-case sm:text-sm text-lg w-full h-10"
+										"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none text-xl px-8 py-4"
 									}
 									startIcon={<ExternalLinkIcon color={"white"} />}
 								>
@@ -53,7 +47,7 @@ const Home = () => {
 								</Button>
 							</Link>
 						</Box>
-						<Box className={"flex flex-col gap-30 sm:w-1/2"}>
+						<Box className={"flex-1"}>
 							<Typography variant={"h2"} className={"text-2xl xs:text-3xl"}>
 								Discord server
 							</Typography>
@@ -65,7 +59,7 @@ const Home = () => {
 								<Button
 									variant={"contained"}
 									className={
-										"bg-primary-main rounded-full sm:w-fit pr-6 pl-4 py-2.5 normal-case sm:text-sm text-lg w-full h-10"
+										"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none text-xl px-8 py-4"
 									}
 									startIcon={<DiscordIcon />}
 								>
@@ -74,7 +68,7 @@ const Home = () => {
 							</Link>
 						</Box>
 					</Box>
-					<Divider className={"my-16"} />
+					<Divider className={"my-16 sm:my-24"} />
 					<Box className={"flex sm:flex-row flex-col gap-28"}>
 						<Box className={"sm:w-1/2"}>
 							<Typography variant={"h2"} className={"text-xl xs:text-2xl mb-8"}>
@@ -95,7 +89,7 @@ const Home = () => {
 					</Box>
 				</Box>
 			</Box>
-		</Box>
+		</>
 	);
 };
 

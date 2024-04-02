@@ -1,10 +1,9 @@
-import { Box, Typography } from "@mui/material";
-import { WelcomeLogo } from "@/app/icons/WelcomeLogo";
-import Button from "@mui/material/Button";
-import { AboutLogo } from "@/app/icons/AboutLogo";
+import { Box, Button, Typography } from "@mui/material";
+import AboutLogo from "@/app/icons/about-logo.svg";
+import WelcomeLogo from "@/app/icons/welcome-logo.svg";
+import GetInvolved from "@/app/icons/get-involved.svg";
 import LatestUpdates from "@/app/components/LatestUpdates";
 import { fetchTwoNewestArticles } from "@/sanity/api";
-import { GetInvolvedLogo } from "@/app/icons/GetInvolvedLogo";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,55 +11,38 @@ const Home = async () => {
 	const articles = await fetchTwoNewestArticles();
 
 	return (
-		<Box className={"w-full"}>
-			<Box className={"flex flex-col xs:flex-row justify-between"}>
-				<Box
-					className={
-						"flex flex-col sm:ml-16 xl:ml-64 lg:max-w-7xl my-16 lg:my-56 gap-6 p-6 relative z-10 justify-center"
-					}
-				>
-					<Typography className={"text-3xl xs:text-4xl font-semibold"}>
-						Open Earth Platform Initiative
-					</Typography>
-					<Typography variant={"h1"} className={"text-5xl xs:text-6xl"}>
-						An open, global digital innovation platform for climate and nature.
-					</Typography>
+		<>
+			<Box className={"flex flex-col relative"}>
+				<Box className={"pr-6 my-16 lg:my-56 gap-6 ml-[max(50%-36rem,1.5rem)] md:ml-[max(50%-36rem,5rem)] md:w-[min(60%-5rem,36rem+10%)]"}>
+					<h1>
+						<div className={"text-3xl md:text-4xl font-semibold mb-6"}>Open Earth Platform Initiative</div>
+						<div className={"text-5xl md:text-6xl"}>An open, global digital innovation platform for climate and
+							nature.
+						</div>
+					</h1>
 				</Box>
 				<Image
 					src="/welcome.jpeg"
 					width={1160}
 					height={1298}
-					className={
-						"object-cover relative xs:-mb-[160px] xs:w-2/5 w-full xs:-top-[160px]"
-					}
+					className={"object-cover w-full md:w-2/5 md:-top-[160px] md:right-0 md:h-[calc(100%+160px)] md:-z-10 md:absolute"}
 					priority={true}
-					quality={100}
 					alt={"Picture of rainforest"}
 				/>
 			</Box>
-			<Box className={"flex justify-center bg-secondary-90"}>
-				<Box
-					className={
-						"flex flex-col lg:px-0 px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-10 lg:gap-28"
-					}
-				>
-					<Box className={"flex w-fit "}>
-						<WelcomeLogo />
-					</Box>
-					<Typography variant={"h2"} className={"text-4xl xs:text-5xl "}>
+			<Box className={"flex justify-center bg-secondary-90 px-6 md:px-20 py-20"}>
+				<Box className={"flex flex-1 flex-col max-w-6xl sm:flex-row sm:items-center sm:gap-x-24 lg:gap-x-28"}>
+					<WelcomeLogo className={"w-40 h-40 xs:w-48 xs:h-48 lg:w-64 lg:h-64"} />
+					<Typography variant={"h2"} className={"flex-1 text-4xl md:text-5xl"}>
 						Our mission is local tech innovation
 					</Typography>
 				</Box>
 			</Box>
-			<Box className={"flex w-full justify-center"}>
-				<Box
-					className={
-						"flex flex-col flex-wrap gap-6 w-full h-full lg:max-w-7xl p-6 lg:my-36 my-20"
-					}
-				>
-					<Box className={"flex xs:flex-row flex-col-reverse gap-14 w-full "}>
-						<Box className={"flex flex-col gap-10 xs:w-2/3"}>
-							<Typography className={"text-xl xs:text-[2rem]/10"}>
+			<Box className={"flex flex-col items-center px-6 md:px-20 my-20 lg:my-28"}>
+				<Box className={"flex flex-col max-w-6xl"}>
+					<Box className={"flex flex-col-reverse gap-14 mb-20 sm:mb-32 sm:flex-row"}>
+						<Box className={"flex flex-1 flex-col gap-10"}>
+							<Typography className={"text-2xl sm:text-3xl"}>
 								Open data, AI, and digital technologies will be crucial
 								catalysts for collaboration, innovation, and informed
 								decision-making in addressing climate change – building
@@ -71,33 +53,29 @@ const Home = async () => {
 								<Button
 									variant={"contained"}
 									className={
-										"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
+										"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none text-xl px-8 py-4"
 									}
 								>
 									Learn more about the project
 								</Button>
 							</Link>
 						</Box>
-						<AboutLogo />
+						<AboutLogo className={"w-40 h-40 xs:w-48 xs:h-48 lg:w-64 lg:h-64"} />
 					</Box>
 					{articles.length > 0 && <LatestUpdates articles={articles} />}
 				</Box>
 			</Box>
-			<Box className={"flex justify-center bg-secondary-90"}>
+			<Box className={"flex justify-center bg-secondary-90 px-6 md:px-20 py-20 lg:py-34"}>
 				<Box
 					className={
-						"flex flex-col lg:px-0 px-8 md:flex-row items-baseline md:items-center lg:max-w-7xl py-20 gap-10 lg:gap-28"
+						"flex flex-col md:flex-row items-baseline md:items-center max-w-6xl gap-10 lg:gap-28"
 					}
 				>
-					<Box className={"w-fit h-fit"}>
-						<GetInvolvedLogo />
-					</Box>
-					<Box className={"flex flex-col gap-12"}>
+					<GetInvolved className={"w-40 h-40 xs:w-48 xs:h-48 lg:w-64 lg:h-64 flex-shrink-0"} />
+					<Box className={"flex flex-col gap-y-10 xs:gap-y-12"}>
 						<Typography
-							variant={"h1"}
-							className={
-								"leading-[48px] xs:leading-[64px] text-4xl xs:text-5xl"
-							}
+							variant={"h2"}
+							className={"text-4xl md:text-5xl"}
 						>
 							Contribute and get engaged in the project
 						</Typography>
@@ -105,7 +83,7 @@ const Home = async () => {
 							<Button
 								variant={"contained"}
 								className={
-									"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none xs:text-[1.375rem] px-8 py-4"
+									"bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none text-xl px-8 py-4"
 								}
 							>
 								Get involved
@@ -114,7 +92,8 @@ const Home = async () => {
 					</Box>
 				</Box>
 			</Box>
-		</Box>
+		</>
 	);
 };
+
 export default Home;
