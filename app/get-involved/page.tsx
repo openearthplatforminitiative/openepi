@@ -10,20 +10,33 @@ import GetInvolved from "@/app/icons/get-involved.svg";
 const Home = () => {
 	return (
 		<>
-			<Box className={"flex justify-center bg-secondary-90 px-6 sm:px-20 py-16 sm:py-28"}>
-				<Box className={"flex flex-col gap-x-6 gap-y-8 max-w-6xl sm:flex-row-reverse sm:items-center"}>
-					<GetInvolved className={"w-40 h-40 sm:w-72 sm:h-72 lg:w-96 lg:h-96 flex-shrink-0"} />
-					<Typography
-						variant={"h1"}
-						className={"text-4xl md:text-6xl"}
-					>
+			<Box
+				className={
+					"flex justify-center bg-secondary-90 px-6 sm:px-20 py-16 sm:py-28"
+				}
+			>
+				<Box
+					className={
+						"flex flex-col gap-x-6 gap-y-8 max-w-6xl sm:flex-row-reverse sm:items-center"
+					}
+				>
+					<GetInvolved
+						className={
+							"w-40 h-40 sm:w-72 sm:h-72 lg:w-96 lg:h-96 flex-shrink-0"
+						}
+					/>
+					<Typography variant={"h1"} className={"text-4xl md:text-6xl"}>
 						Contribute and get engaged in the project
 					</Typography>
 				</Box>
 			</Box>
 			<Box className={"flex justify-center px-6 md:px-20 py-16 xs:py-28"}>
 				<Box className={"flex flex-col max-w-6xl"}>
-					<Box className={"flex flex-col sm:flex-row gap-x-24 lg:gap-x-32 gap-y-12"}>
+					<Box
+						className={
+							"flex flex-col sm:flex-row gap-x-24 lg:gap-x-32 gap-y-12"
+						}
+					>
 						<Box className={"flex-1"}>
 							<Typography variant={"h2"} className={"text-2xl xs:text-3xl "}>
 								Developer portal

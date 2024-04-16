@@ -28,7 +28,10 @@ interface PortableTextStyledProps {
 	className?: string;
 }
 
-export default function PortableTextStyled({ content, className }: PortableTextStyledProps) {
+export default function PortableTextStyled({
+	content,
+	className,
+}: PortableTextStyledProps) {
 	const builder = imageUrlBuilder(sanityClient);
 	return (
 		<PortableText

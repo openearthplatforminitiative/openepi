@@ -13,13 +13,14 @@ export default function Footer({ partners }: FooterProps) {
 		<footer className={"flex justify-center w-full pt-20 pb-28 px-6 md:px-20"}>
 			<Box className={"flex flex-col max-w-6xl w-full"}>
 				<OpenEPILogoSmall />
-				<Box className={"flex flex-col sm:flex-row flex-wrap text-base w-full my-12 gap-y-12"}>
+				<Box
+					className={
+						"flex flex-col sm:flex-row flex-wrap text-base w-full my-12 gap-y-12"
+					}
+				>
 					<ul className={"flex flex-1 flex-col gap-4"}>
 						<li>
-							<Link
-								className={"underline hover:no-underline"}
-								href={"/about"}
-							>
+							<Link className={"underline hover:no-underline"} href={"/about"}>
 								About OpenEPI
 							</Link>
 						</li>
@@ -60,7 +61,9 @@ export default function Footer({ partners }: FooterProps) {
 								<Link
 									href={partner.url}
 									target={"_blank"}
-									className={"flex gap-1 w-fit underline hover:no-underline items-center"}
+									className={
+										"flex gap-1 w-fit underline hover:no-underline items-center"
+									}
 								>
 									{partner.title}
 									<ExternalLinkIconSmall />
@@ -71,9 +74,8 @@ export default function Footer({ partners }: FooterProps) {
 				</Box>
 				<Divider />
 				<Typography className={"mt-6"}>
-					2024 - Except where otherwise noted, content on this site is
-					licensed under a Creative Commons Attribution 4.0 International
-					license.
+					2024 - Except where otherwise noted, content on this site is licensed
+					under a Creative Commons Attribution 4.0 International license.
 				</Typography>
 			</Box>
 		</footer>

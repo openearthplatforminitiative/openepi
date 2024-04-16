@@ -3,7 +3,7 @@ import {
 	fetchArticleBySlug,
 	fetchArticles,
 	fetchTwoNewestArticlesBySlug,
-	sanityClient
+	sanityClient,
 } from "@/sanity/api";
 import { Box, Typography } from "@mui/material";
 import { BackIcon } from "@/app/icons/BackIcon";
@@ -12,7 +12,11 @@ import imageUrlBuilder from "@sanity/image-url";
 import ArticleCard from "@/app/components/ArticleCard";
 import PortableTextStyled from "@/app/components/PortableTextStyled";
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({
+	params,
+}: {
+	params: { slug: string };
+}) {
 	const article = await fetchArticleBySlug(params.slug);
 	const articles: Article[] = await fetchTwoNewestArticlesBySlug(params.slug);
 
@@ -22,7 +26,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
 			<Box className={"flex flex-col max-w-6xl"}>
 				<Link
 					href="/articles"
-					className={"flex flex-row items-center text-primary-main underline hover:no-underline gap-1"}
+					className={
+						"flex flex-row items-center text-primary-main underline hover:no-underline gap-1"
+					}
 				>
 					<BackIcon />
 					<Typography className={"text-base"}>Back to articles</Typography>
