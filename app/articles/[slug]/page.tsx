@@ -22,16 +22,14 @@ export default async function PostPage({
 
 	const builder = imageUrlBuilder(sanityClient);
 	return (
-		<Box className={"flex justify-center px-6 md:px-20 py-16 xs:py-28"}>
-			<Box className={"flex flex-col max-w-6xl"}>
+		<Box className="flex justify-center px-6 md:px-20 py-16 xs:py-28">
+			<Box className="flex flex-col max-w-6xl">
 				<Link
 					href="/articles"
-					className={
-						"flex flex-row items-center text-primary-main underline hover:no-underline gap-1"
-					}
+					className="flex flex-row items-center text-primary-main underline hover:no-underline gap-1"
 				>
 					<BackIcon />
-					<Typography className={"text-base"}>Back to articles</Typography>
+					<Typography className="text-base">Back to articles</Typography>
 				</Link>
 				{article.body !== null ? (
 					<PortableTextStyled content={article.body} />
@@ -39,11 +37,11 @@ export default async function PostPage({
 					<Typography>No content published yet</Typography>
 				)}
 				{articles.length > 0 && (
-					<Box className={"flex flex-col mt-20 md:mt-28 gap-12 md:justify-end"}>
-						<Typography variant={"h2"} className={"text-4xl sm:text-5xl"}>
+					<Box className="flex flex-col mt-20 md:mt-28 gap-12 md:justify-end">
+						<Typography variant="h2" className="text-4xl sm:text-5xl">
 							More articles
 						</Typography>
-						<Box className={"flex flex-wrap gap-12"}>
+						<Box className="flex flex-wrap gap-12">
 							{articles.map((article) => (
 								<ArticleCard
 									key={article._id}
@@ -54,7 +52,7 @@ export default async function PostPage({
 											? builder.image(article.mainImage).toString()
 											: "/article-placeholder.png"
 									}
-									alt={"Link to content of article"}
+									alt="Link to content of article"
 								/>
 							))}
 						</Box>

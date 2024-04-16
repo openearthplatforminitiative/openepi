@@ -42,13 +42,13 @@ const Home = () => {
 	}, []);
 
 	return (
-		<Box className={"flex justify-center px-6 md:px-20 py-16 xs:py-28"}>
-			<Box className={"flex flex-1 flex-col max-w-6xl"}>
-				<Typography variant={"h2"} className={"text-4xl xs:text-5xl mb-16"}>
+		<Box className="flex justify-center px-6 md:px-20 py-16 xs:py-28">
+			<Box className="flex flex-1 flex-col max-w-6xl">
+				<Typography variant="h2" className="text-4xl xs:text-5xl mb-16">
 					Latest updates
 				</Typography>
 
-				<Box className={"flex flex-row flex-wrap gap-6"}>
+				<Box className="flex flex-row flex-wrap gap-6">
 					{articles.map((post) => (
 						<ArticleCard
 							key={post._id}
@@ -59,14 +59,14 @@ const Home = () => {
 									? builder.image(post.mainImage).toString()
 									: "/article-placeholder.png"
 							}
-							alt={"Link to content of article"}
+							alt="Link to content of article"
 						/>
 					))}
 				</Box>
 				{articles.length > 5 && (
-					<Box className={"flex w-full justify-end mt-8"}>
+					<Box className="flex w-full justify-end mt-8">
 						<Button
-							variant={"outlined"}
+							variant="outlined"
 							className={
 								totalArticles !== articles.length
 									? "text-primary-main sm:w-fit rounded-full border-neutralVariant-50 normal-case lg:text-sm text-lg h-10"

@@ -27,15 +27,15 @@ const HelpButton = () => {
 	const id = open ? "simple-popover" : undefined;
 
 	return (
-		<Box className={"fixed bottom-20 right-4 xs:right-20 z-10"}>
+		<Box className="fixed bottom-20 right-4 xs:right-20 z-10">
 			<Fab
-				className={"w-fit rounded-2xl mt-2"}
+				className="w-fit rounded-2xl mt-2"
 				aria-label="add"
 				onClick={handleClick}
 			>
-				<Box className={"flex flex-row gap-3 p-4 items-center"}>
+				<Box className="flex flex-row gap-3 p-4 items-center">
 					<MessageIcon />
-					<Typography className={"text-primary-main text-sm normal-case h-fit"}>
+					<Typography className="text-primary-main text-sm normal-case h-fit">
 						Need help?
 					</Typography>
 				</Box>
@@ -54,22 +54,20 @@ const HelpButton = () => {
 					vertical: "bottom",
 					horizontal: "right",
 				}}
-				className={"-mt-4 "}
+				className="-mt-4 "
 			>
-				<Box className={"flex flex-col p-6 w-64 "}>
-					<Box className={"flex flex-col gap-2"}>
-						<Typography className={"text-sm"}>
+				<Box className="flex flex-col p-6 w-64 ">
+					<Box className="flex flex-col gap-2">
+						<Typography className="text-sm">
 							For technical issues or requests:
 						</Typography>
 						<Link
-							href={"https://github.com/openearthplatforminitiative"}
-							target={"_blank"}
+							href="https://github.com/openearthplatforminitiative"
+							target="_blank"
 						>
 							<Button
-								variant={"contained"}
-								className={
-									"bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm mt-2"
-								}
+								variant="contained"
+								className="bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm mt-2"
 								startIcon={<GithubIconWhite />}
 								sx={{ "& .MuiButton-startIcon": { marginLeft: "0" } }}
 							>
@@ -77,17 +75,13 @@ const HelpButton = () => {
 							</Button>
 						</Link>
 					</Box>
-					<Divider className={"my-6"} />
-					<Box className={"flex flex-col gap-2"}>
-						<Typography className={"text-sm"}>
-							To join the community:
-						</Typography>
-						<Link href={"https://discord.gg/HatbmfCY"} target={"_blank"}>
+					<Divider className="my-6" />
+					<Box className="flex flex-col gap-2">
+						<Typography className="text-sm">To join the community:</Typography>
+						<Link href="https://discord.gg/HatbmfCY" target="_blank">
 							<Button
-								variant={"contained"}
-								className={
-									"bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm"
-								}
+								variant="contained"
+								className="bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm"
 								startIcon={<DiscordIcon />}
 								sx={{ "& .MuiButton-startIcon": { marginLeft: "0" } }}
 							>
@@ -95,14 +89,12 @@ const HelpButton = () => {
 							</Button>
 						</Link>
 					</Box>
-					<Divider className={"my-6"} />
-					<Box className={"flex flex-col gap-2 w-4/5"}>
+					<Divider className="my-6" />
+					<Box className="flex flex-col gap-2 w-4/5">
 						<Typography>For general enquiries use the contact form:</Typography>
 						<Link
-							href={"/get-involved"}
-							className={
-								"text-base text-primary-main underline hover:no-underline"
-							}
+							href="/get-involved"
+							className="text-base text-primary-main underline hover:no-underline"
 						>
 							Get involved page
 						</Link>

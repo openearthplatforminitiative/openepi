@@ -27,7 +27,7 @@ const NavBar = () => {
 			: baseStyle + " hover:bg-[#1d1b2014]";
 	return (
 		<nav className="flex flex-row items-center sm:p-14 p-8 justify-between">
-			<Link href={"/"}>
+			<Link href="/">
 				<OpenEPILogo />
 			</Link>
 			<Box className="xl:flex xl:flex-row xl:text-2xl xl:rounded-full xl:bg-[#FBFDF8] hidden">
@@ -41,17 +41,17 @@ const NavBar = () => {
 					Resources
 				</Link>
 				<Link
-					href={"https://developer-test.openepi.io/"}
-					target={"_blank"}
+					href="https://developer-test.openepi.io/"
+					target="_blank"
 					className={
 						baseStyle +
 						" flex flex-row items-center gap-1.5 hover:bg-[#1d1b2014]"
 					}
 				>
-					For developers <ExternalLinkIcon color={"black"} />
+					For developers <ExternalLinkIcon color="black" />
 				</Link>
 			</Box>
-			<Box className={"xl:hidden"}>
+			<Box className="xl:hidden">
 				<IconButton
 					size="large"
 					edge="start"
@@ -68,30 +68,28 @@ const NavBar = () => {
 					anchorEl={anchorEl}
 				>
 					<MenuItem onClick={handleClose}>
-						<Link href="/about" className={"p-2"}>
-							<Typography className={"text-lg"}>About</Typography>
+						<Link href="/about" className="p-2">
+							<Typography className="text-lg">About</Typography>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
-						<Link href="/get-involved" className={"p-2"}>
-							<Typography className={"text-lg"}>Get involved </Typography>
+						<Link href="/get-involved" className="p-2">
+							<Typography className="text-lg">Get involved </Typography>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
-						<Link href="/resources" className={"p-2"}>
-							<Typography className={"text-lg"}>Resources</Typography>
+						<Link href="/resources" className="p-2">
+							<Typography className="text-lg">Resources</Typography>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
 						<Link
-							href={"https://developer-test.openepi.io/"}
-							target={"_blank"}
-							className={
-								"flex flex-row items-center gap-1.5 p-2 hover:bg-[#1d1b2014]"
-							}
+							href="https://developer-test.openepi.io/"
+							target="_blank"
+							className="flex flex-row items-center gap-1.5 p-2 hover:bg-[#1d1b2014]"
 						>
-							<Typography className={"text-lg"}>For developers</Typography>{" "}
-							<ExternalLinkIcon color={"black"} />
+							<Typography className="text-lg">For developers</Typography>{" "}
+							<ExternalLinkIcon color="black" />
 						</Link>
 					</MenuItem>
 				</Menu>

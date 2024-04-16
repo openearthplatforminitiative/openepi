@@ -59,8 +59,8 @@ export default function PortableTextStyled({
 					}
 					const [headerRow, ...bodyRows] = rows;
 					return (
-						<table className={"w-full my-4"}>
-							<thead className={"border-b border-neutral-80 font-bold"}>
+						<table className="w-full my-4">
+							<thead className="border-b border-neutral-80 font-bold">
 								<tr>
 									{headerRow.cells.map((cell, cellIndex) => {
 										const cellStyle = "xs:p-4 p-0 border-neutral-80";
@@ -85,7 +85,7 @@ export default function PortableTextStyled({
 								{bodyRows.map((row) => {
 									const cellStyle = "xs:p-4 p-0 border-neutral-80";
 									return (
-										<tr className={"border-b border-neutral-80"} key={row._key}>
+										<tr className="border-b border-neutral-80" key={row._key}>
 											{row.cells.map((cell, cellIndex) => (
 												<td
 													className={
@@ -108,12 +108,10 @@ export default function PortableTextStyled({
 				li: ({ children }: any) => (
 					<li className="ml-4 text-base list-disc">{children}</li>
 				),
-				ul: ({ children }: any) => <ul className={"ml-4 mb-6"}>{children}</ul>,
-				ol: ({ children }: any) => <ol className={"ml-4 mb-6"}>{children}</ol>,
+				ul: ({ children }: any) => <ul className="ml-4 mb-6">{children}</ul>,
+				ol: ({ children }: any) => <ol className="ml-4 mb-6">{children}</ol>,
 				blockquote: ({ children }: any) => (
-					<blockquote className={"ml-4 text-base italic"}>
-						{children}
-					</blockquote>
+					<blockquote className="ml-4 text-base italic">{children}</blockquote>
 				),
 				link: ({ href, children }: any) => (
 					<a
@@ -126,7 +124,7 @@ export default function PortableTextStyled({
 				image: (value: SanityImage, props: any) => {
 					const { width, height } = getImageDimensions(value);
 					return (
-						<Box className={"relative w-fit"}>
+						<Box className="relative w-fit">
 							<Image
 								src={
 									value && value?.asset?._ref
@@ -134,19 +132,15 @@ export default function PortableTextStyled({
 										: ""
 								}
 								alt={value && value?.alt ? value.alt : ""}
-								loading={"lazy"}
+								loading="lazy"
 								height={height}
 								width={width}
-								className={"my-20 rounded-xl"}
+								className="my-20 rounded-xl"
 								{...props}
 							/>
 							{value && value?.caption && (
-								<Tooltip placement={"left-end"} title={value.caption} arrow>
-									<Box
-										className={
-											"w-fit h-fit rounded-full bg-secondary-90 hover:bg-secondary-80 absolute bottom-0 right-0 m-2"
-										}
-									>
+								<Tooltip placement="left-end" title={value.caption} arrow>
+									<Box className="w-fit h-fit rounded-full bg-secondary-90 hover:bg-secondary-80 absolute bottom-0 right-0 m-2">
 										<CaptionIcon />
 									</Box>
 								</Tooltip>
@@ -170,7 +164,7 @@ export default function PortableTextStyled({
 					const href = `${prefix}/${slug.current}`;
 					return (
 						<a
-							className={"text-primary-main underline hover:no-underline"}
+							className="text-primary-main underline hover:no-underline"
 							href={href}
 						>
 							{children}
@@ -188,16 +182,16 @@ export default function PortableTextStyled({
 				}) => {
 					return openInNewTab ? (
 						<a
-							className={"text-primary-main underline hover:no-underline"}
+							className="text-primary-main underline hover:no-underline"
 							href={href}
-							target={"_blank "}
-							rel={"noopener noreferrer"}
+							target="_blank "
+							rel="noopener noreferrer"
 						>
 							{children}
 						</a>
 					) : (
 						<a
-							className={"text-primary-main underline hover:no-underline"}
+							className="text-primary-main underline hover:no-underline"
 							href={href}
 						>
 							{children}
@@ -212,7 +206,7 @@ export default function PortableTextStyled({
 					children: ReactElement;
 				}) => (
 					<a
-						className={"text-primary-main underline hover:no-underline"}
+						className="text-primary-main underline hover:no-underline"
 						href={`mailto:${href}`}
 					>
 						{children}
