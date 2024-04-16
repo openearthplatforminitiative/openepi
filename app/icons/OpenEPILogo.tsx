@@ -2,7 +2,7 @@
 export const OpenEPILogo = () => {
 	return (
 		<svg
-			className={"xs:w-52 xs:h-12 w-36 h-8"}
+			className="xs:w-52 xs:h-12 w-36 h-8"
 			width="208"
 			height="48"
 			viewBox="0 0 208 48"

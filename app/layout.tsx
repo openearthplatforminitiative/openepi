@@ -29,7 +29,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en" className={inter.className}>
 			<ThemeRegistry options={{ key: "mui" }}>
-				<body className={"bg-[#FBFDF8] min-h-screen flex flex-col"}>
+				<body className="bg-[#FBFDF8] min-h-screen flex flex-col">
 					<NavBar />
 					<main>{children}</main>
 					<HelpButton />
