@@ -20,7 +20,9 @@ const ArticleCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 			}
 		>
 			<Card
-				className={"group rounded-xl shadow-none bg-card hover:bg-secondary-90 w-full"}
+				className={
+					"group rounded-xl shadow-none bg-card hover:bg-secondary-90 w-full"
+				}
 			>
 				<Image
 					src={imageUrl}
@@ -31,9 +33,7 @@ const ArticleCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 				/>
 				<Box className={"flex flex-col p-6"}>
 					<Box className={"flex flex-row justify-between items-start"}>
-						<Typography className={"leading-6 text-xl"}>
-							{header}
-						</Typography>
+						<Typography className={"leading-6 text-xl"}>{header}</Typography>
 						<Box className="transform transition-transform duration-300 group-hover:translate-x-2">
 							<InternalLinkIcon />
 						</Box>

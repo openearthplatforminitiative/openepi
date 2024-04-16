@@ -74,9 +74,7 @@ const Home = () => {
 							}
 							startIcon={
 								<PlusIcon
-									color={
-										totalArticles !== articles.length ? "#006D41" : "gray"
-									}
+									color={totalArticles !== articles.length ? "#006D41" : "gray"}
 								/>
 							}
 							disabled={totalArticles === articles.length}

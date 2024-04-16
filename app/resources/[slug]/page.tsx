@@ -6,7 +6,11 @@ import Link from "next/link";
 import CodeBlock from "@/app/components/CodeBlock";
 import { notFound } from "next/navigation";
 
-export default async function DocumentPage({ params }: { params: { slug: string } }) {
+export default async function DocumentPage({
+	params,
+}: {
+	params: { slug: string };
+}) {
 	const document = await fetchDocumentBySlug(params.slug);
 	if (!document) {
 		return notFound();
@@ -17,7 +21,9 @@ export default async function DocumentPage({ params }: { params: { slug: string 
 				{document.parentSlug ? (
 					<Link
 						href={`/resources/${document.parentSlug.current}`}
-						className={"flex items-center text-primary-main underline hover:no-underline gap-1"}
+						className={
+							"flex items-center text-primary-main underline hover:no-underline gap-1"
+						}
 					>
 						<BackIcon />
 						<Typography className={"text-base"}>
@@ -27,17 +33,16 @@ export default async function DocumentPage({ params }: { params: { slug: string 
 				) : (
 					<Link
 						href="/resources"
-						className={"flex items-center text-primary-main underline hover:no-underline gap-1"}
+						className={
+							"flex items-center text-primary-main underline hover:no-underline gap-1"
+						}
 					>
 						<BackIcon />
 						<Typography className={"text-base"}>Back to resources</Typography>
 					</Link>
 				)}
 				{document.body !== null && document.body !== undefined ? (
-					<PortableTextStyled
-						className={"mt-16"}
-						content={document.body}
-					/>
+					<PortableTextStyled className={"mt-16"} content={document.body} />
 				) : (
 					<Typography>No content published yet</Typography>
 				)}

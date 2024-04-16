@@ -71,7 +71,7 @@ const HelpButton = () => {
 									"bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm mt-2"
 								}
 								startIcon={<GithubIconWhite />}
-								sx={{ "& .MuiButton-startIcon": { marginLeft: "0" }}}
+								sx={{ "& .MuiButton-startIcon": { marginLeft: "0" } }}
 							>
 								To the Github project
 							</Button>
@@ -89,7 +89,7 @@ const HelpButton = () => {
 									"bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm"
 								}
 								startIcon={<DiscordIcon />}
-								sx={{ "& .MuiButton-startIcon": { marginLeft: "0" }}}
+								sx={{ "& .MuiButton-startIcon": { marginLeft: "0" } }}
 							>
 								Join on Discord
 							</Button>
