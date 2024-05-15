@@ -78,7 +78,7 @@ const HelpButton = () => {
 					<Divider className="my-6" />
 					<Box className="flex flex-col gap-2">
 						<Typography className="text-sm">To join the community:</Typography>
-						<Link href="https://discord.gg/HatbmfCY" target="_blank">
+						<Link href="https://discord.gg/R4ASSWRe7c" target="_blank">
 							<Button
 								variant="contained"
 								className="bg-primary-main rounded-full w-fit pr-6 pl-4 py-2.5 normal-case text-sm"
