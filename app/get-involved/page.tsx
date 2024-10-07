@@ -29,7 +29,7 @@ const Home = () => {
 								Are you a developer wanting to explore the data? Get started on
 								our platform.
 							</Typography>
-							<Link href="https://developer-test.openepi.io/" target="_blank">
+							<Link href="https://developer.openepi.io/" target="_blank">
 								<Button
 									variant="contained"
 									className="bg-primary-main rounded-full border-neutralVariant-50 normal-case shadow-none text-xl px-8 py-4"

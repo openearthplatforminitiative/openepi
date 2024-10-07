@@ -37,7 +37,7 @@ export default function Footer({ partners }: FooterProps) {
 							<Link
 								target="_blank"
 								className="flex gap-1 w-fit underline hover:no-underline items-center"
-								href="https://developer-test.openepi.io/"
+								href="https://developer.openepi.io/"
 							>
 								For developers <ExternalLinkIconSmall />
 							</Link>

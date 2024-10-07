@@ -41,7 +41,7 @@ const NavBar = () => {
 					Resources
 				</Link>
 				<Link
-					href="https://developer-test.openepi.io/"
+					href="https://developer.openepi.io/"
 					target="_blank"
 					className={
 						baseStyle +
@@ -84,7 +84,7 @@ const NavBar = () => {
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
 						<Link
-							href="https://developer-test.openepi.io/"
+							href="https://developer.openepi.io/"
 							target="_blank"
 							className="flex flex-row items-center gap-1.5 p-2 hover:bg-[#1d1b2014]"
 						>
