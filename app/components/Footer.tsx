@@ -1,11 +1,11 @@
-import { Partner } from "@/sanity/api";
-import { Box, Divider, Typography } from "@mui/material";
-import Link from "next/link";
-import { OpenEPILogoSmall } from "@/app/icons/OpenEPILogoSmall";
-import ExternalLinkIconSmall from "@/app/icons/external-link-icon-small.svg";
+import { Partner } from "@/sanity/api"
+import { Box, Divider, Typography } from "@mui/material"
+import Link from "next/link"
+import { OpenEPILogoSmall } from "@/app/icons/OpenEPILogoSmall"
+import ExternalLinkIconSmall from "@/app/icons/external-link-icon-small.svg"
 
 interface FooterProps {
-	partners: Partner[];
+	partners: Partner[]
 }
 
 export default function Footer({ partners }: FooterProps) {
@@ -63,10 +63,10 @@ export default function Footer({ partners }: FooterProps) {
 				</Box>
 				<Divider />
 				<Typography className="mt-6">
-					2024 - Except where otherwise noted, content on this site is licensed
+					2025 - Except where otherwise noted, content on this site is licensed
 					under a Creative Commons Attribution 4.0 International license.
 				</Typography>
 			</Box>
 		</footer>
-	);
+	)
 }
