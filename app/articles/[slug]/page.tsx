@@ -12,11 +12,12 @@ import imageUrlBuilder from "@sanity/image-url";
 import ArticleCard from "@/app/components/ArticleCard";
 import PortableTextStyled from "@/app/components/PortableTextStyled";
 
-export default async function PostPage({
-	params,
-}: {
-	params: { slug: string };
-}) {
+export default async function PostPage(
+	props: {
+		params: Promise<{ slug: string }>;
+	}
+) {
+	const params = await props.params;
 	const article = await fetchArticleBySlug(params.slug);
 	const articles: Article[] = await fetchTwoNewestArticlesBySlug(params.slug);
 
