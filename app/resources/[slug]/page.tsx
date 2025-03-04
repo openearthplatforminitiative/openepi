@@ -6,11 +6,12 @@ import Link from "next/link";
 import CodeBlock from "@/app/components/CodeBlock";
 import { notFound } from "next/navigation";
 
-export default async function DocumentPage({
-	params,
-}: {
-	params: { slug: string };
-}) {
+export default async function DocumentPage(
+	props: {
+		params: Promise<{ slug: string }>;
+	}
+) {
+	const params = await props.params;
 	const document = await fetchDocumentBySlug(params.slug);
 	if (!document) {
 		return notFound();
