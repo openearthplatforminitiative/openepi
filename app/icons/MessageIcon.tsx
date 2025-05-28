@@ -11,4 +11,4 @@ export const MessageIcon = () => (
 			fill="#006D41"
 		/>
 	</svg>
-);
+)

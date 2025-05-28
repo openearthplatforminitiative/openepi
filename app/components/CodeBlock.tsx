@@ -1,44 +1,44 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { CopyIcon } from "@/app/icons/CopyIcon";
-import { IconButton, Tooltip } from "@mui/material";
-import { CheckIcon } from "@/app/icons/CheckIcon";
-import Box from "@mui/material/Box";
-import { myCustomStyle } from "@/app/theme/custom-code-style";
-import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
-import python from "react-syntax-highlighter/dist/cjs/languages/hljs/python";
-import yaml from "react-syntax-highlighter/dist/cjs/languages/hljs/yaml";
-import json from "react-syntax-highlighter/dist/esm/languages/hljs/json";
+import React, { useState } from "react"
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter"
+import { CopyIcon } from "@/app/icons/CopyIcon"
+import { IconButton, Tooltip } from "@mui/material"
+import { CheckIcon } from "@/app/icons/CheckIcon"
+import Box from "@mui/material/Box"
+import { myCustomStyle } from "@/app/theme/custom-code-style"
+import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript"
+import python from "react-syntax-highlighter/dist/cjs/languages/hljs/python"
+import yaml from "react-syntax-highlighter/dist/cjs/languages/hljs/yaml"
+import json from "react-syntax-highlighter/dist/esm/languages/hljs/json"
 
-SyntaxHighlighter.registerLanguage("javascript", js);
-SyntaxHighlighter.registerLanguage("python", python);
-SyntaxHighlighter.registerLanguage("yaml", yaml);
-SyntaxHighlighter.registerLanguage("json", json);
+SyntaxHighlighter.registerLanguage("javascript", js)
+SyntaxHighlighter.registerLanguage("python", python)
+SyntaxHighlighter.registerLanguage("yaml", yaml)
+SyntaxHighlighter.registerLanguage("json", json)
 
 interface CodeBlockProps {
-	codeString: string;
-	language: string;
+	codeString: string
+	language: string
 }
 
 const CodeBlock = ({ codeString, language }: CodeBlockProps) => {
-	const [isCopied, setIsCopied] = useState<boolean>(false);
-	const [openTooltip, setOpenTooltip] = useState<boolean>(false); // State to control the tooltip open status
+	const [isCopied, setIsCopied] = useState<boolean>(false)
+	const [openTooltip, setOpenTooltip] = useState<boolean>(false) // State to control the tooltip open status
 
 	const handleCopy = async () => {
 		if ("clipboard" in navigator) {
-			await navigator.clipboard.writeText(codeString);
-			setIsCopied(true);
-			setOpenTooltip(true); // Open the tooltip
+			await navigator.clipboard.writeText(codeString)
+			setIsCopied(true)
+			setOpenTooltip(true) // Open the tooltip
 			setTimeout(() => {
-				setIsCopied(false);
-				setOpenTooltip(false); // Close the tooltip after 3 seconds
-			}, 3000);
+				setIsCopied(false)
+				setOpenTooltip(false) // Close the tooltip after 3 seconds
+			}, 3000)
 		} else {
-			console.error("Clipboard API not available");
+			console.error("Clipboard API not available")
 		}
-	};
+	}
 
 	return (
 		<Box className="relative mt-6">
@@ -65,7 +65,7 @@ const CodeBlock = ({ codeString, language }: CodeBlockProps) => {
 				</IconButton>
 			</Tooltip>
 		</Box>
-	);
-};
+	)
+}
 
-export default CodeBlock;
+export default CodeBlock

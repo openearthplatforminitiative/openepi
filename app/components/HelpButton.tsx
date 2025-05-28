@@ -1,30 +1,30 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
-import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import { MessageIcon } from "@/app/icons/MessageIcon";
-import Link from "next/link";
-import Button from "@mui/material/Button";
-import { GithubIconWhite } from "@/app/icons/GithubIconWhite";
-import Divider from "@mui/material/Divider";
-import { DiscordIcon } from "@/app/icons/DiscordIcon";
+import React, { useState } from "react"
+import Box from "@mui/material/Box"
+import Fab from "@mui/material/Fab"
+import Popover from "@mui/material/Popover"
+import Typography from "@mui/material/Typography"
+import { MessageIcon } from "@/app/icons/MessageIcon"
+import Link from "next/link"
+import Button from "@mui/material/Button"
+import { GithubIconWhite } from "@/app/icons/GithubIconWhite"
+import Divider from "@mui/material/Divider"
+import { DiscordIcon } from "@/app/icons/DiscordIcon"
 
 const HelpButton = () => {
-	const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+	const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		setAnchorEl(event.currentTarget);
-	};
+		setAnchorEl(event.currentTarget)
+	}
 
 	const handleClose = () => {
-		setAnchorEl(null);
-	};
+		setAnchorEl(null)
+	}
 
-	const open = Boolean(anchorEl);
-	const id = open ? "simple-popover" : undefined;
+	const open = Boolean(anchorEl)
+	const id = open ? "simple-popover" : undefined
 
 	return (
 		<Box className="fixed bottom-20 right-4 xs:right-20 z-10">
@@ -102,7 +102,7 @@ const HelpButton = () => {
 				</Box>
 			</Popover>
 		</Box>
-	);
-};
+	)
+}
 
-export default HelpButton;
+export default HelpButton

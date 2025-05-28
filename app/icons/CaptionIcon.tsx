@@ -11,4 +11,4 @@ export const CaptionIcon = () => (
 			fill="#4E6354"
 		/>
 	</svg>
-);
+)

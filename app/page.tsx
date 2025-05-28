@@ -1,14 +1,14 @@
-import { Box, Button, Typography } from "@mui/material";
-import AboutLogo from "@/app/icons/about-logo.svg";
-import WelcomeLogo from "@/app/icons/welcome-logo.svg";
-import GetInvolved from "@/app/icons/get-involved.svg";
-import LatestUpdates from "@/app/components/LatestUpdates";
-import { fetchTwoNewestArticles } from "@/sanity/api";
-import Link from "next/link";
-import Image from "next/image";
+import { Box, Button, Typography } from "@mui/material"
+import AboutLogo from "@/app/icons/about-logo.svg"
+import WelcomeLogo from "@/app/icons/welcome-logo.svg"
+import GetInvolved from "@/app/icons/get-involved.svg"
+import LatestUpdates from "@/app/components/LatestUpdates"
+import { fetchTwoNewestArticles } from "@/sanity/api"
+import Link from "next/link"
+import Image from "next/image"
 
 const Home = async () => {
-	const articles = await fetchTwoNewestArticles();
+	const articles = await fetchTwoNewestArticles()
 
 	return (
 		<>
@@ -85,7 +85,7 @@ const Home = async () => {
 				</Box>
 			</Box>
 		</>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

@@ -43,4 +43,4 @@ export const OpenEPILogoSmall = () => (
 			</clipPath>
 		</defs>
 	</svg>
-);
+)

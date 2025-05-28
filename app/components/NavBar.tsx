@@ -1,30 +1,30 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
-import { usePathname } from "next/navigation";
-import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
-import { OpenEPILogo } from "@/app/icons/OpenEPILogo";
-import { useState } from "react";
-import { BurgerMenu } from "@/app/icons/BurgerMenu";
+import Link from "next/link"
+import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material"
+import { usePathname } from "next/navigation"
+import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon"
+import { OpenEPILogo } from "@/app/icons/OpenEPILogo"
+import { useState } from "react"
+import { BurgerMenu } from "@/app/icons/BurgerMenu"
 
 const NavBar = () => {
-	const baseStyle: string = "px-6 py-2 rounded-full";
-	const currentRoute = usePathname();
-	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const baseStyle: string = "px-6 py-2 rounded-full"
+	const currentRoute = usePathname()
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 	const handleClose = () => {
-		setIsOpen(false);
-	};
+		setIsOpen(false)
+	}
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorEl(event.currentTarget);
-		setIsOpen(true);
-	};
+		setAnchorEl(event.currentTarget)
+		setIsOpen(true)
+	}
 
 	const linkClassName = (path: string) =>
 		currentRoute.startsWith(path)
 			? baseStyle + " bg-secondary-90"
-			: baseStyle + " hover:bg-[#1d1b2014]";
+			: baseStyle + " hover:bg-[#1d1b2014]"
 	return (
 		<nav className="flex flex-row items-center sm:p-14 p-8 justify-between">
 			<Link href="/">
@@ -95,7 +95,7 @@ const NavBar = () => {
 				</Menu>
 			</Box>
 		</nav>
-	);
-};
+	)
+}
 
-export default NavBar;
+export default NavBar

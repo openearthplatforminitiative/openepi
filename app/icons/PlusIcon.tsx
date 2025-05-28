@@ -1,5 +1,5 @@
 interface IconColorProps {
-	color: string;
+	color: string
 }
 
 export const PlusIcon = ({ color }: IconColorProps) => (
@@ -15,4 +15,4 @@ export const PlusIcon = ({ color }: IconColorProps) => (
 			fill={color}
 		/>
 	</svg>
-);
+)

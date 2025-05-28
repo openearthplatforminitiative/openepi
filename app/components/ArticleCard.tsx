@@ -1,15 +1,15 @@
-import { Card } from "@mui/material";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Link from "next/link";
-import Image from "next/image";
-import { InternalLinkIcon } from "@/app/icons/InternalLinkIcon";
+import { Card } from "@mui/material"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Link from "next/link"
+import Image from "next/image"
+import { InternalLinkIcon } from "@/app/icons/InternalLinkIcon"
 
 interface ResourceCardProps {
-	header: string;
-	href: string;
-	imageUrl: string;
-	alt: string;
+	header: string
+	href: string
+	imageUrl: string
+	alt: string
 }
 const ArticleCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 	return (
@@ -35,7 +35,7 @@ const ArticleCard = ({ header, imageUrl, href, alt }: ResourceCardProps) => {
 				</Box>
 			</Card>
 		</Link>
-	);
-};
+	)
+}
 
-export default ArticleCard;
+export default ArticleCard

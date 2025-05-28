@@ -1,10 +1,10 @@
-import { Box, Typography } from "@mui/material";
-import ResourcesLogo from "@/app/icons/resources-logo.svg";
-import ResourceCard from "@/app/components/ResourceCard";
-import { fetchRootDocuments } from "@/sanity/api";
+import { Box, Typography } from "@mui/material"
+import ResourcesLogo from "@/app/icons/resources-logo.svg"
+import ResourceCard from "@/app/components/ResourceCard"
+import { fetchRootDocuments } from "@/sanity/api"
 
 const Home = async () => {
-	const documents = await fetchRootDocuments();
+	const documents = await fetchRootDocuments()
 	return (
 		<>
 			<Box className="flex justify-center bg-secondary-90 px-6 sm:px-20 py-16 sm:py-28">
@@ -33,7 +33,7 @@ const Home = async () => {
 				</Box>
 			</Box>
 		</>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

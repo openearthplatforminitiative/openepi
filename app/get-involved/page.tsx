@@ -1,11 +1,11 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
-import { DiscordIcon } from "@/app/icons/DiscordIcon";
-import Link from "next/link";
-import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
-import GetInvolved from "@/app/icons/get-involved.svg";
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
+import Divider from "@mui/material/Divider"
+import { DiscordIcon } from "@/app/icons/DiscordIcon"
+import Link from "next/link"
+import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon"
+import GetInvolved from "@/app/icons/get-involved.svg"
 
 const Home = () => {
 	return (
@@ -78,7 +78,7 @@ const Home = () => {
 				</Box>
 			</Box>
 		</>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

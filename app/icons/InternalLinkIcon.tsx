@@ -11,4 +11,4 @@ export const InternalLinkIcon = () => (
 			fill="black"
 		/>
 	</svg>
-);
+)

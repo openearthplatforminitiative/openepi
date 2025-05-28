@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export const myCustomStyle: { [key: string]: React.CSSProperties } = {
 	hljs: {
@@ -125,4 +125,4 @@ export const myCustomStyle: { [key: string]: React.CSSProperties } = {
 	"hljs-strong": {
 		fontWeight: "bold",
 	},
-};
+}

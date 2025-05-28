@@ -11,4 +11,4 @@ export const BackIcon = () => (
 			fill="#006D41"
 		/>
 	</svg>
-);
+)

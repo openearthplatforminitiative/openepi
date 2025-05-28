@@ -1,19 +1,19 @@
-import { fetchDocumentBySlug, fetchDocuments } from "@/sanity/api";
-import PortableTextStyled from "@/app/components/PortableTextStyled";
-import { Box, Typography } from "@mui/material";
-import { BackIcon } from "@/app/icons/BackIcon";
-import Link from "next/link";
-import CodeBlock from "@/app/components/CodeBlock";
-import { notFound } from "next/navigation";
+import { fetchDocumentBySlug, fetchDocuments } from "@/sanity/api"
+import PortableTextStyled from "@/app/components/PortableTextStyled"
+import { Box, Typography } from "@mui/material"
+import { BackIcon } from "@/app/icons/BackIcon"
+import Link from "next/link"
+import CodeBlock from "@/app/components/CodeBlock"
+import { notFound } from "next/navigation"
 
 export default async function DocumentPage({
 	params,
 }: {
-	params: { slug: string };
+	params: { slug: string }
 }) {
-	const document = await fetchDocumentBySlug(params.slug);
+	const document = await fetchDocumentBySlug(params.slug)
 	if (!document) {
-		return notFound();
+		return notFound()
 	}
 	return (
 		<Box className="flex justify-center px-6 md:px-20 py-16 xs:py-28">
@@ -65,10 +65,10 @@ export default async function DocumentPage({
 					))}
 			</Box>
 		</Box>
-	);
+	)
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-	const data = await fetchDocuments();
-	return data.map(({ slug }) => ({ slug: slug.current }));
+	const data = await fetchDocuments()
+	return data.map(({ slug }) => ({ slug: slug.current }))
 }

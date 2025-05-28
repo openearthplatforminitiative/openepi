@@ -1,38 +1,38 @@
-import { getImageDimensions } from "@sanity/asset-utils";
-import Image from "next/image";
-import imageUrlBuilder from "@sanity/image-url";
-import { sanityClient } from "@/sanity/api";
-import PortableText from "react-portable-text";
-import { ReactElement } from "react";
-import { Box, Tooltip } from "@mui/material";
-import { CaptionIcon } from "@/app/icons/CaptionIcon";
+import { getImageDimensions } from "@sanity/asset-utils"
+import Image from "next/image"
+import imageUrlBuilder from "@sanity/image-url"
+import { sanityClient } from "@/sanity/api"
+import PortableText from "react-portable-text"
+import { ReactElement } from "react"
+import { Box, Tooltip } from "@mui/material"
+import { CaptionIcon } from "@/app/icons/CaptionIcon"
 
 type Row = {
-	_key: string;
-	cells: string[];
-};
+	_key: string
+	cells: string[]
+}
 
 type SanityImage = {
-	_type: string;
-	alt: string;
-	caption: string;
-	_key: string;
+	_type: string
+	alt: string
+	caption: string
+	_key: string
 	asset: {
-		_ref: string;
-		_type: string;
-	};
-};
+		_ref: string
+		_type: string
+	}
+}
 
 interface PortableTextStyledProps {
-	content: any;
-	className?: string;
+	content: any
+	className?: string
 }
 
 export default function PortableTextStyled({
 	content,
 	className,
 }: PortableTextStyledProps) {
-	const builder = imageUrlBuilder(sanityClient);
+	const builder = imageUrlBuilder(sanityClient)
 	return (
 		<PortableText
 			dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
@@ -55,15 +55,15 @@ export default function PortableTextStyled({
 				normal: (props: any) => <p className="text-base mb-10" {...props} />,
 				table: ({ rows }: { rows: Row[] }) => {
 					if (!rows) {
-						return null;
+						return null
 					}
-					const [headerRow, ...bodyRows] = rows;
+					const [headerRow, ...bodyRows] = rows
 					return (
 						<table className="w-full my-4">
 							<thead className="border-b border-neutral-80 font-bold">
 								<tr>
 									{headerRow.cells.map((cell, cellIndex) => {
-										const cellStyle = "xs:p-4 p-0 border-neutral-80";
+										const cellStyle = "xs:p-4 p-0 border-neutral-80"
 
 										return (
 											<th
@@ -77,13 +77,13 @@ export default function PortableTextStyled({
 											>
 												{cell}
 											</th>
-										);
+										)
 									})}
 								</tr>
 							</thead>
 							<tbody>
 								{bodyRows.map((row) => {
-									const cellStyle = "xs:p-4 p-0 border-neutral-80";
+									const cellStyle = "xs:p-4 p-0 border-neutral-80"
 									return (
 										<tr className="border-b border-neutral-80" key={row._key}>
 											{row.cells.map((cell, cellIndex) => (
@@ -99,11 +99,11 @@ export default function PortableTextStyled({
 												</td>
 											))}
 										</tr>
-									);
+									)
 								})}
 							</tbody>
 						</table>
-					);
+					)
 				},
 				li: ({ children }: any) => (
 					<li className="ml-4 text-base list-disc">{children}</li>
@@ -122,7 +122,7 @@ export default function PortableTextStyled({
 					</a>
 				),
 				image: (value: SanityImage, props: any) => {
-					const { width, height } = getImageDimensions(value);
+					const { width, height } = getImageDimensions(value)
 					return (
 						<Box className="relative w-fit">
 							<Image
@@ -146,22 +146,22 @@ export default function PortableTextStyled({
 								</Tooltip>
 							)}
 						</Box>
-					);
+					)
 				},
 				internalLink: ({
 					slug,
 					type,
 					children,
 				}: {
-					slug: any;
-					type: string;
-					children: ReactElement;
+					slug: any
+					type: string
+					children: ReactElement
 				}) => {
-					let prefix = "/";
+					let prefix = "/"
 					if (type === "documents") {
-						prefix = "/resources";
+						prefix = "/resources"
 					}
-					const href = `${prefix}/${slug.current}`;
+					const href = `${prefix}/${slug.current}`
 					return (
 						<a
 							className="text-primary-main underline hover:no-underline"
@@ -169,16 +169,16 @@ export default function PortableTextStyled({
 						>
 							{children}
 						</a>
-					);
+					)
 				},
 				externalLink: ({
 					href,
 					openInNewTab,
 					children,
 				}: {
-					href: string;
-					openInNewTab: boolean;
-					children: ReactElement;
+					href: string
+					openInNewTab: boolean
+					children: ReactElement
 				}) => {
 					return openInNewTab ? (
 						<a
@@ -196,14 +196,14 @@ export default function PortableTextStyled({
 						>
 							{children}
 						</a>
-					);
+					)
 				},
 				emailLink: ({
 					href,
 					children,
 				}: {
-					href: string;
-					children: ReactElement;
+					href: string
+					children: ReactElement
 				}) => (
 					<a
 						className="text-primary-main underline hover:no-underline"
@@ -214,5 +214,5 @@ export default function PortableTextStyled({
 				),
 			}}
 		/>
-	);
+	)
 }

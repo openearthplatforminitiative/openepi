@@ -11,4 +11,4 @@ export const CheckIcon = () => (
 			fill="#006D41"
 		/>
 	</svg>
-);
+)

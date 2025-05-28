@@ -11,4 +11,4 @@ export const CopyIcon = () => (
 			fill="white"
 		/>
 	</svg>
-);
+)

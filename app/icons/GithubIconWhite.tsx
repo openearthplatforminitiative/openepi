@@ -20,4 +20,4 @@ export const GithubIconWhite = () => (
 			</clipPath>
 		</defs>
 	</svg>
-);
+)

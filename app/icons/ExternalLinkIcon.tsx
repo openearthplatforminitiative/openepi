@@ -1,5 +1,5 @@
 interface IconColorProps {
-	color: string;
+	color: string
 }
 
 export const ExternalLinkIcon = ({ color }: IconColorProps) => (
@@ -15,4 +15,4 @@ export const ExternalLinkIcon = ({ color }: IconColorProps) => (
 			fill={color}
 		/>
 	</svg>
-);
+)

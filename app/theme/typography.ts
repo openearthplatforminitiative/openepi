@@ -90,4 +90,4 @@ export const typography = {
 		lineHeight: "16px",
 		letterSpacing: "0px",
 	},
-};
+}

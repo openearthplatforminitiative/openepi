@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { Box, Card } from "@mui/material";
-import { InternalLinkIcon } from "@/app/icons/InternalLinkIcon";
-import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon";
+import Link from "next/link"
+import { Box, Card } from "@mui/material"
+import { InternalLinkIcon } from "@/app/icons/InternalLinkIcon"
+import { ExternalLinkIcon } from "@/app/icons/ExternalLinkIcon"
 
 interface ResourceCardProps {
-	href: string;
-	text: string;
-	externalLink: boolean;
+	href: string
+	text: string
+	externalLink: boolean
 }
 
 const ResourceCard = ({ href, text, externalLink }: ResourceCardProps) => {
@@ -23,7 +23,7 @@ const ResourceCard = ({ href, text, externalLink }: ResourceCardProps) => {
 				</Box>
 			</Card>
 		</Link>
-	);
-};
+	)
+}
 
-export default ResourceCard;
+export default ResourceCard

@@ -1,14 +1,14 @@
-import { Box, Button, Typography } from "@mui/material";
-import ArticleCard from "@/app/components/ArticleCard";
-import Link from "next/link";
-import { Article, sanityClient } from "@/sanity/api";
-import imageUrlBuilder from "@sanity/image-url";
+import { Box, Button, Typography } from "@mui/material"
+import ArticleCard from "@/app/components/ArticleCard"
+import Link from "next/link"
+import { Article, sanityClient } from "@/sanity/api"
+import imageUrlBuilder from "@sanity/image-url"
 
 interface LatestUpdatesProps {
-	articles: Article[];
+	articles: Article[]
 }
 const LatestUpdates = ({ articles }: LatestUpdatesProps) => {
-	const builder = imageUrlBuilder(sanityClient);
+	const builder = imageUrlBuilder(sanityClient)
 	return (
 		<Box className="flex flex-col gap-12 md:justify-end">
 			<Typography variant="h2" className="text-4xl sm:text-5xl">
@@ -40,7 +40,7 @@ const LatestUpdates = ({ articles }: LatestUpdatesProps) => {
 				</Link>
 			</Box>
 		</Box>
-	);
-};
+	)
+}
 
-export default LatestUpdates;
+export default LatestUpdates

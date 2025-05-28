@@ -11,4 +11,4 @@ export const DiscordIcon = () => (
 			fill="white"
 		/>
 	</svg>
-);
+)
