@@ -11,6 +11,9 @@
 		"format:check": "prettier --check --ignore-path .gitignore .",
 		"type-check": "tsc --noEmit"
 	},
+	"engines": {
+		"node": ">=18.18.0"
+	},
 	"dependencies": {
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.0",
