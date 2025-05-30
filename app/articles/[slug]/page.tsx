@@ -11,14 +11,24 @@ import Link from "next/link"
 import imageUrlBuilder from "@sanity/image-url"
 import ArticleCard from "@/app/components/ArticleCard"
 import PortableTextStyled from "@/app/components/PortableTextStyled"
+import { notFound } from "next/navigation"
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+	const data = await fetchArticles()
+	return data.articles.map((article) => ({
+		slug: article.slug,
+	}))
+}
 
 export default async function PostPage({
 	params,
 }: {
-	params: { slug: string }
+	params: Promise<{ slug: string }>
 }) {
-	const article = await fetchArticleBySlug(params.slug)
-	const articles: Article[] = await fetchTwoNewestArticlesBySlug(params.slug)
+	const { slug } = await params
+	const article = await fetchArticleBySlug(slug)
+	if (!article) return notFound()
+	const articles: Article[] = await fetchTwoNewestArticlesBySlug(slug)
 
 	const builder = imageUrlBuilder(sanityClient)
 	return (
@@ -61,9 +71,4 @@ export default async function PostPage({
 			</Box>
 		</Box>
 	)
-}
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-	const data = await fetchArticles()
-	return data.articles.map(({ slug }) => ({ slug }))
 }

@@ -1,4 +1,4 @@
-import { createClient } from "next-sanity"
+import { createClient } from "@sanity/client"
 
 export type CustomButton = {
 	text: string
@@ -69,6 +69,11 @@ export async function fetchFeatured(): Promise<Featured[]> {
 export async function fetchArticleBySlug(slug: string): Promise<Article> {
 	const query = `*[_type == "article" && slug.current == $slug][0]{_id, title, "slug": slug.current, mainImage, description, body}`
 	return sanityClient.fetch(query, { slug })
+}
+
+export async function fetchAllArticleSlugs(): Promise<{ slug: string }[]> {
+	const query = `*[_type == "article" && defined(slug.current)]{ "slug": slug.current }`
+	return sanityClient.fetch(query)
 }
 
 export async function fetchArticles(
