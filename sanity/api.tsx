@@ -56,7 +56,7 @@ const config = {
 	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
 	useCdn: false,
-	apiVersion: "2025-05-28",
+	apiVersion: "2025-06-02",
 }
 
 export const sanityClient = createClient(config)
