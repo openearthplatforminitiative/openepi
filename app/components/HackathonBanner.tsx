@@ -2,7 +2,7 @@ import { Typography, Button } from "@mui/material"
 import Link from "next/link"
 
 export const HackathonBanner = () => (
-  <div className="sticky top-0 left-0 w-full bg-secondary-90 py-4 px-8 z-50">
+  <div className="w-full bg-secondary-90 py-4 px-8 z-50">
     <div className="max-w-6xl mx-auto flex gap-2 justify-center flex-wrap items-center">
       <Typography className="text-xl font-bold">
         Join our Open Data Hackathon 2025
