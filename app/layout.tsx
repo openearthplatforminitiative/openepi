@@ -7,6 +7,9 @@ import Footer from "@/app/components/Footer"
 import { ReactNode } from "react"
 import ThemeRegistry from "@/app/components/ThemeRegistry"
 import HelpButton from "@/app/components/HelpButton"
+import Link from "next/link"
+import { Button, Typography } from "@mui/material"
+import { HackathonBanner } from "./components/HackathonBanner"
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -30,6 +33,7 @@ export default async function RootLayout({
 		<html lang="en" className={inter.className}>
 			<ThemeRegistry options={{ key: "mui" }}>
 				<body className="bg-[#FBFDF8] min-h-screen flex flex-col">
+					<HackathonBanner />
 					<NavBar />
 					<main>{children}</main>
 					<HelpButton />
