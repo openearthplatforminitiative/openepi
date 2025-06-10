@@ -7,8 +7,6 @@ import Footer from "@/app/components/Footer"
 import { ReactNode } from "react"
 import ThemeRegistry from "@/app/components/ThemeRegistry"
 import HelpButton from "@/app/components/HelpButton"
-import Link from "next/link"
-import { Button, Typography } from "@mui/material"
 import { HackathonBanner } from "./components/HackathonBanner"
 
 const inter = Inter({
