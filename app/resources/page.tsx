@@ -1,7 +1,9 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Card, Typography } from "@mui/material"
 import ResourcesLogo from "@/app/icons/resources-logo.svg"
 import ResourceCard from "@/app/components/ResourceCard"
 import { fetchRootDocuments } from "@/sanity/api"
+import Link from "next/link"
+import { DownloadOutlined } from "@mui/icons-material"
 
 const Home = async () => {
 	const documents = await fetchRootDocuments()
@@ -30,6 +32,19 @@ const Home = async () => {
 						text="OpenAPI specification"
 						href="https://swagger.io/specification/"
 					/>
+					<Link
+						href="reports/OpenEPI-feasibility-study.pdf"
+						target="_blank"
+						download
+						className="flex"
+					>
+						<Card className="group shadow-none rounded-xl bg-card p-6 gap-3 flex justify-between items-baseline hover:bg-secondary-90 h-full w-full">
+							<Box className="text-xl xs:text-2xl">Feasibility study</Box>
+							<Box className="transform transition-transform duration-300 group-hover:translate-x-2">
+								<DownloadOutlined />
+							</Box>
+						</Card>
+					</Link>
 				</Box>
 			</Box>
 		</>
