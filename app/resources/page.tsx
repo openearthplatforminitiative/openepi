@@ -40,7 +40,7 @@ const Home = async () => {
 					>
 						<Card className="group shadow-none rounded-xl bg-card p-6 gap-3 flex justify-between items-baseline hover:bg-secondary-90 h-full w-full">
 							<Box className="text-xl xs:text-2xl">Feasibility study</Box>
-							<Box className="transform transition-transform duration-300 group-hover:translate-x-2">
+							<Box className="transform transition-transform duration-300 group-hover:translate-y-2">
 								<DownloadOutlined />
 							</Box>
 						</Card>
