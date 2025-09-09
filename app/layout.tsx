@@ -31,7 +31,6 @@ export default async function RootLayout({
 		<html lang="en" className={inter.className}>
 			<ThemeRegistry options={{ key: "mui" }}>
 				<body className="bg-[#FBFDF8] min-h-screen flex flex-col">
-					<HackathonBanner />
 					<NavBar />
 					<main>{children}</main>
 					<HelpButton />
