@@ -7,7 +7,6 @@ import Footer from "@/app/components/Footer"
 import { ReactNode } from "react"
 import ThemeRegistry from "@/app/components/ThemeRegistry"
 import HelpButton from "@/app/components/HelpButton"
-import { HackathonBanner } from "./components/HackathonBanner"
 
 const inter = Inter({
 	subsets: ["latin"],
