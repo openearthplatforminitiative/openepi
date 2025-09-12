@@ -1,8 +1,7 @@
 "use client"
 
-import { getContentHeadings, TOCItem } from "@/lib/ContentHeadings"
-import { PortableTextProps } from "next-sanity"
-import { useEffect, useMemo, useState } from "react"
+import { TOCItem } from "@/lib/ContentHeadings"
+import { useEffect, useState } from "react"
 
 type TableOfContentsProps = {
 	headings: TOCItem[]
@@ -60,10 +59,9 @@ export const TableOfContents = ({ headings }: TableOfContentsProps) => {
 					<li key={heading.id}>
 						<a
 							className={`py-1 block text-sm transition-colors mb-2
-                ${
-									currentHeading === heading.id
-										? "text-black font-medium"
-										: "text-gray-600"
+                ${currentHeading === heading.id
+									? "text-black font-medium"
+									: "text-gray-600"
 								}`}
 							href={`#${heading.id}`}
 							onClick={(event) => handleHeadingClick(event, heading.id)}
