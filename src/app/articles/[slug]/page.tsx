@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		openGraph: {
 			type: "website",
 			url: "https://openepi.io",
-			title: "OpenEPI",
+			title: article.title,
 			siteName: "OpenEPI",
 			images: ogImage,
 		},
