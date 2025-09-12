@@ -59,9 +59,10 @@ export const TableOfContents = ({ headings }: TableOfContentsProps) => {
 					<li key={heading.id}>
 						<a
 							className={`py-1 block text-sm transition-colors mb-2
-                ${currentHeading === heading.id
-									? "text-black font-medium"
-									: "text-gray-600"
+                ${
+									currentHeading === heading.id
+										? "text-black font-medium"
+										: "text-gray-600"
 								}`}
 							href={`#${heading.id}`}
 							onClick={(event) => handleHeadingClick(event, heading.id)}

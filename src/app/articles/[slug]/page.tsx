@@ -39,10 +39,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		return {}
 	}
 
-	return {
-		title: article.title,
-		description: article.description,
+	const builder = imageUrlBuilder(sanityClient)
+
+	const ogImage = {
+		url: builder.image(article.mainImage).width(1200).height(630).url(),
+		width: 1200,
+		height: 630,
+		alt: article.mainImage?.alt || article.title,
 	}
+
+	const metaData: Metadata = {
+		title: article.title,
+		openGraph: {
+			type: "website",
+			url: "https://openepi.io",
+			title: "OpenEPI",
+			siteName: "OpenEPI",
+			images: ogImage,
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: article.title,
+			images: [ogImage.url || ""],
+		},
+	}
+	return metaData
 }
 
 export default async function PostPage({ params }: Props) {
